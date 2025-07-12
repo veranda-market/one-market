@@ -1,0 +1,734 @@
+/* ===================================
+   POPULAR NOW SECTION - COMPLETE REFINED STYLES
+   Elegant, Modern & Professional Design
+   Matching Catalogue Section Aesthetics
+   =================================== */
+
+/* ===================================
+   1. SECTION CONTAINER
+   =================================== */
+.popular-now {
+  background: #ffffff;
+ margin-bottom: 0rem;
+  margin-top: -5rem;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Subtle animated background */
+.popular-now::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20%;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(26, 137, 23, 0.02) 0%,
+    transparent 70%
+  );
+  animation: floatGradient 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes floatGradient {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(-50px) scale(1.1); }
+}
+
+/* ===================================
+   2. SECTION HEADER
+   =================================== */
+.popular-now .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.popular-now .section-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* Title Icon - Clean & Modern */
+.title-icon {
+  width: 48px;
+  height: 48px;
+  background: #1a8917;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(26, 137, 23, 0.15);
+  transition: all 0.3s ease;
+}
+
+.title-icon:hover {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.title-icon i {
+  color: white;
+  font-size: 1.375rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Title Text - Professional Typography */
+.title-text {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-secondary, 'Space Grotesk', sans-serif);
+  color: #1a8917;
+  position: relative;
+  letter-spacing: -0.5px;
+}
+
+/* Trending Badge - Subtle Animation */
+.title-badge {
+  background: #ef4444;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  margin-left: 12px;
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+/* ===================================
+   3. CAROUSEL CONTROLS
+   =================================== */
+.carousel-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.carousel-nav-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: #f0ecec;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #666666;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-nav-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #1a8917;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+}
+
+.carousel-nav-btn:hover:not(:disabled) {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(26, 137, 23, 0.15);
+}
+
+.carousel-nav-btn:hover:not(:disabled)::before {
+  transform: scale(1);
+}
+
+.carousel-nav-btn i {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.carousel-nav-btn:hover:not(:disabled) i {
+  transform: scale(1.1);
+}
+
+.carousel-nav-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ===================================
+   4. CAROUSEL WRAPPER
+   =================================== */
+.popular-carousel-wrapper {
+  position: relative;
+  margin: 0 -20px;
+  padding: 0 20px;
+}
+
+.popular-carousel {
+  overflow: hidden;
+  padding: 20px 0 40px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 10px 0;
+}
+
+/* ===================================
+   5. PRODUCT CARDS - ELEGANT DESIGN
+   =================================== */
+.popular-product-card {
+  flex: 0 0 280px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Product Labels - Refined with Gentle Animation */
+.product-label {
+  position: absolute;
+  top: 12px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-label.new {
+  right: 12px;
+  background: #3b82f6;
+  color: white;
+  animation: labelPop 0.5s ease-out;
+}
+
+.product-label.trending {
+  left: 12px;
+  background: #ef4444;
+  color: white;
+  animation: labelPulse 2s ease-in-out infinite;
+}
+
+@keyframes labelPop {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes labelPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Product Inner - Clean Card Design */
+.product-inner {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.popular-product-card:hover .product-inner {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: #1a8917;
+}
+
+/* Product Image Wrapper */
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.popular-product-card:hover .product-image-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Product Overlay - Professional Quick View */
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.popular-product-card:hover .product-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Quick View Button */
+.overlay-btn {
+  background: white;
+  color: #222222;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.popular-product-card:hover .overlay-btn {
+  transform: translateY(0);
+}
+
+.overlay-btn:hover {
+  background: #1a8917;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(26, 137, 23, 0.3);
+}
+
+.overlay-btn i {
+  font-size: 1rem;
+}
+
+/* Product Details - Clean Layout */
+.product-details {
+  padding: 16px;
+}
+
+.product-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
+}
+
+/* Product Footer - Price and Action */
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Price Section */
+.price-section {
+  flex: 1;
+}
+
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.price-current {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #222222;
+}
+
+.price-original {
+  font-size: 0.8rem;
+  color: #999999;
+  text-decoration: line-through;
+}
+
+/* Rating - Compact */
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+}
+
+.rating-stars {
+  color: #ff9500;
+  font-weight: 600;
+}
+
+.rating-count {
+  color: #666666;
+}
+
+/* Add to Cart Button - Left Aligned, Compact */
+.add-cart-btn {
+  background: #0c8012;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: fit-content;
+  text-transform: capitalize;
+}
+
+.add-cart-btn:hover {
+  background: #1a8917;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 137, 23, 0.25);
+}
+
+.add-cart-btn:active {
+  transform: translateY(0);
+}
+
+.add-cart-btn i {
+  font-size: 0.875rem;
+}
+
+/* Active Card Highlight */
+.popular-product-card.active .product-inner {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: #1a8917;
+}
+
+/* ===================================
+   6. LOADING SKELETON
+   =================================== */
+.popular-product-card.skeleton {
+  pointer-events: none;
+}
+
+.skeleton-inner {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 380px;
+}
+
+.skeleton-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmerSkeleton 1.5s infinite;
+}
+
+.skeleton-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-title {
+  height: 40px;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmerSkeleton 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.skeleton-price {
+  flex: 1;
+  height: 24px;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmerSkeleton 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-button {
+  width: 100px;
+  height: 32px;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmerSkeleton 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmerSkeleton {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===================================
+   7. CAROUSEL INDICATORS
+   =================================== */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  background: #d1d5db;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.indicator.active {
+  width: 24px;
+  background: #1a8917;
+  border-radius: 12px;
+}
+
+.indicator:hover:not(.active) {
+  background: #9ca3af;
+  transform: scale(1.2);
+}
+
+/* ===================================
+   8. RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 1400px) {
+  .popular-product-card {
+    flex: 0 0 260px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .popular-product-card {
+    flex: 0 0 240px;
+  }
+  
+  .title-text {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .popular-product-card {
+    flex: 0 0 220px;
+  }
+  
+  .carousel-track {
+    gap: 16px;
+  }
+  
+  .title-text {
+    font-size: 1.5rem;
+  }
+  
+  .title-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .popular-now {
+    padding: 40px 0;
+  }
+  
+  .popular-now .section-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .title-text {
+    font-size: 1.5rem;
+  }
+  
+  .title-badge {
+    font-size: 0.5625rem;
+    padding: 4px 12px;
+  }
+  
+  .popular-product-card {
+    flex: 0 0 200px;
+  }
+  
+  .product-title {
+    font-size: 0.8125rem;
+  }
+  
+  .price-current {
+    font-size: 1rem;
+  }
+  
+  .add-cart-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .carousel-controls {
+    margin-left: auto;
+  }
+  
+  .carousel-nav-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popular-product-card {
+    flex: 0 0 160px;
+  }
+  
+  .carousel-track {
+    gap: 12px;
+  }
+  
+  .product-details {
+    padding: 12px;
+  }
+  
+  .product-title {
+    font-size: 0.75rem;
+    min-height: 2.4em;
+  }
+  
+  .price-current {
+    font-size: 0.875rem;
+  }
+  
+  .add-cart-btn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+  
+  .add-cart-btn i {
+    font-size: 0.75rem;
+  }
+  
+  .title-text {
+    font-size: 1.25rem;
+  }
+  
+  .title-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .title-icon i {
+    font-size: 1rem;
+  }
+}
+
+/* ===================================
+   9. TOUCH DEVICE OPTIMIZATIONS
+   =================================== */
+@media (hover: none) {
+  .popular-product-card:active .product-inner {
+    transform: scale(0.98);
+  }
+  
+  .add-cart-btn:active {
+    transform: scale(0.95);
+  }
+  
+  .carousel-nav-btn:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+}
+
+/* ===================================
+   10. PRINT STYLES
+   =================================== */
+@media print {
+  .popular-now {
+    display: none;
+  }
+}
+
+/* ===================================
+   11. HIGH CONTRAST MODE
+   =================================== */
+@media (prefers-contrast: high) {
+  .product-inner {
+    border-width: 2px;
+  }
+  
+  .add-cart-btn {
+    border: 2px solid currentColor;
+  }
+  
+  .product-label {
+    font-weight: 800;
+  }
+}
+
+/* ===================================
+   12. REDUCED MOTION
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

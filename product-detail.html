@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product details - Veranda Market">
+    <title>Product Details - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS for Carousels -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/supplier-panel.css">
+</head>
+<body>
+<!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p><i class="fas fa-bolt"></i> Free delivery on your first order! Use code: <strong>VERANDA2024</strong></p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="products">Products</option>
+                                    <option value="sellers">Sellers</option>
+                                    <option value="locations">Locations</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Search for products...">
+                                <button class="image-search-btn" title="Search by image">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Deliver To -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Deliver to</span>
+                                <span class="deliver-location" id="deliverLocation">Select Location</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Shopping Cart -->
+                        <div class="cart-container">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Access account & manage orders</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Register</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-box"></i> Orders</li>
+                                    <li><i class="fas fa-heart"></i> Favorites</li>
+                                    <li><i class="fas fa-envelope"></i> Messages</li>
+                                    <li><i class="fas fa-cog"></i> Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="#" id="categoryBreadcrumb">Electronics</a></li>
+                <li><a href="#" id="subcategoryBreadcrumb">Headphones</a></li>
+                <li class="active" id="productBreadcrumb">Wireless Bluetooth Headphones</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Product Section -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-main-grid">
+                <!-- Product Images Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image-container">
+                        <div class="image-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop" 
+                                 alt="Product Image" 
+                                 id="mainProductImage" 
+                                 class="main-product-image">
+                            <div class="image-zoom-lens"></div>
+                        </div>
+                        <div class="image-badges">
+                            <span class="badge-discount">-25%</span>
+                            <span class="badge-new">NEW</span>
+                        </div>
+                    </div>
+                    <div class="thumbnail-container">
+                        <button class="thumb-nav-btn prev" id="thumbPrev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="thumbnail-track" id="thumbnailTrack">
+                            <div class="thumbnail-item active" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop" alt="Product 1">
+                            </div>
+                            <div class="thumbnail-item" data-image="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=100&h=100&fit=crop" alt="Product 2">
+                            </div>
+                            <div class="thumbnail-item" data-image="https://images.unsplash.com/photo-1496957961599-e35b69ef5d7c?w=600&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1496957961599-e35b69ef5d7c?w=100&h=100&fit=crop" alt="Product 3">
+                            </div>
+                            <div class="thumbnail-item" data-image="https://images.unsplash.com/photo-1528148343865-51218c4a13e6?w=600&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1528148343865-51218c4a13e6?w=100&h=100&fit=crop" alt="Product 4">
+                            </div>
+                        </div>
+                        <button class="thumb-nav-btn next" id="thumbNext">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Info & Supplier Card -->
+                <div class="product-info-section">
+                    <!-- Product Information -->
+                    <div class="product-info">
+                        <h1 class="product-title" id="productTitle">Premium Wireless Bluetooth Headphones with Active Noise Cancellation</h1>
+                        
+                        <div class="product-meta">
+                            <div class="rating-section">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.5</span>
+                                <span class="rating-count">(2,341 reviews)</span>
+                            </div>
+                            <div class="product-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    5.2k sold
+                                </span>
+                                <span class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    12.3k views
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="price-section">
+                            <div class="price-row">
+                                <span class="current-price">45,000 cfa</span>
+                                <span class="original-price">60,000 cfa</span>
+                                <span class="discount-percent">25% OFF</span>
+                            </div>
+                            <div class="price-note">
+                                <i class="fas fa-info-circle"></i>
+                                Price includes VAT
+                            </div>
+                        </div>
+
+                        <!-- Product Options -->
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label class="option-label">Color:</label>
+                                <div class="color-options">
+                                    <button class="color-option active" data-color="Black" style="background-color: #000000;">
+                                        <span class="color-checkmark"><i class="fas fa-check"></i></span>
+                                    </button>
+                                    <button class="color-option" data-color="White" style="background-color: #ffffff;">
+                                        <span class="color-checkmark"><i class="fas fa-check"></i></span>
+                                    </button>
+                                    <button class="color-option" data-color="Blue" style="background-color: #3b82f6;">
+                                        <span class="color-checkmark"><i class="fas fa-check"></i></span>
+                                    </button>
+                                    <button class="color-option" data-color="Red" style="background-color: #ef4444;">
+                                        <span class="color-checkmark"><i class="fas fa-check"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <label class="option-label">Quantity:</label>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn minus" id="qtyMinus">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="999">
+                                    <button class="qty-btn plus" id="qtyPlus">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <span class="stock-info">
+                                    <i class="fas fa-check-circle"></i>
+                                    In Stock (234 available)
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="key-features">
+                            <h3 class="features-title">Key Features:</h3>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Active Noise Cancellation</li>
+                                <li><i class="fas fa-check"></i> 30 Hours Battery Life</li>
+                                <li><i class="fas fa-check"></i> Premium Sound Quality</li>
+                                <li><i class="fas fa-check"></i> Comfortable Over-Ear Design</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Supplier Card -->
+                    <div class="supplier-card">
+                        <div class="supplier-header">
+                            <a class="supplier-link" id="supplierProfileLink" href="shop-template.html?supplier=Techno%20Electronics%20237." title="Visit Shop" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                <img src="assets/images/business-cover.png
+                                     alt="Supplier" 
+                                     class="supplier-avatar">
+                                <div class="supplier-details">
+                                    <h3 class="supplier-name">Techno Electronics 237.</h3>
+                                    <div class="supplier-badges">
+                                        <span class="verified-badge">
+                                            <i class="fas fa-check-circle"></i>
+                                            Verified
+                                        </span>
+                                        <span class="years-badge">
+                                            <i class="fas fa-award"></i>
+                                            5 Years
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="supplier-stats">
+                            <div class="stat">
+                                <span class="stat-value">4.8</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">98%</span>
+                                <span class="stat-label">Response</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2-3d</span>
+                                <span class="stat-label">Ship Time</span>
+                            </div>
+                        </div>
+
+                        <div class="supplier-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Douala, Cameroon</span>
+                        </div>
+
+                        <div class="supplier-actions">
+                            <button class="btn-buy-now">
+                                <i class="fas fa-shopping-bag"></i>
+                                Buy Now
+                            </button>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-cart-plus"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-contact-supplier">
+                                <i class="fas fa-comments"></i>
+                                Contact Supplier
+                            </button>
+                        </div>
+
+                        <div class="supplier-guarantees">
+                            <div class="guarantee-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Aftersales Support</span>
+                            </div>
+                            <div class="guarantee-item">
+                                <i class="fas fa-undo"></i>
+                                <span>Product Returns</span>
+                            </div>
+                            <div class="guarantee-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Fast Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Description & Info Tabs -->
+    <section class="product-details-section">
+        <div class="container">
+            <div class="details-tabs">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="description">
+                        <i class="fas fa-info-circle"></i>
+                        Description
+                    </button>
+                    <button class="tab-btn" data-tab="specifications">
+                        <i class="fas fa-list"></i>
+                        Specifications
+                    </button>
+                    <button class="tab-btn" data-tab="shop-info">
+                        <i class="fas fa-store"></i>
+                        Shop Info
+                    </button>
+                    <button class="tab-btn" data-tab="faq">
+                        <i class="fas fa-question-circle"></i>
+                        FAQ
+                    </button>
+                    <button class="tab-btn" data-tab="reviews">
+                        <i class="fas fa-star"></i>
+                        Reviews (2,341)
+                    </button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Description Tab -->
+                    <div class="tab-pane active" id="description">
+                        <div class="description-content">
+                            <h3>Product Description</h3>
+                            <p>Experience premium sound quality with our Wireless Bluetooth Headphones featuring advanced Active Noise Cancellation technology. These headphones are designed for audiophiles and casual listeners alike, delivering crystal-clear audio across all frequencies.</p>
+                            
+                            <h4>What's in the Box:</h4>
+                            <ul>
+                                <li>1x Wireless Bluetooth Headphones</li>
+                                <li>1x USB-C Charging Cable</li>
+                                <li>1x 3.5mm Audio Cable</li>
+                                <li>1x Carrying Case</li>
+                                <li>1x User Manual</li>
+                            </ul>
+
+                            <h4>Key Benefits:</h4>
+                            <ul>
+                                <li>Immersive sound experience with deep bass and clear highs</li>
+                                <li>Long-lasting battery for all-day listening</li>
+                                <li>Comfortable design for extended wear</li>
+                                <li>Universal compatibility with all Bluetooth devices</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Specifications Tab -->
+                    <div class="tab-pane" id="specifications">
+                        <div class="specifications-content">
+                            <h3>Technical Specifications</h3>
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Model Number</td>
+                                    <td>WH-1000XM5</td>
+                                </tr>
+                                <tr>
+                                    <td>Connectivity</td>
+                                    <td>Bluetooth 5.2</td>
+                                </tr>
+                                <tr>
+                                    <td>Battery Life</td>
+                                    <td>30 Hours (ANC On)</td>
+                                </tr>
+                                <tr>
+                                    <td>Charging Time</td>
+                                    <td>3 Hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Driver Size</td>
+                                    <td>40mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Frequency Response</td>
+                                    <td>20Hz - 20kHz</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>250g</td>
+                                </tr>
+                                <tr>
+                                    <td>Warranty</td>
+                                    <td>1 Year Manufacturer Warranty</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Shop Info Tab -->
+                    <div class="tab-pane" id="shop-info">
+                        <div class="shop-info-content">
+                            <h3>About TechPro Electronics Ltd.</h3>
+                            <div class="shop-overview">
+                                <p>TechPro Electronics has been a leading supplier of premium audio equipment in Cameroon since 2019. We specialize in high-quality consumer electronics with a focus on audio products.</p>
+                                
+                                <div class="shop-stats-grid">
+                                    <div class="shop-stat-card">
+                                        <i class="fas fa-box"></i>
+                                        <h4>500+</h4>
+                                        <p>Products</p>
+                                    </div>
+                                    <div class="shop-stat-card">
+                                        <i class="fas fa-users"></i>
+                                        <h4>10K+</h4>
+                                        <p>Customers</p>
+                                    </div>
+                                    <div class="shop-stat-card">
+                                        <i class="fas fa-star"></i>
+                                        <h4>4.8/5</h4>
+                                        <p>Rating</p>
+                                    </div>
+                                    <div class="shop-stat-card">
+                                        <i class="fas fa-clock"></i>
+                                        <h4>&lt;2h</h4>
+                                        <p>Response Time</p>
+                                    </div>
+                                </div>
+
+                                <div class="shop-policies">
+                                    <h4>Shop Policies:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Free shipping on orders over ₣100,000</li>
+                                        <li><i class="fas fa-check"></i> 7-day return policy</li>
+                                        <li><i class="fas fa-check"></i> 1-year warranty on all products</li>
+                                        <li><i class="fas fa-check"></i> Secure payment options</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Tab -->
+                    <div class="tab-pane" id="faq">
+                        <div class="faq-content">
+                            <h3>Frequently Asked Questions</h3>
+                            <div class="faq-accordion">
+                                <div class="faq-item">
+                                    <button class="faq-question">
+                                        <span>How long does the battery last?</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="faq-answer">
+                                        <p>The battery lasts up to 30 hours with ANC on, and up to 40 hours with ANC off. A quick 10-minute charge gives you 5 hours of playback.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">
+                                        <span>Are these headphones water-resistant?</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="faq-answer">
+                                        <p>These headphones have an IPX4 rating, making them resistant to light splashes and sweat, but they should not be submerged in water.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">
+                                        <span>Can I use them for phone calls?</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="faq-answer">
+                                        <p>Yes, the headphones have built-in microphones with noise reduction for clear phone calls.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">
+                                        <span>What's the warranty period?</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="faq-answer">
+                                        <p>All our headphones come with a 1-year manufacturer warranty covering defects in materials and workmanship.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-pane" id="reviews">
+                        <div class="reviews-content">
+                            <h3>Customer Reviews</h3>
+                            <!-- Reviews will be dynamically loaded -->
+                            <div class="reviews-summary">
+                                <div class="rating-overview">
+                                    <div class="average-rating">
+                                        <h2>4.5</h2>
+                                        <div class="rating-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p>Based on 2,341 reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Also From This Shop -->
+    <section class="shop-products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-store"></i>
+                    Also from this Shop
+                </h2>
+                <a href="#" class="view-all-link">
+                    visit shop 
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="swiper shop-products-slider">
+                <div class="swiper-wrapper" id="shopProductsWrapper">
+                    <!-- Products will be dynamically loaded -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-th-large"></i>
+                    Related Products
+                </h2>
+            </div>
+            <div class="related-products-grid" id="relatedProductsGrid">
+                <!-- Products will be dynamically loaded -->
+            </div>
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreRelated">
+                    <span>Show More Related Products</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modern Footer Section -->
+<footer class="modern-footer">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Connected
+                        </h3>
+                        <p class="newsletter-subtitle">Get exclusive deals, updates, and local market insights delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter-meta">
+                            <span class="subscriber-count">
+                                <i class="fas fa-users"></i>
+                                Join 50,000+ subscribers
+                            </span>
+                            <span class="newsletter-promise">
+                                <i class="fas fa-lock"></i>
+                                No spam, unsubscribe anytime
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+ 
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/icon.png" alt="Veranda Market">
+                        <div class="logo-text">
+                            <h4>Veranda Market</h4>
+                            <p>Your Local Online Marketplace</p>
+                        </div>
+                    </div>
+                    <p class="company-description">
+                        Connecting local businesses with customers across Cameroon. Shop from your veranda and support your community.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="app-badges">
+                        <h5>Download Our App</h5>
+                        <div class="badge-container">
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store">
+                            </a>
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h5 class="column-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Seller Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Career Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog & News</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h5 class="column-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Track Your Order</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div class="footer-column">
+                    <h5 class="column-title">For Business</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sell on Veranda</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Advertise With Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Affiliate Program</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Corporate Sales</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Partner Hub</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column contact-info">
+                    <h5 class="column-title">Get in Touch</h5>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong>
+                                <p>123 Commerce Street, Douala, Cameroon</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+237 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>support@verandamarket.cm</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Bar -->
+            <div class="features-bar">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="feature-text">
+                        <strong>Fast Delivery</strong>
+                        <span>Same day in major cities</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>Secure Payment</strong>
+                        <span>100% protected transactions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <div class="feature-text">
+                        <strong>Easy Returns</strong>
+                        <span>7-day return policy</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>24/7 Support</strong>
+                        <span>Dedicated customer service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <h5>Accepted Payment Methods</h5>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Money</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Veranda Market. All rights reserved. Made with <i class="fas fa-heart"></i> in Cameroon</p>
+                </div>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="language-currency">
+                    <button class="lang-select">
+                        <i class="fas fa-globe"></i>
+                        English
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="currency-select">
+                        <i class="fas fa-money-bill"></i>
+                        XAF
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Categories</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/section.js"></script>
+    <script src="js/supplier-panel.js"></script>
+</body>
+</html>

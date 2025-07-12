@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veranda Market - Sit on your veranda and buy anything online from local stores">
+    <title>Veranda Market - Your Local Online Marketplace</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS for Hero Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/multi-service-section.css">
+    <link rel="stylesheet" href="css/popular-now-refined.css">
+    <link rel="stylesheet" href="css/sections.css">  
+  
+    <link rel="stylesheet" href="css/quick-view-modal.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-logo">VM</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p><i class="fas fa-bolt"></i> Free delivery on your first order! Use code: <strong>VERANDA2024</strong></p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+<div class="search-container">
+    <div class="search-wrapper">
+        <div class="search-category-dropdown">
+            <select id="searchCategory">
+                <option value="products">Products</option>
+                <option value="sellers">Sellers</option>
+                <option value="locations">Locations</option>
+            </select>
+            <i class="fas fa-chevron-down dropdown-indicator"></i>
+        </div>
+        <div class="search-input-wrapper">
+            <input type="text" class="search-input" placeholder="Tell us what you are looking for...">
+            <button class="image-search-btn" title="Search by image">
+                <i class="fas fa-camera"></i>
+            </button>
+            <button class="voice-search-btn" title="Voice search">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+        <button class="search-btn">
+            <i class="fas fa-search"></i>
+            <span class="search-btn-text">Search</span>
+        </button>
+    </div>
+</div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Deliver To -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Deliver to</span>
+                                <span class="deliver-location" id="deliverLocation">Select Location</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Shopping Cart -->
+                        <div class="cart-container">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Access account & manage orders</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Register</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-box"></i> Orders</li>
+                                    <li><i class="fas fa-heart"></i> Favorites</li>
+                                    <li><i class="fas fa-envelope"></i> Messages</li>
+                                    <li><i class="fas fa-cog"></i> Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Lower Navigation -->
+        <nav class="lower-nav">
+            <div class="container">
+                <div class="lower-nav-wrapper">
+                    <!-- Left Side Items -->
+                    <div class="nav-left">
+                        <!-- Categories Menu -->
+                        <div class="categories-menu">
+                            <button class="categories-btn">
+                                <i class="fas fa-bars"></i>
+                                <span>Categories</span>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </button>
+                            <div class="categories-dropdown">
+                                <div class="dropdown-header">
+                                    <h3>Shop by Category</h3>
+                                    <p>Explore our wide range of products and services</p>
+                                </div>
+                                <div class="categories-grid">
+                                    <a href="products-shopping-home.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-shopping-bag"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">Products & Shopping</span>
+                                            <span class="category-count">1000+ items</span>
+                                        </div>
+                                    </a>
+                                    <a href="bus-tickets.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-bus"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">Bus Tickets</span>
+                                            <span class="category-count">12 services</span>
+                                        </div>
+                                    </a>
+                                    <a href="rental-services.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">House for Rent</span>
+                                            <span class="category-count">234 listings</span>
+                                        </div>
+                                    </a>
+                                    <a href="pharmacy-health.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-pills"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">Pharmacy</span>
+                                            <span class="category-count">56 stores</span>
+                                        </div>
+                                    </a>
+                                    <a href="lost-found.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-search-location"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">Lost Items</span>
+                                            <span class="category-count">89 posts</span>
+                                        </div>
+                                    </a>
+                                    <a href="services.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-tools"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">Services</span>
+                                            <span class="category-count">156 providers</span>
+                                        </div>
+                                    </a>
+                                    <a href="jobs.html" class="category-item">
+                                        <div class="category-icon">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <div class="category-details">
+                                            <span class="category-name">Jobs</span>
+                                            <span class="category-count">45 openings</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="dropdown-footer">
+                                    <a href="#" class="view-all-link">
+                                        View All Categories
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resource Center -->
+                        <div class="resource-center">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Resource Center</span>
+                                <i class="fas fa-chevron-down arrow-icon-small"></i>
+                            </a>
+                            <div class="resource-dropdown">
+                                <div class="resource-header">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Learn & Explore</span>
+                                </div>
+                                <a href="#">
+                                    <i class="fas fa-question-circle"></i>
+                                    What is Veranda Market?
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-cogs"></i>
+                                    How it Works
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-eye"></i>
+                                    Overview
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-users"></i>
+                                    Meet the Team
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-headset"></i>
+                                    Help Center
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side Items -->
+                    <div class="nav-right">
+                        <!-- Language Switcher -->
+                        <div class="language-switcher">
+                            <button class="lang-btn">
+                                <i class="fas fa-globe"></i>
+                                <span id="currentLang">EN</span>
+                                <i class="fas fa-chevron-down arrow-icon-small"></i>
+                            </button>
+                            <div class="lang-dropdown">
+                                <a href="#" data-lang="en" class="active">
+                                    <img src="https://flagcdn.com/w20/gb.png" alt="English">
+                                    English
+                                </a>
+                                <a href="#" data-lang="fr">
+                                    <img src="https://flagcdn.com/w20/fr.png" alt="Français">
+                                    Français
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Request Quotations -->
+                        <a href="#" class="nav-link quote-link">
+                            <i class="fas fa-file-invoice"></i>
+                            <span>Request Quotations</span>
+                            <span class="link-badge">New</span>
+                        </a>
+
+                        <!-- Get App -->
+                        <a href="#" class="nav-link app-link">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Get App</span>
+                            <span class="qr-popup">
+                                <img src="https://via.placeholder.com/120x120?text=QR+Code" alt="QR Code">
+                                <span class="qr-text">Scan to download</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="swiper hero-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="hero-content">
+                                <h2 class="hero-title">Shop Local, Live Better</h2>
+                                <p class="hero-subtitle">Connect with local stores and get everything delivered to your doorstep</p>
+                                <button class="hero-btn">Shop Now <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="assets/images/shop from veranda.gif" alt="Local Shopping">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <div class="hero-content">
+                                <h2 class="hero-title">Medicine at Your Doorstep</h2>
+                                <p class="hero-subtitle">Order from trusted pharmacies and get medicines delivered safely</p>
+                                <button class="hero-btn">Order Medicine <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="assets/images/u4244134465_A_captivating_and_trustworthy_image_of_two_profes_e2466987-94ba-44fe-bce7-b675488beb86_3.png" alt="Pharmacy Delivery">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <div class="hero-content">
+                                <h2 class="hero-title">Find Your Perfect Home</h2>
+                                <p class="hero-subtitle">Browse houses and rooms for rent in your preferred location</p>
+                                <button class="hero-btn">Browse Rentals <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="assets/images/f3e12618-d37f-42ca-bab8-77f86a002a56.png" alt="House Rentals">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        
+    <!-- ===================================
+     SHOP BY CATALOGUE SECTION 
+     =================================== -->
+
+<!-- Shop by Catalogue Section -->
+<section class="section shop-by-catalogue">
+    <div class="container">
+        <!-- Section Title -->
+        <h2 class="catalogue-main-title">Discover our catalogues</h2>
+        
+        <!-- Catalogue Grid -->
+        <div class="catalogue-grid">
+            <!-- Featured Large Card -->
+            <div class="featured-catalogue-card">
+                <div class="featured-content">
+                    <h3 class="featured-brand">Veranda</h3>
+                    <p class="featured-tagline">Your local marketplace</p>
+                    <button class="featured-cta">Shop now</button>
+                </div>
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=800&fit=crop" alt="Featured Shopping">
+                </div>
+                <div class="featured-products"> 
+                    <div class="featured-product-card">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop" alt="Product 1">
+                        <div class="product-info">
+                            <span class="product-price">cfa45,000</span>
+                            <span class="product-original">cfa65,000</span>
+                            <div class="product-rating">
+                                <span class="stars">★ 4.7</span>
+                                <span class="sold">2,000+ sold</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-product-card">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200&h=200&fit=crop" alt="Product 2">
+                        <div class="product-info">
+                            <span class="product-price">cfa28,000</span>
+                            <span class="product-original">cfa35,000</span>
+                            <div class="product-rating">
+                                <span class="stars">★ 4.5</span>
+                                <span class="sold">1,500+ sold</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-product-card">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Product 3">
+                        <div class="product-info">
+                            <span class="product-price">cfa85,000</span>
+                            <span class="product-original">cfa120,000</span>
+                            <div class="product-rating">
+                                <span class="stars">★ 4.8</span>
+                                <span class="sold">900+ sold</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Catalogue -->
+            <a href="products-shopping-home.html" class="catalogue-card" data-catalogue="products">
+                <div class="catalogue-image">
+                    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=400&h=300&fit=crop" alt="Products">
+                </div>
+                <h3 class="catalogue-title">Products & Shopping</h3>
+            </a>
+
+            <!-- Pharmacy Catalogue -->
+            <a href="pharmacy-health.html" class="catalogue-card" data-catalogue="pharmacy">
+                <div class="catalogue-image">
+                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=300&fit=crop" alt="Pharmacy">
+                </div>
+                <h3 class="catalogue-title">Pharmacy & Health</h3>
+            </a>
+
+            <!-- Services Catalogue -->
+            <a href="services.html" class="catalogue-card" data-catalogue="services">
+                <div class="catalogue-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=300&fit=crop" alt="Services">
+                </div>
+                <h3 class="catalogue-title">Professional Services</h3>
+            </a>
+
+            <!-- Rental Properties Catalogue -->
+            <a href="rental-services.html" class="catalogue-card" data-catalogue="rental">
+                <div class="catalogue-image">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop" alt="Rentals">
+                </div>
+                <h3 class="catalogue-title">Rental Properties</h3>
+            </a>
+
+            <!-- Jobs Catalogue -->
+            <a href="jobs.html" class="catalogue-card" data-catalogue="jobs">
+                <div class="catalogue-image">
+                    <img src="assets/images/68413295-fe94-46e5-af12-a159a3729229.png" alt="Jobs">
+                </div>
+                <h3 class="catalogue-title">Jobs & Careers</h3>
+            </a>
+
+            <!-- Lost & Found Catalogue -->
+            <a href="lost-found.html" class="catalogue-card" data-catalogue="lost">
+                <div class="catalogue-image">
+                    <img src="assets/images/lost items.png" alt="Lost Items">
+                </div>
+                <h3 class="catalogue-title">Lost & Found</h3>
+            </a>
+
+            <!-- Bus Tickets Catalogue -->
+            <a href="bus-tickets.html" div class="catalogue-card" data-catalogue="bus">
+                <div class="catalogue-image">
+                    <img src="assets/images/bus tickets.png" alt="Bus Tickets">
+                </div>
+                <h3 class="catalogue-title">Bus Tickets</h3>
+            </a>
+        </div>
+
+        <!-- Popular Now Section -->
+<section class="section popular-now">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-icon">
+                    <i class="fas fa-chart-line"></i>
+                </span>
+                <span class="title-text">Popular Now</span>
+                <span class="title-badge">TRENDING</span>
+            </h2>
+            <div class="carousel-controls">
+                <button class="carousel-nav-btn prev" id="popularPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" id="popularNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="popular-carousel-wrapper">
+            <div class="popular-carousel" id="popularCarousel">
+                <div class="carousel-track" id="popularProducts">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <!-- discover more -->
+        <div class="more-section">
+            <h3 class="more-title">Discover more</h3>
+            <div class="more-products-grid" id="moreProductsGrid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <span>Show more</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Multi-Service Showcase Section -->
+<section class="multi-service-showcase">
+    <div class="container">
+         <!-- Section Header - Clean Typography -->
+        <div class="showcase-header">
+            <div class="header-content">
+                <h2 class="showcase-title">Explore All Our Services</h2>
+                <p class="showcase-subtitle">
+                    From daily essentials to life's big moments, we've got you covered
+                    <span class="rotation-status" id="rotationStatus">Auto-browsing</span>
+                </p>
+            </div>
+            <div class="header-controls">
+                <div class="progress-dots" id="progressDots">
+                    <!-- Dots will be generated dynamically -->
+                </div>
+                <button class="rotation-control playing" id="rotationControl" title="Pause auto-rotation">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <div class="view-controls">
+                    <button class="view-toggle" data-view="grid">
+                        <i class="fas fa-th"></i>
+                        <span>Grid</span>
+                    </button>
+                    <button class="view-toggle active" data-view="carousel">
+                        <i class="fas fa-stream"></i>
+                        <span>List</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Service Category Grid Selector with Slider -->
+        <div class="service-selector-wrapper">
+            <button class="category-nav-btn prev" id="categoryPrev" aria-label="Previous categories">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="category-nav-btn next" id="categoryNext" aria-label="Next categories">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="service-selector-container">
+                <div class="service-selector-grid" id="selectorGrid">
+                    <div class="selector-card active" data-category="pharmacy" style="--accent-color: #16a085;">
+                        <div class="selector-icon">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                        </div>
+                        <span class="selector-label">Order Medicine</span>
+                        <div class="selector-indicator"></div>
+                    </div>
+                    <div class="selector-card" data-category="rentals" style="--accent-color: #f39c12;">
+                        <div class="selector-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <span class="selector-label">Find a Home</span>
+                        <div class="selector-indicator"></div>
+                    </div>
+                    <div class="selector-card" data-category="jobs" style="--accent-color: #9b59b6;">
+                        <div class="selector-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <span class="selector-label">Get Hired</span>
+                        <div class="selector-indicator"></div>
+                    </div>
+                    <div class="selector-card" data-category="transport" style="--accent-color: #1a8917;">
+                        <div class="selector-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <span class="selector-label">Book Travel</span>
+                        <div class="selector-indicator"></div>
+                    </div>
+                    <div class="selector-card" data-category="services" style="--accent-color: #3498db;">
+                        <div class="selector-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <span class="selector-label">Find Services</span>
+                        <div class="selector-indicator"></div>
+                    </div>
+                    <div class="selector-card" data-category="lost-found" style="--accent-color: #e74c3c;">
+                        <div class="selector-icon">
+                            <i class="fas fa-search-location"></i>
+                        </div>
+                        <span class="selector-label">Lost Items</span>
+                        <div class="selector-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Display Section -->
+        <div class="category-display-section">
+            <!-- Pharmacy Display -->
+            <div class="category-display active" data-category="pharmacy">
+                <div class="display-banner" style="background: linear-gradient(135deg, #16a085 0%, #128a6f 100%);">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Health & Pharmacy</h3>
+                        <p class="banner-subtitle">Get medicines delivered | Same day delivery available</p>
+                        <a href="pharmacy-health.html" class="banner-cta">Shop now</a>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&h=400&fit=crop" alt="Pharmacy">
+                    </div>
+                </div>
+                <div class="category-products">
+                    <div class="products-track">
+                        <div class="product-card">
+                            <div class="product-badge">-20%</div>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&h=300&fit=crop" alt="Medicine">
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-name">Paracetamol 500mg</h4>
+                                <div class="product-price">
+                                    <span class="price-current">₣2,500</span>
+                                    <span class="price-original">₣3,125</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="rating">★ 4.8</span>
+                                    <span class="sold">1,200+ sold</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More product cards -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rentals Display -->
+            <div class="category-display" data-category="rentals">
+                <div class="display-banner" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Rental Properties</h3>
+                        <p class="banner-subtitle">Find your perfect home | Verified listings only</p>
+                        <a href="rental-services.html" class="banner-cta">Browse homes</a>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=400&fit=crop" alt="Rentals">
+                    </div>
+                </div>
+                <div class="category-products">
+                    <div class="products-track">
+                        <!-- Rental cards will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jobs Display -->
+            <div class="category-display" data-category="jobs">
+                <div class="display-banner" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Job Opportunities</h3>
+                        <p class="banner-subtitle">Connect with top employers | New jobs daily</p>
+                        <a href="jobs.html" class="banner-cta">Find jobs</a>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&h=400&fit=crop" alt="Jobs">
+                    </div>
+                </div>
+                <div class="category-products">
+                    <div class="products-track">
+                        <!-- Job cards will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport Display -->
+            <div class="category-display" data-category="transport">
+                <div class="display-banner" style="background: linear-gradient(135deg, #1a8917 0%, #27ae60 100%);">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Bus Tickets</h3>
+                        <p class="banner-subtitle">Book your journey | Safe & comfortable travel</p>
+                        <a href="bus-tickets.html" class="banner-cta">Book tickets</a>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&h=400&fit=crop" alt="Transport">
+                    </div>
+                </div>
+                <div class="category-products">
+                    <div class="products-track">
+                        <!-- Transport cards will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Display -->
+            <div class="category-display" data-category="services">
+                <div class="display-banner" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Professional Services</h3>
+                        <p class="banner-subtitle">Trusted professionals | Quality guaranteed</p>
+                        <a href="services.html" class="banner-cta">Find services</a>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&h=400&fit=crop" alt="Services">
+                    </div>
+                </div>
+                <div class="category-products">
+                    <div class="products-track">
+                        <!-- Service cards will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lost & Found Display -->
+            <div class="category-display" data-category="lost-found">
+                <div class="display-banner" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Lost & Found</h3>
+                        <p class="banner-subtitle">Help reunite items | Community support</p>
+                        <a href="lost-found.html" class="banner-cta">View items</a>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=500&h=400&fit=crop" alt="Lost Found">
+                    </div>
+                </div>
+                <div class="category-products">
+                    <div class="products-track">
+                        <!-- Lost & Found cards will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Call to Action Section - Elegant Redesign -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-wrapper">
+            <div class="cta-content">
+                <h2>Become a Seller on Veranda Market</h2>
+                <p>Join thousands of local businesses reaching customers online. Start your journey to digital success today.</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn primary">
+                        Start Selling
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="cta-btn secondary">
+                        Learn More
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="cta-image">
+                <div class="cta-image-wrapper">
+                    <img src="assets/images/call to action.png" alt="Become a Seller">
+                    <!-- Floating decorative elements -->
+                    <div class="floating-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <!-- Stats badges -->
+                <div class="cta-stats">
+                    <div class="stat-badge">
+                        <span class="stat-number">5K+</span>
+                        <span class="stat-label">Sellers</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Products</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">100K+</span>
+                        <span class="stat-label">Customers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+<!-- Modern Footer Section -->
+<footer class="modern-footer">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Connected
+                        </h3>
+                        <p class="newsletter-subtitle">Get exclusive deals, updates, and local market insights delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter-meta">
+                            <span class="subscriber-count">
+                                <i class="fas fa-users"></i>
+                                Join 50,000+ subscribers
+                            </span>
+                            <span class="newsletter-promise">
+                                <i class="fas fa-lock"></i>
+                                No spam, unsubscribe anytime
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+ 
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/icon.png" alt="Veranda Market">
+                        <div class="logo-text">
+                            <h4>Veranda Market</h4>
+                            <p>Your Local Online Marketplace</p>
+                        </div>
+                    </div>
+                    <p class="company-description">
+                        Connecting local businesses with customers across Cameroon. Shop from your veranda and support your community.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="app-badges">
+                        <h5>Download Our App</h5>
+                        <div class="badge-container">
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store">
+                            </a>
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h5 class="column-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Seller Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Career Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog & News</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h5 class="column-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Track Your Order</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div class="footer-column">
+                    <h5 class="column-title">For Business</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sell on Veranda</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Advertise With Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Affiliate Program</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Corporate Sales</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Partner Hub</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column contact-info">
+                    <h5 class="column-title">Get in Touch</h5>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong>
+                                <p>123 Commerce Street, Douala, Cameroon</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+237 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>support@verandamarket.cm</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Bar -->
+            <div class="features-bar">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="feature-text">
+                        <strong>Fast Delivery</strong>
+                        <span>Same day in major cities</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>Secure Payment</strong>
+                        <span>100% protected transactions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <div class="feature-text">
+                        <strong>Easy Returns</strong>
+                        <span>7-day return policy</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>24/7 Support</strong>
+                        <span>Dedicated customer service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <h5>Accepted Payment Methods</h5>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Money</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Veranda Market. All rights reserved. Made with <i class="fas fa-heart"></i> in Cameroon</p>
+                </div>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="language-currency">
+                    <button class="lang-select">
+                        <i class="fas fa-globe"></i>
+                        English
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="currency-select">
+                        <i class="fas fa-money-bill"></i>
+                        XAF
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Categories</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sections.js"></script>
+    <script src="js/multi-service-section.js"></script>
+    <script src="js/cta.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/quick-view-modal.js"></script>
+  
+</body>
+</html>

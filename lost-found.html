@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veranda Market Lost & Found - Help reunite lost items with their owners">
+    <title>Lost & Found - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS (for potential sliders) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lost-found.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="lost-items">Lost Items</option>
+                                    <option value="found-items">Found Items</option>
+                                    <option value="all">All Items</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Search lost and found items...">
+                                <button class="image-search-btn" title="Search by image">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Quick Actions -->
+                        <div class="quick-actions">
+                            <button class="quick-action-btn report-lost">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>Report Lost</span>
+                            </button>
+                            <button class="quick-action-btn report-found">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Report Found</span>
+                            </button>
+                        </div>
+
+                        <!-- Deliver To -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Your location</span>
+                                <span class="deliver-location" id="deliverLocation">All Cameroon</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="all">All Cameroon</li>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <div class="notifications-container">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Manage your lost & found posts</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Register</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-list"></i> My Reports</li>
+                                    <li><i class="fas fa-bell"></i> Notifications</li>
+                                    <li><i class="fas fa-history"></i> History</li>
+                                    <li><i class="fas fa-cog"></i> Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="lost-found-hero">
+        <div class="hero-pattern"></div>
+        
+        <!-- Floating Icons Animation -->
+        <div class="floating-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-key"></i>
+            <i class="fas fa-wallet"></i>
+            <i class="fas fa-mobile-alt"></i>
+            <i class="fas fa-glasses"></i>
+            <i class="fas fa-umbrella"></i>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-handshake"></i>
+                    Community Support
+                </div>
+                
+                <h1 class="hero-title">Lost Something? We're Here to Help</h1>
+                <p class="hero-description">
+                    Join our community effort to reunite lost items with their owners. 
+                    Browse found items or report something you've lost or found.
+                </p>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure & Verified</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-users"></i>
+                        <span>Community Driven</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Quick Response</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="hero-cta report-lost">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Report Lost Item
+                    </button>
+                    <button class="hero-cta secondary report-found">
+                        <i class="fas fa-check-circle"></i>
+                        Report Found Item
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-search-location"></i>
+                    <h3>234</h3>
+                    <p>Items Reunited</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>567</h3>
+                    <p>Active Helpers</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>24h</h3>
+                    <p>Avg. Response Time</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-percentage"></i>
+                    <h3>78%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Filters Section -->
+            <div class="filters-section">
+                <div class="filter-header">
+                    <h2>Browse Lost & Found Items</h2>
+                    <div class="view-toggle">
+                        <button class="toggle-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="toggle-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="filter-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search items..." id="itemSearch">
+                    </div>
+
+                    <div class="filter-chips">
+                        <button class="filter-chip active" data-filter="all">All Items</button>
+                        <button class="filter-chip" data-filter="lost">Lost</button>
+                        <button class="filter-chip" data-filter="found">Found</button>
+                        <button class="filter-chip" data-filter="electronics">Electronics</button>
+                        <button class="filter-chip" data-filter="documents">Documents</button>
+                        <button class="filter-chip" data-filter="accessories">Accessories</button>
+                        <button class="filter-chip" data-filter="others">Others</button>
+                    </div>
+
+                    <div class="sort-dropdown">
+                        <select id="sortItems">
+                            <option value="recent">Most Recent</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="category">By Category</option>
+                            <option value="location">By Location</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Items Grid -->
+            <div class="items-grid" id="itemsGrid">
+                <!-- Lost Item Card -->
+                <div class="item-card lost" data-category="electronics">
+                    <div class="item-status lost">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Lost
+                    </div>
+                    <div class="item-image">
+                        <img src="/https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300&h=200&fit=crop" alt="Lost Phone">
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">Black iPhone 12 Pro</h3>
+                        <div class="item-meta">
+                            <span class="item-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Douala - Bonapriso
+                            </span>
+                            <span class="item-date">
+                                <i class="fas fa-calendar"></i>
+                                2 days ago
+                            </span>
+                        </div>
+                        <p class="item-description">
+                            Lost near Carrefour Bonapriso. Has a blue case with initials "JK". 
+                            Screen has a small crack on the top right corner.
+                        </p>
+                        <div class="item-tags">
+                            <span class="tag">Phone</span>
+                            <span class="tag">Electronics</span>
+                            <span class="tag">Urgent</span>
+                        </div>
+                        <button class="item-contact-btn">
+                            <i class="fas fa-phone"></i>
+                            Contact Owner
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Found Item Card -->
+                <div class="item-card found" data-category="documents">
+                    <div class="item-status found">
+                        <i class="fas fa-check-circle"></i>
+                        Found
+                    </div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=300&h=200&fit=crop" alt="Found Wallet">
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">Brown Leather Wallet</h3>
+                        <div class="item-meta">
+                            <span class="item-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Yaoundé - Bastos
+                            </span>
+                            <span class="item-date">
+                                <i class="fas fa-calendar"></i>
+                                Yesterday
+                            </span>
+                        </div>
+                        <p class="item-description">
+                            Found at Restaurant Le Moulin de France. Contains ID cards and bank cards. 
+                            Owner must verify contents to claim.
+                        </p>
+                        <div class="item-tags">
+                            <span class="tag">Wallet</span>
+                            <span class="tag">Documents</span>
+                        </div>
+                        <button class="item-contact-btn">
+                            <i class="fas fa-user"></i>
+                            Contact Finder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- More items... -->
+                <div class="item-card lost" data-category="accessories">
+                    <div class="item-status lost">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Lost
+                    </div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=300&h=200&fit=crop" alt="Lost Keys">
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">Car Keys with Red Keychain</h3>
+                        <div class="item-meta">
+                            <span class="item-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Buea - Molyko
+                            </span>
+                            <span class="item-date">
+                                <i class="fas fa-calendar"></i>
+                                5 days ago
+                            </span>
+                        </div>
+                        <p class="item-description">
+                            Toyota car keys with a red teddy bear keychain. Lost around UB campus area.
+                        </p>
+                        <div class="item-tags">
+                            <span class="tag">Keys</span>
+                            <span class="tag">Accessories</span>
+                        </div>
+                        <button class="item-contact-btn">
+                            <i class="fas fa-phone"></i>
+                            Contact Owner
+                        </button>
+                    </div>
+                </div>
+
+                <div class="item-card found" data-category="electronics">
+                    <div class="item-status found">
+                        <i class="fas fa-check-circle"></i>
+                        Found
+                    </div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&h=200&fit=crop" alt="Found Earbuds">
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">White Wireless Earbuds</h3>
+                        <div class="item-meta">
+                            <span class="item-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Douala - Akwa
+                            </span>
+                            <span class="item-date">
+                                <i class="fas fa-calendar"></i>
+                                3 days ago
+                            </span>
+                        </div>
+                        <p class="item-description">
+                            Found at Café de France. In charging case, appears to be AirPods or similar.
+                        </p>
+                        <div class="item-tags">
+                            <span class="tag">Electronics</span>
+                            <span class="tag">Earbuds</span>
+                        </div>
+                        <button class="item-contact-btn">
+                            <i class="fas fa-user"></i>
+                            Contact Finder
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    <span>Load More Items</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header-center">
+                <div class="section-badge">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Simple Process</span>
+                </div>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">
+                    Our community-driven platform makes it easy to reunite lost items with their owners
+                </p>
+            </div>
+
+            <!-- Process Toggle -->
+            <div class="process-toggle">
+                <button class="toggle-option active" data-process="lost">
+                    <i class="fas fa-search"></i>
+                    Lost Something?
+                </button>
+                <button class="toggle-option" data-process="found">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    Found Something?
+                </button>
+            </div>
+
+            <!-- Lost Process -->
+            <div class="process-content active" id="lostProcess">
+                <div class="process-timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="process-step" data-step="1">
+                        <div class="step-number">
+                            <span>01</span>
+                            <div class="step-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Report Your Lost Item</h3>
+                            <p>Click "Report Lost Item" and fill in the details. Include a clear description, last known location, and any unique features that could help identify your item.</p>
+                            <div class="step-tip">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Tip: Adding a photo increases your chances by 70%</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Quick Form</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-step="2">
+                        <div class="step-number">
+                            <span>02</span>
+                            <div class="step-icon">
+                                <i class="fas fa-broadcast-tower"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Your Item Gets Listed</h3>
+                            <p>Once submitted, your lost item appears in our searchable database. Community members in your area are notified to keep an eye out.</p>
+                            <div class="step-tip">
+                                <i class="fas fa-bell"></i>
+                                <span>We'll notify you of any potential matches</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card pulse">
+                                <i class="fas fa-globe"></i>
+                                <span>Live Listing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-step="3">
+                        <div class="step-number">
+                            <span>03</span>
+                            <div class="step-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Connect with Finders</h3>
+                            <p>When someone finds your item, they can contact you directly through our secure messaging system. Verify the item details before arranging pickup.</p>
+                            <div class="step-tip">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>All communications are secure and private</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-handshake"></i>
+                                <span>Safe Connect</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-step="4">
+                        <div class="step-number">
+                            <span>04</span>
+                            <div class="step-icon">
+                                <i class="fas fa-smile-beam"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Reunited & Happy</h3>
+                            <p>Meet in a safe, public location to retrieve your item. Once reunited, mark your item as found to help us track success stories!</p>
+                            <div class="step-tip">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>We suggest meeting at local police stations or malls</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card success">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Success!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Found Process -->
+            <div class="process-content" id="foundProcess">
+                <div class="process-timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="process-step" data-step="1">
+                        <div class="step-number">
+                            <span>01</span>
+                            <div class="step-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Discover a Lost Item</h3>
+                            <p>Found something that doesn't belong to you? You're already a hero! Take a photo and note where and when you found it.</p>
+                            <div class="step-tip">
+                                <i class="fas fa-camera"></i>
+                                <span>Clear photos help owners identify their items faster</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Item Found</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-step="2">
+                        <div class="step-number">
+                            <span>02</span>
+                            <div class="step-icon">
+                                <i class="fas fa-upload"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Report the Found Item</h3>
+                            <p>Click "Report Found Item" and provide details. Be descriptive but keep some details private to verify the true owner.</p>
+                            <div class="step-tip">
+                                <i class="fas fa-lock"></i>
+                                <span>Keep unique features for owner verification</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-edit"></i>
+                                <span>Quick Post</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-step="3">
+                        <div class="step-number">
+                            <span>03</span>
+                            <div class="step-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Verify the Owner</h3>
+                            <p>When someone claims the item, ask them to describe unique features you didn't mention in your post. This ensures you're returning it to the right person.</p>
+                            <div class="step-tip">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Our verification checklist helps prevent fraud</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Verify Safe</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-step="4">
+                        <div class="step-number">
+                            <span>04</span>
+                            <div class="step-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Make Someone's Day</h3>
+                            <p>Arrange a safe meetup to return the item. You've just made someone incredibly happy and strengthened our community!</p>
+                            <div class="step-tip">
+                                <i class="fas fa-award"></i>
+                                <span>Good Samaritans earn community badges!</span>
+                            </div>
+                        </div>
+                        <div class="step-visual">
+                            <div class="visual-card success">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Hero Status</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="how-it-works-cta">
+                <div class="cta-card">
+                    <div class="cta-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="cta-content">
+                        <h3>Ready to Get Started?</h3>
+                        <p>Join thousands of community members helping each other every day</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <button class="cta-btn primary report-lost">
+                            <i class="fas fa-search"></i>
+                            Report Lost Item
+                        </button>
+                        <button class="cta-btn secondary report-found">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            Report Found Item
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header">
+                <h2 id="modalTitle">Report Item</h2>
+                <p id="modalSubtitle">Fill in the details below</p>
+            </div>
+
+            <form id="reportForm" class="report-form">
+                <!-- Item Status -->
+                <div class="form-group">
+                    <label>Item Status</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="status" value="lost" checked>
+                            <span class="radio-custom"></span>
+                            <span>Lost</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="status" value="found">
+                            <span class="radio-custom"></span>
+                            <span>Found</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Item Details -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemTitle">Item Name *</label>
+                        <input type="text" id="itemTitle" required placeholder="e.g., Black iPhone 12">
+                    </div>
+                    <div class="form-group">
+                        <label for="itemCategory">Category *</label>
+                        <select id="itemCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="documents">Documents</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="itemLocation">Location *</label>
+                    <div class="input-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="itemLocation" required placeholder="Where was it lost/found?">
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="itemDescription">Description *</label>
+                    <textarea id="itemDescription" rows="4" required 
+                        placeholder="Provide detailed description including any unique features..."></textarea>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3>Your Contact Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Full Name *</label>
+                            <input type="text" id="contactName" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number *</label>
+                            <input type="tel" id="contactPhone" required placeholder="+237 6XX XXX XXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="form-group">
+                    <label>Upload Image (Optional)</label>
+                    <div class="image-upload">
+                        <input type="file" id="itemImage" accept="image/*" hidden>
+                        <label for="itemImage" class="upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Click to upload or drag and drop</span>
+                            <small>PNG, JPG up to 5MB</small>
+                        </label>
+                        <div class="image-preview" id="imagePreview"></div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Report
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-toast" id="successToast">
+        <i class="fas fa-check-circle"></i>
+        <span>Report submitted successfully!</span>
+    </div>
+
+<!-- Modern Footer Section -->
+<footer class="modern-footer">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Connected
+                        </h3>
+                        <p class="newsletter-subtitle">Get exclusive deals, updates, and local market insights delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter-meta">
+                            <span class="subscriber-count">
+                                <i class="fas fa-users"></i>
+                                Join 50,000+ subscribers
+                            </span>
+                            <span class="newsletter-promise">
+                                <i class="fas fa-lock"></i>
+                                No spam, unsubscribe anytime
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+ 
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/icon.png" alt="Veranda Market">
+                        <div class="logo-text">
+                            <h4>Veranda Market</h4>
+                            <p>Your Local Online Marketplace</p>
+                        </div>
+                    </div>
+                    <p class="company-description">
+                        Connecting local businesses with customers across Cameroon. Shop from your veranda and support your community.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="app-badges">
+                        <h5>Download Our App</h5>
+                        <div class="badge-container">
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store">
+                            </a>
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h5 class="column-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Seller Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Career Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog & News</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h5 class="column-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Track Your Order</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div class="footer-column">
+                    <h5 class="column-title">For Business</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sell on Veranda</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Advertise With Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Affiliate Program</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Corporate Sales</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Partner Hub</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column contact-info">
+                    <h5 class="column-title">Get in Touch</h5>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong>
+                                <p>123 Commerce Street, Douala, Cameroon</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+237 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>support@verandamarket.cm</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Bar -->
+            <div class="features-bar">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="feature-text">
+                        <strong>Fast Delivery</strong>
+                        <span>Same day in major cities</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>Secure Payment</strong>
+                        <span>100% protected transactions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <div class="feature-text">
+                        <strong>Easy Returns</strong>
+                        <span>7-day return policy</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>24/7 Support</strong>
+                        <span>Dedicated customer service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <h5>Accepted Payment Methods</h5>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Money</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Veranda Market. All rights reserved. Made with <i class="fas fa-heart"></i> in Cameroon</p>
+                </div>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="language-currency">
+                    <button class="lang-select">
+                        <i class="fas fa-globe"></i>
+                        English
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="currency-select">
+                        <i class="fas fa-money-bill"></i>
+                        XAF
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/lost-found.js"></script>
+</body>
+</html>

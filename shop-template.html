@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop Template - Veranda Market">
+    <title>Shop Name - Products | Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/shop-template.css">
+</head>
+<body>
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <div class="container">
+            <nav class="shop-nav">
+                <!-- Logo and Shop Name -->
+                <div class="shop-brand">
+                    <img src="https://via.placeholder.com/60x60?text=Logo" alt="Shop Logo" class="shop-logo">
+                    <h1 class="shop-name">Example Electronics Co., Ltd.</h1>
+                </div>
+
+                <!-- Navigation Menu -->
+                <ul class="shop-menu">
+                    <li class="active"><a href="#products">Products</a></li>
+                    <li><a href="#profile">Company Profile</a></li>
+                    <li><a href="#tradeshows">Trade Shows</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+
+                <!-- Shop Actions -->
+                <div class="shop-actions">
+                    <!-- Search Bar -->
+                    <div class="shop-search">
+                        <input type="text" placeholder="Search in this shop..." class="shop-search-input">
+                        <button class="shop-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Cart Icon -->
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    
+                    <!-- Contact Button -->
+                    <button class="contact-supplier-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Shop</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Shop Hero Banner -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="shop-hero-content">
+                <div class="shop-info-card">
+                    <div class="shop-verification">
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i>
+                            Verified Supplier
+                        </span>
+                        <span class="years-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            8 Years
+                        </span>
+                    </div>
+                    <div class="shop-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">5000+</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">98%</span>
+                            <span class="stat-label">Response Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">&lt;24h</span>
+                            <span class="stat-label">Response Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-hero-image">
+                    <img src="/assets/images/Gemini_Generated_Image_yzfry7yzfry7yzfr.png" alt="Shop Banner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section class="product-categories">
+        <div class="container">
+            <h2 class="section-title">Product Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=200&h=200&fit=crop" alt="Laptops" class="category-icon">
+                    </div>
+                    <h3 class="category-name">Laptops & Computers</h3>
+                    <span class="item-count">245 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200&h=200&fit=crop" alt="Smartphones" class="category-icon">
+                    </div>
+                    <h3 class="category-name">Smartphones</h3>
+                    <span class="item-count">532 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Audio" class="category-icon">
+                    </div>
+                    <h3 class="category-name">Audio & Headphones</h3>
+                    <span class="item-count">189 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop" alt="Smart Watches" class="category-icon">
+                    </div>
+                    <h3 class="category-name">Smart Watches</h3>
+                    <span class="item-count">98 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=200&h=200&fit=crop" alt="Tablets" class="category-icon">
+                    </div>
+                    <h3 class="category-name">Tablets</h3>
+                    <span class="item-count">156 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <img src="https://images.unsplash.com/photo-1574920162043-b872873f19c8?w=200&h=200&fit=crop" alt="Accessories" class="category-icon">
+                    </div>
+                    <h3 class="category-name">Accessories</h3>
+                    <span class="item-count">423 Items</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="filter-options">
+                    <select class="sort-dropdown">
+                        <option>Best Match</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                    </select>
+                    <button class="view-toggle grid-view active">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-toggle list-view">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge hot">Hot</span>
+                        <span class="badge new">New</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=400&h=400&fit=crop" alt="Laptop">
+                        <div class="product-actions">
+                            <button class="action-btn favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Professional Gaming Laptop 15.6" RTX 4060</h3>
+                        <div class="product-price">
+                            <span class="current-price">950,000 CFA</span>
+                            <span class="old-price">1,200,000 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </span>
+                            <span class="sold">256 Sold</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                            <button class="buy-now-btn">
+                                <i class="fas fa-bolt"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge sale">-20%</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&h=400&fit=crop" alt="Smartphone">
+                        <div class="product-actions">
+                            <button class="action-btn favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">5G Smartphone 6.7" AMOLED 256GB</h3>
+                        <div class="product-price">
+                            <span class="current-price">180,000 CFA</span>
+                            <span class="old-price">225,000 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.6
+                            </span>
+                            <span class="sold">892 Sold</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                            <button class="buy-now-btn">
+                                <i class="fas fa-bolt"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop" alt="Headphones">
+                        <div class="product-actions">
+                            <button class="action-btn favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Wireless Noise Cancelling Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">45,000 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </span>
+                            <span class="sold">1.2K Sold</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                            <button class="buy-now-btn">
+                                <i class="fas fa-bolt"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge trending">Trending</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop" alt="Smart Watch">
+                        <div class="product-actions">
+                            <button class="action-btn favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Watch Series 8 GPS + Cellular</h3>
+                        <div class="product-price">
+                            <span class="current-price">125,000 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </span>
+                            <span class="sold">567 Sold</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                            <button class="buy-now-btn">
+                                <i class="fas fa-bolt"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More product cards... -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    <span>Load More Products</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Gallery Section -->
+    <section class="company-gallery">
+        <div class="container">
+            <h2 class="section-title">Shop Gallery</h2>
+            <div class="gallery-tabs">
+                <button class="tab-btn active" data-tab="storefront">Store Front</button>
+                <button class="tab-btn" data-tab="interior">Interior</button>
+                <button class="tab-btn" data-tab="products">Products</button>
+                <button class="tab-btn" data-tab="team">Our Team</button>
+            </div>
+            
+            <div class="gallery-content">
+                <!-- Store Front Tab -->
+                <div class="tab-content active" id="storefront">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=400&h=300&fit=crop" alt="Store Front">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" alt="Store Entrance">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1567449303212-57fe48f40a53?w=400&h=300&fit=crop" alt="Store Display">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400&h=300&fit=crop" alt="Store Window">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tabs content will be similar -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="shop-contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <strong>Contact Person:</strong>
+                            <span>Mr. John Smith</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone:</strong>
+                            <span>+237 123 456 789</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong>
+                            <span>sales@exampleelectronics.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address:</strong>
+                            <span>123 Industrial Zone, Douala, Cameroon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-inquiry">
+                    <h3>Send Quick Inquiry</h3>
+                    <form class="inquiry-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="shop-footer">
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <!-- Newsletter Section -->
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="newsletter-wrapper">
+                    <div class="newsletter-content">
+                        <h3><i class="fas fa-envelope-open-text"></i> Stay Updated</h3>
+                        <p>Subscribe to get exclusive offers, new product alerts, and shop updates</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">
+                            <span>Subscribe</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="container">
+                <!-- Footer Grid -->
+                <div class="footer-grid">
+                    <!-- Company Info -->
+                    <div class="footer-column company-info">
+                        <div class="footer-logo">
+                            <img src="https://via.placeholder.com/50x50?text=Logo" alt="Shop Logo">
+                            <h4>Example Electronics</h4>
+                        </div>
+                        <p class="company-description">
+                            Your trusted partner for quality electronics. Serving customers with excellence for over 8 years.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Verified Seller</span>
+                            </div>
+                            <div class="trust-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Top Rated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h5>Quick Links</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">All Products <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">New Arrivals <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Best Sellers <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Special Offers <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Company Profile <i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Customer Service -->
+                    <div class="footer-column">
+                        <h5>Customer Service</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Contact Us <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Shipping Info <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Return Policy <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Warranty <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">FAQs <i class="fas fa-angle-right"></i></a></li>
+                            <li><a href="#">Track Order <i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer-column">
+                        <h5>Get in Touch</h5>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Address</strong>
+                                    <p>123 Industrial Zone, Douala, Cameroon</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <strong>Phone</strong>
+                                    <p>+237 123 456 789</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p>sales@exampleelectronics.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Business Hours</strong>
+                                    <p>Mon-Sat: 8AM-7PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Stats -->
+                <div class="footer-stats">
+                    <div class="stat-box">
+                        <i class="fas fa-box"></i>
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">Products</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span class="stat-number">15K+</span>
+                        <span class="stat-label">Orders Delivered</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-number">4.8</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Example Electronics Co., Ltd. All rights reserved. | Powered by <a href="/">Veranda Market</a></p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                    <div class="payment-methods">
+                        <span>We Accept:</span>
+                        <div class="payment-icons">
+                            <div class="payment-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                            </div>
+                            <div class="payment-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                            </div>
+                            <div class="payment-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                            </div>
+                            <div class="payment-icon">
+                                <i class="fas fa-mobile-alt" style="color: #ff6f00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <div class="lightbox" id="galleryLightbox">
+        <span class="close-lightbox">&times;</span>
+        <img src="" alt="" class="lightbox-image">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/shop-template.js"></script>
+</body>
+</html>

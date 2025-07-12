@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pharmacy Shop - Your Trusted Healthcare Partner | Veranda Market">
+    <title>Central Pharmacy Douala - Licensed Pharmacy | Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/pharmacy-shop-template.css">
+</head>
+<body>
+    <!-- Emergency Header Bar -->
+    <div class="emergency-bar">
+        <div class="container">
+            <div class="emergency-content">
+                <span class="emergency-label">
+                    <i class="fas fa-phone-alt"></i> 24/7 Emergency Line:
+                </span>
+                <a href="tel:+237123456789" class="emergency-number">+237 123 456 789</a>
+                <span class="emergency-status">
+                    <span class="status-dot"></span>
+                    Available Now
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <div class="container">
+            <nav class="shop-nav">
+                <!-- Shop Brand -->
+                <div class="shop-brand">
+                    <img src="https://via.placeholder.com/60x60?text=Logo" alt="Pharmacy Logo" class="shop-logo">
+                    <h1 class="shop-name">Central Pharmacy Douala</h1>
+                </div>
+
+                <!-- Navigation Menu -->
+                <ul class="shop-menu">
+                    <li class="active"><a href="#products">Medicines & Health</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#consultation">Ask a Pharmacist</a></li>
+                    <li><a href="#gallery">Our Pharmacy</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <!-- Shop Actions -->
+                <div class="shop-actions">
+                    <!-- Search Bar -->
+                    <div class="shop-search">
+                        <input type="text" placeholder="Search for medicines..." class="shop-search-input">
+                        <button class="shop-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Cart -->
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    
+                    <!-- Contact Button -->
+                    <button class="contact-supplier-btn">
+                        <i class="fas fa-headset"></i>
+                        <span>Contact Pharmacy</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="pharmacy-hero-content">
+                <div class="pharmacy-hero-info">
+                    <div class="pharmacy-verification">
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i>
+                            Licensed Pharmacy
+                        </span>
+                        <span class="license-badge">
+                            <i class="fas fa-id-card"></i>
+                            License: PHM-2024-0123
+                        </span>
+                    </div>
+                    <h2 class="pharmacy-hero-title">Your Trusted Partner in Health & Wellness</h2>
+                    <p class="pharmacy-hero-description">
+                        Providing genuine medicines and professional pharmaceutical care since 2010. 
+                        Get your health needs delivered to your doorstep, safely and promptly.
+                    </p>
+                    <div class="pharmacy-hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i> 100% Genuine Medicines
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shipping-fast"></i> Same Day Delivery
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-user-md"></i> Pharmacist Consultation
+                        </div>
+                    </div>
+                    <div class="pharmacy-hero-cta">
+                        <button class="upload-prescription-btn">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                            Upload Prescription
+                        </button>
+                        <button class="shop-medicines-btn">
+                            <i class="fas fa-pills"></i>
+                            Shop Medicines
+                        </button>
+                    </div>
+                </div>
+                <div class="pharmacy-hero-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop" alt="Pharmacy Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions Bar -->
+    <section class="quick-actions-bar">
+        <div class="container">
+            <div class="actions-grid">
+                <a href="#upload-prescription" class="action-card">
+                    <i class="fas fa-file-medical"></i>
+                    <span>Upload Prescription</span>
+                </a>
+                <a href="#book-consultation" class="action-card">
+                    <i class="fas fa-comments"></i>
+                    <span>Free Consultation</span>
+                </a>
+                <a href="#health-checkup" class="action-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health Checkup</span>
+                </a>
+                <a href="#medicine-reminder" class="action-card">
+                    <i class="fas fa-bell"></i>
+                    <span>Medicine Reminder</span>
+                </a>
+                <a href="#refill-prescription" class="action-card">
+                    <i class="fas fa-redo"></i>
+                    <span>Refill Prescription</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar Section -->
+    <section class="medicine-search-section">
+        <div class="container">
+            <div class="search-wrapper">
+                <div class="search-header">
+                    <h3>Search for Medicines & Health Products</h3>
+                    <p>Over 50,000 products available</p>
+                </div>
+                <div class="medicine-search-bar">
+                    <input type="text" placeholder="Search by medicine name, condition, or brand..." class="medicine-search-input">
+                    <button class="search-by-image">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <button class="medicine-search-btn">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+                <div class="popular-searches">
+                    <span>Popular:</span>
+                    <a href="#">Paracetamol</a>
+                    <a href="#">Diabetes Care</a>
+                    <a href="#">Vitamins</a>
+                    <a href="#">First Aid</a>
+                    <a href="#">Baby Care</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section id="products" class="product-categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Health Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="category-name">Prescription Medicines</h3>
+                    <span class="item-count">2,543 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-tablets"></i>
+                    </div>
+                    <h3 class="category-name">OTC Medicines</h3>
+                    <span class="item-count">1,892 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3 class="category-name">Baby & Mother Care</h3>
+                    <span class="item-count">756 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="category-name">Diabetes Care</h3>
+                    <span class="item-count">423 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="category-name">Fitness & Wellness</h3>
+                    <span class="item-count">892 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <h3 class="category-name">First Aid</h3>
+                    <span class="item-count">234 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="category-name">Personal Care</h3>
+                    <span class="item-count">1,456 Items</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="category-name">Medical Devices</h3>
+                    <span class="item-count">567 Items</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Health Products</h2>
+                <div class="filter-tabs">
+                    <button class="tab-btn active">All Products</button>
+                    <button class="tab-btn">Prescription</button>
+                    <button class="tab-btn">OTC</button>
+                    <button class="tab-btn">New Arrivals</button>
+                    <button class="tab-btn">On Sale</button>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge otc">OTC</span>
+                        <span class="badge discount">-20%</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop" alt="Paracetamol">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Paracetamol 500mg Tablets (x20)</h3>
+                        <p class="product-composition">Acetaminophen</p>
+                        <div class="product-price">
+                            <span class="current-price">1,500 CFA</span>
+                            <span class="old-price">1,875 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="availability available">In Stock</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge prescription">Rx Required</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1628771065518-5d8241418751?w=400&h=400&fit=crop" alt="Antibiotic">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Amoxicillin 250mg Capsules</h3>
+                        <p class="product-composition">Amoxicillin Trihydrate</p>
+                        <div class="product-price">
+                            <span class="current-price">3,500 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="availability available">In Stock</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn prescription-required">
+                                <i class="fas fa-prescription"></i> Prescription Required
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge hot">Hot</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1607619056574-7d8d3ee536b2?w=400&h=400&fit=crop" alt="Vitamin C">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Vitamin C 1000mg Effervescent</h3>
+                        <p class="product-composition">Ascorbic Acid</p>
+                        <div class="product-price">
+                            <span class="current-price">4,000 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="availability out-of-stock">Out of Stock</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn" disabled>
+                                <i class="fas fa-shopping-cart"></i> Out of Stock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-badges">
+                        <span class="badge new">New</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1550573229-3c74f6277683?w=400&h=400&fit=crop" alt="Cough Syrup">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Herbal Cough Syrup - 100ml</h3>
+                        <p class="product-composition">Natural Herbal Extract</p>
+                        <div class="product-price">
+                            <span class="current-price">2,500 CFA</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="availability available">In Stock</span>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More product cards... -->
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    <span>View All Products</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Pharmacy Gallery -->
+    <section id="gallery" class="company-gallery">
+        <div class="container">
+            <h2 class="section-title">Our Pharmacy</h2>
+            <div class="gallery-tabs">
+                <button class="tab-btn active" data-tab="storefront">Store Front</button>
+                <button class="tab-btn" data-tab="interior">Interior</button>
+                <button class="tab-btn" data-tab="team">Our Team</button>
+                <button class="tab-btn" data-tab="certificates">Certificates</button>
+            </div>
+            
+            <div class="gallery-content">
+                <div class="tab-content active" id="storefront">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=400&h=300&fit=crop" alt="Store Front">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?w=400&h=300&fit=crop" alt="Pharmacy Entrance">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=300&fit=crop" alt="Medicine Shelves">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=400&h=300&fit=crop" alt="Consultation Counter">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other tabs content will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="pharmacy-services">
+        <div class="container">
+            <h2 class="section-title">Our Professional Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Pharmacist Consultation</h3>
+                    <p>Get professional advice from our licensed pharmacists about your medications and health concerns.</p>
+                    <a href="#" class="service-link">Book Consultation <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>Vaccination Services</h3>
+                    <p>Stay protected with our comprehensive vaccination services including flu shots and travel vaccines.</p>
+                    <a href="#" class="service-link">View Vaccines <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health Screening</h3>
+                    <p>Regular health checks including blood pressure, blood sugar, and cholesterol monitoring.</p>
+                    <a href="#" class="service-link">Book Screening <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Home Delivery</h3>
+                    <p>Fast and secure delivery of medicines to your doorstep with temperature-controlled transport.</p>
+                    <a href="#" class="service-link">Delivery Info <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Tips Banner -->
+    <section class="health-tips-banner">
+        <div class="container">
+            <div class="tips-content">
+                <div class="tips-text">
+                    <h3>Health Tips & Medical Advice</h3>
+                    <p>Stay informed with expert health tips, medicine guides, and wellness advice from our pharmacists.</p>
+                    <button class="tips-btn">
+                        <i class="fas fa-blog"></i>
+                        Visit Health Blog
+                    </button>
+                </div>
+                <div class="tips-cards">
+                    <div class="tip-card">
+                        <i class="fas fa-pills"></i>
+                        <h4>Medicine Safety</h4>
+                        <p>Learn about proper storage and usage</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-apple-alt"></i>
+                        <h4>Healthy Living</h4>
+                        <p>Nutrition and lifestyle tips</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-disease"></i>
+                        <h4>Disease Management</h4>
+                        <p>Managing chronic conditions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="customer-reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="reviews-slider swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <img src="https://via.placeholder.com/60x60?text=JD" alt="Reviewer">
+                                    <div>
+                                        <h4>Jean Dupont</h4>
+                                        <span class="review-date">2 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-text">
+                                "Excellent service! The pharmacist took time to explain my medication properly. 
+                                Delivery was fast and the medicines were well-packaged. Highly recommended!"
+                            </p>
+                            <div class="review-badges">
+                                <span><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                                <span><i class="fas fa-truck"></i> Home Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More review cards... -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="consultation" class="shop-contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="pharmacist-inquiry">
+                    <h3><i class="fas fa-user-md"></i> Ask a Pharmacist</h3>
+                    <p class="form-description">
+                        Have a question about your medication or a health concern? Our licensed pharmacists are here to help. 
+                        Please fill out the form below for a confidential consultation.
+                    </p>
+                    <form class="inquiry-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="text" placeholder="Patient's Age (e.g., 35 years)">
+                        <select required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="medicine">Medicine Information</option>
+                            <option value="prescription">Prescription Query</option>
+                            <option value="sideeffects">Side Effects</option>
+                            <option value="general">General Health Advice</option>
+                        </select>
+                        <textarea placeholder="Describe your question or health concern..." rows="4" required></textarea>
+                        <div class="disclaimer">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>This service is for informational purposes only and is not a substitute for a doctor's visit. 
+                            In case of a medical emergency, please call your local emergency number immediately.</p>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Question
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location & Hours</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-location-arrow"></i>
+                        <div>
+                            <strong>Address:</strong>
+                            <span>123 Healthcare Avenue, Bonapriso, Douala, Cameroon</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone / WhatsApp:</strong>
+                            <span>+237 123 456 789 (Regular)<br>+237 987 654 321 (Emergency)</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong>
+                            <span>info@centralpharmacy.cm</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Working Hours:</strong>
+                            <span>Mon - Sat: 8:00 AM - 10:00 PM<br>
+                                  Sunday: 9:00 AM - 8:00 PM<br>
+                                  <em style="color: var(--emergency-red);">Emergency: 24/7 Available</em></span>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.805364817433!2d9.702953615255866!3d4.051932997087968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10610d4bf8f7c0ff%3A0x69a8f6182e34a4a8!2sBonapriso%2C%20Douala%2C%20Cameroon!5e0!3m2!1sen!2sus!4v1678886475253!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0; border-radius: 12px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="shop-footer">
+        <!-- Newsletter Section -->
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="newsletter-wrapper">
+                    <div class="newsletter-content">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Healthy, Stay Informed
+                        </h3>
+                        <p class="newsletter-subtitle">Get health tips, medicine reminders, and exclusive discounts delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">
+                            <span>Subscribe</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Company Info Column -->
+                    <div class="footer-column company-column">
+                        <div class="footer-brand">
+                            <img src="https://via.placeholder.com/50x50?text=Logo" alt="Central Pharmacy" class="footer-logo">
+                            <h4 class="footer-brand-name">Central Pharmacy Douala</h4>
+                        </div>
+                        <p class="footer-description">
+                            Your trusted healthcare partner since 2010. We provide quality medicines, 
+                            professional pharmaceutical care, and health services to our community with 
+                            a commitment to excellence and patient well-being.
+                        </p>
+                        <div class="footer-certifications">
+                            <div class="cert-badge">
+                                <i class="fas fa-certificate"></i>
+                                <span>Licensed Pharmacy</span>
+                            </div>
+                            <div class="cert-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>MOH Certified</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="footer-column">
+                        <h5 class="footer-title">Quick Links</h5>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Health Blog</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Career Opportunities</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Customer Reviews</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h5 class="footer-title">Our Services</h5>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Medicine Ordering</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Prescription Upload</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Health Checkups</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Vaccination Services</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Home Delivery</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Online Consultation</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Column -->
+                    <div class="footer-column contact-column">
+                        <h5 class="footer-title">Contact & Support</h5>
+                        <div class="footer-contact-items">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Phone</span>
+                                    <a href="tel:+237123456789" class="contact-value">+237 123 456 789</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon emergency">
+                                    <i class="fas fa-ambulance"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">24/7 Emergency</span>
+                                    <a href="tel:+237987654321" class="contact-value emergency">+237 987 654 321</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:info@centralpharmacy.cm" class="contact-value">info@centralpharmacy.cm</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Working Hours</span>
+                                    <span class="contact-value">Mon-Sat: 8AM-10PM<br>Sunday: 9AM-8PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Features Bar -->
+                <div class="footer-features">
+                    <div class="footer-feature">
+                        <i class="fas fa-truck"></i>
+                        <div class="feature-text">
+                            <strong>Free Delivery</strong>
+                            <span>Orders above 10,000 CFA</span>
+                        </div>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-certificate"></i>
+                        <div class="feature-text">
+                            <strong>100% Genuine</strong>
+                            <span>Authenticated medicines</span>
+                        </div>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-user-md"></i>
+                        <div class="feature-text">
+                            <strong>Expert Advice</strong>
+                            <span>Licensed pharmacists</span>
+                        </div>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="feature-text">
+                            <strong>Secure Payments</strong>
+                            <span>Protected transactions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="footer-payment">
+                    <h5 class="payment-title">Accepted Payment Methods</h5>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Logo_Orange.svg/100px-Logo_Orange.svg.png" alt="Orange Money">
+                        </div>
+                        <div class="payment-method">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/MTN_Logo.svg/100px-MTN_Logo.svg.png" alt="MTN Mobile Money">
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Credit Card</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i>
+                            <span>Bank Transfer</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Cash on Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Central Pharmacy Douala. All rights reserved.</p>
+                        <p class="license">Licensed by Ministry of Health Cameroon | License No: PHM-2024-0123</p>
+                    </div>
+                    <div class="bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="#">Refund Policy</a>
+                        <span class="separator">|</span>
+                        <a href="#">Sitemap</a>
+                    </div>
+                    <div class="powered-by">
+                        <p>Proudly powered by</p>
+                        <a href="/" class="veranda-link">
+                            <img src="assets/images/icon.png" alt="Veranda Market" class="veranda-logo">
+                            <span>Veranda Market</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </footer>
+
+    <!-- Prescription Upload Modal -->
+    <div class="modal" id="prescriptionModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Upload Your Prescription</h3>
+            <div class="upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Drag and drop your prescription here or click to browse</p>
+                <input type="file" id="prescriptionFile" accept="image/*,.pdf" hidden>
+                <button class="browse-btn">Browse Files</button>
+            </div>
+            <div class="prescription-guidelines">
+                <h4>Guidelines:</h4>
+                <ul>
+                    <li>Prescription must be valid and clearly visible</li>
+                    <li>Accepted formats: JPG, PNG, PDF</li>
+                    <li>Maximum file size: 5MB</li>
+                    <li>Prescription must be less than 3 months old</li>
+                </ul>
+            </div>
+            <button class="upload-submit-btn">
+                <i class="fas fa-upload"></i>
+                Upload Prescription
+            </button>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <div class="lightbox" id="galleryLightbox">
+        <span class="close-lightbox">&times;</span>
+        <img src="" alt="" class="lightbox-image">
+    </div>
+
+    <!-- Fixed Actions (Mobile) -->
+    <div class="fixed-actions">
+        <button class="fixed-action-btn prescription">
+            <i class="fas fa-file-prescription"></i>
+            <span>Prescription</span>
+        </button>
+        <button class="fixed-action-btn consultation">
+            <i class="fas fa-comments"></i>
+            <span>Consult</span>
+        </button>
+        <button class="fixed-action-btn emergency">
+            <i class="fas fa-phone-alt"></i>
+            <span>Emergency</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/pharmacy-shop-template.js"></script>
+</body>
+</html>

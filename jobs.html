@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veranda Market Jobs - Find and post jobs in Cameroon">
+    <title>Jobs & Careers - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jobs.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p><i class="fas fa-briefcase"></i> Post jobs for free! Connect with thousands of qualified candidates - <strong>No fees, no limits</strong></p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v" style="color: #1a8917;">Veranda</span>
+                                    <span class="brand-m" style="color: #1a8917;">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="jobs">Jobs</option>
+                                    <option value="companies">Companies</option>
+                                    <option value="skills">Skills</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Search jobs, companies, skills...">
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Location -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Job location</span>
+                                <span class="deliver-location" id="deliverLocation">All Cameroon</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="all">All Cameroon</li>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                    <li data-city="remote">Remote</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Saved Jobs -->
+                        <div class="saved-jobs-container">
+                            <i class="fas fa-heart"></i>
+                            <span class="saved-count">5</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Manage your career</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Create Profile</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-file-alt"></i> My Resume</li>
+                                    <li><i class="fas fa-briefcase"></i> Applied Jobs</li>
+                                    <li><i class="fas fa-bell"></i> Job Alerts</li>
+                                    <li><i class="fas fa-building"></i> Company Dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section - LinkedIn Style -->
+    <section class="jobs-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1 class="hero-title">Who is Veranda Jobs for?</h1>
+                    <p class="hero-subtitle">To anyone looking to build their professional career in Cameroon.</p>
+                    
+                    <div class="hero-options">
+                        <a href="#" class="hero-option-link">
+                            <span class="option-text">Find your next opportunity</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        
+                        <a href="#" class="hero-option-link">
+                            <span class="option-text">Connect with local employers</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        
+                        <a href="#" class="hero-option-link">
+                            <span class="option-text">Post a job or find talent</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        
+                        <a href="#" class="hero-option-link">
+                            <span class="option-text">Build your professional profile</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="hero-search">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search jobs, companies, or skills" id="heroJobSearch">
+                            <button class="search-button">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-image">
+                        <img src="assets/images/jobs-hero.png" alt="Professionals collaborating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View Toggle Section -->
+    <section class="view-toggle-section">
+        <div class="container">
+            <div class="view-toggle">
+                <button class="toggle-btn active" id="toggle-jobs" data-view="jobs">
+                    <i class="fas fa-briefcase"></i> Find Jobs
+                </button>
+                <button class="toggle-btn" id="toggle-talent" data-view="talent">
+                    <i class="fas fa-users"></i> Find Talent
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar Section -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-content">
+                <div class="stat-item">
+                    <span class="stat-number">5,234</span>
+                    <span class="stat-label">Active Jobs</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Companies Hiring</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Professionals</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs View Container -->
+    <div id="jobs-view">
+    
+    <!-- Job Categories - Grid Style -->
+    <section class="job-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore Jobs by Category</h2>
+                <p class="section-subtitle">Find opportunities in your field of expertise</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card" data-category="tech">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Technology & IT</h3>
+                        <p class="category-jobs">432 open positions</p>
+                        <div class="trending-badge">
+                            <i class="fas fa-fire"></i> Hot
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="finance">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Finance & Banking</h3>
+                        <p class="category-jobs">287 open positions</p>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="sales">
+                    <div class="category-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Sales & Marketing</h3>
+                        <p class="category-jobs">512 open positions</p>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="healthcare">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Healthcare</h3>
+                        <p class="category-jobs">198 open positions</p>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="education">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Education & Training</h3>
+                        <p class="category-jobs">156 open positions</p>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="engineering">
+                    <div class="category-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Engineering</h3>
+                        <p class="category-jobs">234 open positions</p>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="hospitality">
+                    <div class="category-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">Hospitality & Tourism</h3>
+                        <p class="category-jobs">178 open positions</p>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="more">
+                    <div class="category-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">All Categories</h3>
+                        <p class="category-jobs">View all</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Job Opportunities</h2>
+                <div class="section-controls">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">All Jobs</button>
+                        <button class="filter-tab" data-filter="new">New</button>
+                        <button class="filter-tab" data-filter="remote">Remote</button>
+                        <button class="filter-tab" data-filter="fulltime">Full Time</button>
+                        <button class="filter-tab" data-filter="urgent">Urgent Hiring</button>
+                    </div>
+                    <button class="view-all-jobs">View All Jobs <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="jobs-list">
+                <!-- Job Card 1 -->
+                <div class="job-card" data-type="new,fulltime,urgent">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <img src="https://via.placeholder.com/60x60?text=MTN" alt="MTN Cameroon">
+                        </div>
+                        <div class="job-meta">
+                            <span class="new-badge">New</span>
+                            <span class="urgent-badge">Urgent</span>
+                            <button class="save-job-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="job-body">
+                        <h3 class="job-title">Senior Software Engineer - Mobile Apps</h3>
+                        <div class="company-info">
+                            <span class="company-name">MTN Cameroon</span>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified
+                            </span>
+                        </div>
+
+                        <div class="job-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Douala, Cameroon</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>5+ years experience</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>2,000,000 - 3,500,000 XAF</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Full Time</span>
+                            </div>
+                        </div>
+
+                        <div class="job-description">
+                            <p>We are looking for a talented Senior Software Engineer to join our mobile development team. You will be responsible for developing and maintaining our mobile applications...</p>
+                        </div>
+
+                        <div class="job-skills">
+                            <span class="skill-tag">React Native</span>
+                            <span class="skill-tag">iOS</span>
+                            <span class="skill-tag">Android</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">API Integration</span>
+                        </div>
+
+                        <div class="job-footer">
+                            <span class="posted-time">
+                                <i class="fas fa-calendar-alt"></i> Posted 2 hours ago
+                            </span>
+                            <div class="job-actions">
+                                <button class="quick-apply-btn">Quick Apply</button>
+                                <button class="view-job-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card" data-type="remote,fulltime">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <img src="https://via.placeholder.com/60x60?text=BANK" alt="Afriland First Bank">
+                        </div>
+                        <div class="job-meta">
+                            <span class="remote-badge">Remote</span>
+                            <button class="save-job-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="job-body">
+                        <h3 class="job-title">Digital Marketing Manager</h3>
+                        <div class="company-info">
+                            <span class="company-name">Afriland First Bank</span>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified
+                            </span>
+                        </div>
+
+                        <div class="job-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Remote (Based in Cameroon)</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>3-5 years experience</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>1,500,000 - 2,500,000 XAF</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Full Time</span>
+                            </div>
+                        </div>
+
+                        <div class="job-description">
+                            <p>Lead our digital marketing initiatives and drive online growth. Manage social media campaigns, SEO/SEM strategies, and content marketing efforts...</p>
+                        </div>
+
+                        <div class="job-skills">
+                            <span class="skill-tag">Digital Marketing</span>
+                            <span class="skill-tag">SEO/SEM</span>
+                            <span class="skill-tag">Social Media</span>
+                            <span class="skill-tag">Analytics</span>
+                        </div>
+
+                        <div class="job-footer">
+                            <span class="posted-time">
+                                <i class="fas fa-calendar-alt"></i> Posted yesterday
+                            </span>
+                            <div class="job-actions">
+                                <button class="quick-apply-btn">Quick Apply</button>
+                                <button class="view-job-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More job cards... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Companies Hiring -->
+    <section class="top-companies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Top Companies Hiring</h2>
+                <p class="section-subtitle">Join Cameroon's leading employers</p>
+            </div>
+
+            <div class="companies-slider">
+                <div class="swiper companies-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="company-card">
+                                <div class="company-logo-large">
+                                    <img src="https://via.placeholder.com/120x60?text=MTN" alt="MTN">
+                                </div>
+                                <h3 class="company-name">MTN Cameroon</h3>
+                                <p class="company-industry">Telecommunications</p>
+                                <div class="company-stats">
+                                    <span><strong>45</strong> Open Jobs</span>
+                                    <span><strong>5000+</strong> Employees</span>
+                                </div>
+                                <button class="view-company-btn">View Jobs</button>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="company-card">
+                                <div class="company-logo-large">
+                                    <img src="https://via.placeholder.com/120x60?text=ORANGE" alt="Orange">
+                                </div>
+                                <h3 class="company-name">Orange Cameroun</h3>
+                                <p class="company-industry">Telecommunications</p>
+                                <div class="company-stats">
+                                    <span><strong>32</strong> Open Jobs</span>
+                                    <span><strong>3000+</strong> Employees</span>
+                                </div>
+                                <button class="view-company-btn">View Jobs</button>
+                            </div>
+                        </div>
+
+                        <!-- More company cards... -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Employers Section -->
+    <section class="for-employers">
+        <div class="container">
+            <div class="employers-content">
+                <div class="content-left">
+                    <h2 class="section-title">Hire the best talent in Cameroon</h2>
+                    <p class="section-description">
+                        Access our pool of qualified professionals across all industries. 
+                        Post jobs, screen candidates, and hire faster with our advanced recruitment tools.
+                    </p>
+
+                    <div class="employer-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>50,000+ Active Job Seekers</h4>
+                                <p>Access a large pool of qualified candidates</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Quick & Easy Posting</h4>
+                                <p>Post your job in minutes and reach thousands</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Verified Candidates</h4>
+                                <p>All profiles are verified for authenticity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-preview">
+                        <h3>It's completely free!</h3>
+                        <div class="free-features-grid">
+                            <div class="free-feature-card">
+                                <div class="feature-icon-large">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <h4>No Hidden Fees</h4>
+                                <p>Post unlimited jobs without any charges</p>
+                            </div>
+                            <div class="free-feature-card">
+                                <div class="feature-icon-large">
+                                    <i class="fas fa-infinity"></i>
+                                </div>
+                                <h4>Unlimited Access</h4>
+                                <p>Contact as many candidates as you need</p>
+                            </div>
+                            <div class="free-feature-card">
+                                <div class="feature-icon-large">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Premium Features</h4>
+                                <p>All features available at no cost</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="cta-button">
+                        Start Hiring Today
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="content-right">
+                    <div class="employer-testimonial">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Veranda Market Jobs helped us find amazing talent quickly. The quality of candidates is exceptional, and the platform is very easy to use."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Testimonial">
+                                <div>
+                                    <h5>Jean-Paul Tchana</h5>
+                                    <p>HR Director, Chanas Assurance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-showcase">
+                        <div class="stat-card">
+                            <h3>85%</h3>
+                            <p>Positions filled within 2 weeks</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>92%</h3>
+                            <p>Employer satisfaction rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Seeker Resources -->
+    <section class="job-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Career Resources</h2>
+                <p class="section-subtitle">Tools and tips to advance your career</p>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Resume Builder</h3>
+                    <p>Create a professional resume in minutes with our AI-powered builder</p>
+                    <a href="#" class="resource-link">Build Resume <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Career Advice</h3>
+                    <p>Expert tips on job hunting, interviews, and career development</p>
+                    <a href="#" class="resource-link">Read Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Salary Guide</h3>
+                    <p>Know your worth with our comprehensive salary data for Cameroon</p>
+                    <a href="#" class="resource-link">View Salaries <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Interview Prep</h3>
+                    <p>Practice with our video interview simulator and ace your next interview</p>
+                    <a href="#" class="resource-link">Start Practice <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    </div>
+    <!-- End of Jobs View -->
+
+    <!-- Talent Marketplace View -->
+    <div id="talent-view" style="display: none;">
+        
+        <!-- Talent Marketplace Section -->
+        <section class="talent-marketplace">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Browse Professional Profiles</h2>
+                    <p class="section-subtitle">Connect with top talent across Cameroon</p>
+                    <div class="section-controls">
+                        <div class="filter-tabs" id="talent-filter-tabs">
+                            <button class="filter-tab active" data-filter="all">All Professionals</button>
+                            <button class="filter-tab" data-filter="tech">Tech & IT</button>
+                            <button class="filter-tab" data-filter="finance">Finance</button>
+                            <button class="filter-tab" data-filter="marketing">Marketing</button>
+                            <button class="filter-tab" data-filter="engineering">Engineering</button>
+                            <button class="filter-tab" data-filter="available">Available Now</button>
+                        </div>
+                        <button class="view-all-jobs">View All Profiles <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="talent-grid">
+                    <!-- Talent Card 1 -->
+                    <div class="talent-card" data-category="tech,available">
+                        <div class="talent-header">
+                            <div class="talent-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Amina Bello">
+                                <span class="availability-dot available" title="Available for hire"></span>
+                            </div>
+                            <div class="talent-info">
+                                <h3 class="talent-name">Amina Bello</h3>
+                                <p class="talent-headline">Senior Full-Stack Developer</p>
+                                <div class="talent-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Yaoundé</span>
+                                    <span><i class="fas fa-briefcase"></i> 8+ Years</span>
+                                </div>
+                            </div>
+                            <button class="talent-action-btn">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        </div>
+                        <div class="talent-body">
+                            <p class="talent-summary">Expert in building scalable web applications with a focus on clean code and user experience. Proficient in MERN stack, cloud deployment, and agile methodologies.</p>
+                            <div class="talent-skills">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">AWS</span>
+                            </div>
+                            <div class="talent-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Led 15+ successful projects</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>AWS Certified Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="talent-footer">
+                            <button class="view-profile-btn">View Full Profile</button>
+                            <button class="save-talent-btn">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Talent Card 2 -->
+                    <div class="talent-card" data-category="finance">
+                        <div class="talent-header">
+                            <div class="talent-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Charles Eko">
+                                <span class="availability-dot" title="Currently employed"></span>
+                            </div>
+                            <div class="talent-info">
+                                <h3 class="talent-name">Charles Eko</h3>
+                                <p class="talent-headline">Certified Financial Analyst (CFA)</p>
+                                <div class="talent-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Douala</span>
+                                    <span><i class="fas fa-briefcase"></i> 5 Years</span>
+                                </div>
+                            </div>
+                            <button class="talent-action-btn">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        </div>
+                        <div class="talent-body">
+                            <p class="talent-summary">Data-driven financial analyst with expertise in financial modeling, valuation, and strategic planning. Track record of improving financial performance.</p>
+                            <div class="talent-skills">
+                                <span class="skill-tag">Financial Modeling</span>
+                                <span class="skill-tag">Excel</span>
+                                <span class="skill-tag">Valuation</span>
+                                <span class="skill-tag">Budgeting</span>
+                                <span class="skill-tag">Risk Analysis</span>
+                            </div>
+                            <div class="talent-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>20% cost reduction achieved</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>CFA Level III Certified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="talent-footer">
+                            <button class="view-profile-btn">View Full Profile</button>
+                            <button class="save-talent-btn">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Talent Card 3 -->
+                    <div class="talent-card" data-category="marketing,available">
+                        <div class="talent-header">
+                            <div class="talent-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Mbarga">
+                                <span class="availability-dot available" title="Available for hire"></span>
+                            </div>
+                            <div class="talent-info">
+                                <h3 class="talent-name">Sarah Mbarga</h3>
+                                <p class="talent-headline">Digital Marketing Strategist</p>
+                                <div class="talent-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Buea</span>
+                                    <span><i class="fas fa-briefcase"></i> 6 Years</span>
+                                </div>
+                            </div>
+                            <button class="talent-action-btn">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        </div>
+                        <div class="talent-body">
+                            <p class="talent-summary">Creative digital marketer specializing in social media strategy, content marketing, and SEO. Proven results in brand growth and engagement.</p>
+                            <div class="talent-skills">
+                                <span class="skill-tag">Social Media</span>
+                                <span class="skill-tag">SEO/SEM</span>
+                                <span class="skill-tag">Content Strategy</span>
+                                <span class="skill-tag">Analytics</span>
+                                <span class="skill-tag">Email Marketing</span>
+                            </div>
+                            <div class="talent-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>300% social growth achieved</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-award"></i>
+                                    <span>Google Ads Certified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="talent-footer">
+                            <button class="view-profile-btn">View Full Profile</button>
+                            <button class="save-talent-btn">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Talent Card 4 -->
+                    <div class="talent-card" data-category="engineering">
+                        <div class="talent-header">
+                            <div class="talent-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Pierre Fotso">
+                                <span class="availability-dot" title="Currently employed"></span>
+                            </div>
+                            <div class="talent-info">
+                                <h3 class="talent-name">Pierre Fotso</h3>
+                                <p class="talent-headline">Civil Engineer</p>
+                                <div class="talent-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Bafoussam</span>
+                                    <span><i class="fas fa-briefcase"></i> 10 Years</span>
+                                </div>
+                            </div>
+                            <button class="talent-action-btn">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        </div>
+                        <div class="talent-body">
+                            <p class="talent-summary">Experienced civil engineer with expertise in infrastructure projects, project management, and sustainable construction practices.</p>
+                            <div class="talent-skills">
+                                <span class="skill-tag">AutoCAD</span>
+                                <span class="skill-tag">Project Management</span>
+                                <span class="skill-tag">Structural Design</span>
+                                <span class="skill-tag">BIM</span>
+                                <span class="skill-tag">Site Supervision</span>
+                            </div>
+                            <div class="talent-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-building"></i>
+                                    <span>20+ projects completed</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-hard-hat"></i>
+                                    <span>PMP Certified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="talent-footer">
+                            <button class="view-profile-btn">View Full Profile</button>
+                            <button class="save-talent-btn">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="load-more-container">
+                    <button class="load-more-btn">
+                        <span>Load More Profiles</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Profile CTA Section -->
+        <section class="profile-cta-section">
+            <div class="container">
+                <div class="profile-cta-content">
+                    <div class="cta-visual">
+                        <div class="cta-illustration">
+                            <div class="profile-card-preview">
+                                <div class="preview-avatar"></div>
+                                <div class="preview-lines">
+                                    <div class="line short"></div>
+                                    <div class="line medium"></div>
+                                    <div class="line long"></div>
+                                </div>
+                            </div>
+                            <div class="floating-icons">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-code"></i>
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-text">
+                        <h2>Ready to showcase your skills?</h2>
+                        <p>Create your professional profile and let top employers in Cameroon find you. Stand out with your achievements, skills, and experience.</p>
+                        <div class="cta-benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Get discovered by recruiters</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Showcase your portfolio</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>100% free forever</span>
+                            </div>
+                        </div>
+                        <button class="cta-button create-profile-btn">
+                            Create Your Profile Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    <!-- End of Talent View -->
+
+    <!-- Newsletter Section -->
+    <section class="job-alerts-section">
+        <div class="container">
+            <div class="alerts-content">
+                <div class="alerts-text">
+                    <h2>Never miss your dream job</h2>
+                    <p>Get personalized job recommendations delivered to your inbox</p>
+                </div>
+                <form class="alerts-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe to Job Alerts</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<!-- Modern Footer Section -->
+<footer class="modern-footer">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Connected
+                        </h3>
+                        <p class="newsletter-subtitle">Get exclusive deals, updates, and local market insights delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter-meta">
+                            <span class="subscriber-count">
+                                <i class="fas fa-users"></i>
+                                Join 50,000+ subscribers
+                            </span>
+                            <span class="newsletter-promise">
+                                <i class="fas fa-lock"></i>
+                                No spam, unsubscribe anytime
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+ 
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/icon.png" alt="Veranda Market">
+                        <div class="logo-text">
+                            <h4>Veranda Market</h4>
+                            <p>Your Local Online Marketplace</p>
+                        </div>
+                    </div>
+                    <p class="company-description">
+                        Connecting local businesses with customers across Cameroon. Shop from your veranda and support your community.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="app-badges">
+                        <h5>Download Our App</h5>
+                        <div class="badge-container">
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store">
+                            </a>
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h5 class="column-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Seller Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Career Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog & News</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h5 class="column-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Track Your Order</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div class="footer-column">
+                    <h5 class="column-title">For Business</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sell on Veranda</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Advertise With Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Affiliate Program</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Corporate Sales</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Partner Hub</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column contact-info">
+                    <h5 class="column-title">Get in Touch</h5>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong>
+                                <p>123 Commerce Street, Douala, Cameroon</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+237 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>support@verandamarket.cm</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Bar -->
+            <div class="features-bar">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="feature-text">
+                        <strong>Fast Delivery</strong>
+                        <span>Same day in major cities</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>Secure Payment</strong>
+                        <span>100% protected transactions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <div class="feature-text">
+                        <strong>Easy Returns</strong>
+                        <span>7-day return policy</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>24/7 Support</strong>
+                        <span>Dedicated customer service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <h5>Accepted Payment Methods</h5>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Money</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Veranda Market. All rights reserved. Made with <i class="fas fa-heart"></i> in Cameroon</p>
+                </div>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="language-currency">
+                    <button class="lang-select">
+                        <i class="fas fa-globe"></i>
+                        English
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="currency-select">
+                        <i class="fas fa-money-bill"></i>
+                        XAF
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-briefcase"></i>
+            <span>Jobs</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-heart"></i>
+            <span>Saved</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <!-- Floating Post Job Button -->
+    <button class="floating-post-job-btn">
+        <i class="fas fa-plus"></i>
+        <span class="btn-text">Post a Job</span>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/jobs.js"></script>
+</body>
+</html>

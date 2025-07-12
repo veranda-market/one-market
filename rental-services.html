@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veranda Market - Rent anything you need from tools to party equipment, electronics to real estate in Cameroon">
+    <title>Rental Services - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rental-services.css">
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p><i class="fas fa-bolt"></i> Rent anything you need! From tools to party equipment - <strong>Save money, live better</strong></p>
+        </div>
+    </div>
+
+    <!-- Header Section - Using existing navigation -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="all">All Rentals</option>
+                                    <option value="equipment">Equipment</option>
+                                    <option value="vehicles">Vehicles</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="real-estate">Real Estate</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Search for items to rent, categories, or locations...">
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Location -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Search in</span>
+                                <span class="deliver-location" id="deliverLocation">All Cameroon</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="all">All Cameroon</li>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                    <li data-city="limbe">Limbe</li>
+                                    <li data-city="kribi">Kribi</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Saved Items -->
+                        <div class="saved-items">
+                            <i class="fas fa-heart"></i>
+                            <span class="saved-count">0</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Manage your rentals</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Register</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-box"></i> My Rentals</li>
+                                    <li><i class="fas fa-heart"></i> Saved Items</li>
+                                    <li><i class="fas fa-search"></i> Search History</li>
+                                    <li><i class="fas fa-plus"></i> List an Item</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Lower Navigation - Transparent with rental categories -->
+        <nav class="lower-nav transparent">
+            <div class="container">
+                <div class="lower-nav-wrapper">
+                    <div class="rental-categories-nav">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            <span>Real Estate & Homes</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Beach Equipment Rentals</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>Party & Event Rentals</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-laptop"></i>
+                            <span>Electronics</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-car"></i>
+                            <span>Vehicles</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            <span>Tools & Equipment</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-camera"></i>
+                            <span>Photo & Video</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-bicycle"></i>
+                            <span>Sports & Recreation</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-music"></i>
+                            <span>Musical Instruments</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Fashion & Accessories</span>
+                        </a>
+                        <a href="#" class="nav-link all-categories">
+                            <i class="fas fa-th"></i>
+                            <span>All Categories</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section - Rental Properties -->
+    <section class="rental-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Rent instead of buying</h1>
+                <p class="hero-subtitle">Nearby and at times that suit you</p>
+                
+                <div class="hero-search-box">
+                    <div class="search-input-group">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for what you want to rent" class="hero-search-input">
+                    </div>
+                    <button class="hero-search-btn">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Near <span class="location-text">Yaoundé</span> - Change
+                    </button>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-home"></i>
+                        <span>5,000+ Properties</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified Listings</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Safe & Secure</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-illustration">
+                <img src="assets/images/rental-hero-illustration.png" alt="Find your perfect rental">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Categories Grid -->
+    <section class="rental-categories-section">
+        <div class="container">
+            <div class="categories-wrapper">
+                <!-- Row 1 - Slides Left -->
+                <div class="categories-row slide-left">
+                    <div class="categories-track">
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&h=200&fit=crop" alt="Beach Equipment">
+                            </div>
+                            <h3>Beach Equipment Rentals</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=300&h=200&fit=crop" alt="Party Equipment">
+                            </div>
+                            <h3>Party Equipment Rentals</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1565695340051-6ae3603dfa4d?w=300&h=200&fit=crop" alt="Bike Rentals">
+                            </div>
+                            <h3>Bike & Scooter Rentals</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1533636721434-0e2d61030955?w=300&h=200&fit=crop" alt="Camping Gear">
+                            </div>
+                            <h3>Camping Gear</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&h=200&fit=crop" alt="Electronics">
+                            </div>
+                            <h3>Electronics</h3>
+                        </div>
+
+                        <!-- Duplicate for continuous scroll -->
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&h=200&fit=crop" alt="Beach Equipment">
+                            </div>
+                            <h3>Beach Equipment Rentals</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=300&h=200&fit=crop" alt="Party Equipment">
+                            </div>
+                            <h3>Party Equipment Rentals</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 - Slides Right -->
+                <div class="categories-row slide-right">
+                    <div class="categories-track">
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=300&h=200&fit=crop" alt="Vehicle Rentals">
+                            </div>
+                            <h3>Vehicle Rentals</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1581092160607-ee22df5ceb3b?w=300&h=200&fit=crop" alt="Construction Tools">
+                            </div>
+                            <h3>Construction Tools</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1609205807490-b15b9677c6e0?w=300&h=200&fit=crop" alt="Camera Equipment">
+                            </div>
+                            <h3>Photo & Video</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop" alt="Musical Equipment">
+                            </div>
+                            <h3>Musical Equipment</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop" alt="Real Estate">
+                            </div>
+                            <h3>Real Estate & Homes</h3>
+                        </div>
+
+                        <!-- Duplicate for continuous scroll -->
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=300&h=200&fit=crop" alt="Vehicle Rentals">
+                            </div>
+                            <h3>Vehicle Rentals</h3>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1581092160607-ee22df5ceb3b?w=300&h=200&fit=crop" alt="Construction Tools">
+                            </div>
+                            <h3>Construction Tools</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Save Money Section -->
+    <section class="save-money-section">
+        <div class="container">
+            <div class="save-money-content">
+                <div class="image-showcase">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop" alt="Beautiful Cameroon landscape">
+                    </div>
+                    <div class="secondary-image">
+                        <img src="https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?w=300&h=250&fit=crop" alt="Happy rental experience">
+                    </div>
+                </div>
+                
+                <div class="save-money-text">
+                    <h2 class="section-title">
+                        <span class="highlight">SAVE MONEY</span>
+                    </h2>
+                    <p class="main-text">
+                        All the tools and toys we buy cost a lot of money and take up a lot of space. Cameroonians spend an average of <strong>₣16,000 per year on equipment rentals.</strong>
+                    </p>
+                    <p class="sub-text">
+                        With Veranda, you can cut your expenses without cutting the fun.
+                    </p>
+                    
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Rent only when you need</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No storage hassles</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Try before you buy</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Access premium items</span>
+                        </div>
+                    </div>
+                    
+                    <button class="cta-button">
+                        Start Saving Today
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Reviews Section -->
+    <section class="user-reviews-section">
+        <div class="container">
+            <div class="reviews-header">
+                <div class="header-content">
+                    <h2>happiness: experiences — not things — are valued more than ever.</h2>
+                    <p>In fact, <strong>78% of millennials prefer experiences over products.</strong></p>
+                    <p class="subtitle">Now you can have the experiences you want for less.</p>
+                </div>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean-Pierre">
+                    <div class="review-content">
+                        <h4>Jean-Pierre Ngono</h4>
+                        <p class="location">Yaoundé</p>
+                        <p class="review">"Rented a drone for my vacation in Kribi. Amazing aerial shots without the huge investment!"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie">
+                    <div class="review-content">
+                        <h4>Marie Kamga</h4>
+                        <p class="location">Douala</p>
+                        <p class="review">"Party equipment rental saved my daughter's birthday. Professional service, great prices!"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="Paul">
+                    <div class="review-content">
+                        <h4>Paul Tchinda</h4>
+                        <p class="location">Buea</p>
+                        <p class="review">"Rented construction tools for my home project. Saved thousands compared to buying!"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fatou">
+                    <div class="review-content">
+                        <h4>Fatou Njoya</h4>
+                        <p class="location">Bafoussam</p>
+                        <p class="review">"Beach equipment for our Limbe trip was perfect. Clean, affordable, hassle-free!"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Samuel">
+                    <div class="review-content">
+                        <h4>Samuel Atangana</h4>
+                        <p class="location">Bamenda</p>
+                        <p class="review">"Rented a projector for our conference. Professional equipment at a fraction of the cost!"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Christine">
+                    <div class="review-content">
+                        <h4>Christine Mballa</h4>
+                        <p class="location">Kribi</p>
+                        <p class="review">"Musical instruments rental for our event was fantastic. Quality gear, great service!"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="rental-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Popular Rentals</h4>
+                    <ul>
+                        <li><a href="#">Party Equipment in Yaoundé</a></li>
+                        <li><a href="#">Construction Tools Douala</a></li>
+                        <li><a href="#">Beach Equipment Kribi</a></li>
+                        <li><a href="#">Camera Rentals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Renters</h4>
+                    <ul>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Rental insurance</a></li>
+                        <li><a href="#">Safety guidelines</a></li>
+                        <li><a href="#">Rental calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Owners</h4>
+                    <ul>
+                        <li><a href="#">List your items</a></li>
+                        <li><a href="#">Pricing guide</a></li>
+                        <li><a href="#">Owner protection</a></li>
+                        <li><a href="#">Success stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report an issue</a></li>
+                        <li><a href="#">Safety tips</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Veranda Market. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-heart"></i>
+            <span>Saved</span>
+        </a>
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-tag"></i>
+            <span>Rent</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-plus"></i>
+            <span>List Item</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="js/rental-services.js"></script>
+</body>
+</html>

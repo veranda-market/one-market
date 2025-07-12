@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veranda Market Services - Find skilled professionals in Cameroon">
+    <title>Professional Services - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-logo">VM</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p><i class="fas fa-bolt"></i> Get 20% off your first service booking! Use code: <strong>SERVICE2024</strong></p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="services">Services</option>
+                                    <option value="professionals">Professionals</option>
+                                    <option value="locations">Locations</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Find plumbers, electricians, cleaners...">
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Deliver To -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Service area</span>
+                                <span class="deliver-location" id="deliverLocation">Select Location</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Messages -->
+                        <div class="messages-container">
+                            <i class="fas fa-comment-dots"></i>
+                            <span class="message-count">3</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Manage your service requests</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Become a Pro</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-clipboard-list"></i> My Bookings</li>
+                                    <li><i class="fas fa-star"></i> Reviews</li>
+                                    <li><i class="fas fa-heart"></i> Saved Pros</li>
+                                    <li><i class="fas fa-cog"></i> Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section - Fiverr Inspired -->
+    <section class="services-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-video-bg">
+            <div class="hero-image-fallback"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line-1">Our professionals</span>
+                    <span class="title-line-2">will take it from here</span>
+                </h1>
+                
+                <div class="hero-search-container">
+                    <div class="hero-search-wrapper">
+                        <input type="text" class="hero-search-input" placeholder="Search for any service..." id="heroSearchInput">
+                        <button class="hero-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Popular Services Tags -->
+                    <div class="popular-services-tags">
+                        <span class="tag-label">Popular:</span>
+                        <button class="service-tag" data-service="plumber">
+                            <i class="fas fa-wrench"></i> Plumbing
+                        </button>
+                        <button class="service-tag" data-service="electrician">
+                            <i class="fas fa-bolt"></i> Electrical Work
+                        </button>
+                        <button class="service-tag" data-service="cleaning">
+                            <i class="fas fa-broom"></i> House Cleaning
+                        </button>
+                        <button class="service-tag" data-service="painting">
+                            <i class="fas fa-paint-roller"></i> Painting
+                        </button>
+                        <button class="service-tag" data-service="carpenter">
+                            <i class="fas fa-hammer"></i> Carpentry
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <span class="trust-text">Trusted by:</span>
+                    <div class="trust-logos">
+                        <span class="trust-item">5000+ Happy Customers</span>
+                        <span class="trust-item">1200+ Verified Pros</span>
+                        <span class="trust-item">All Major Cities</span>
+                        <span class="trust-item">24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories Section -->
+    <section class="service-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse Services by Category</h2>
+                <p class="section-subtitle">Find trusted professionals for all your needs</p>
+            </div>
+
+            <div class="categories-grid">
+                <!-- Home Services -->
+                <div class="category-card" data-category="home">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="category-name">Home Services</h3>
+                    <p class="category-description">Plumbing, electrical, carpentry & more</p>
+                    <span class="category-count">234 Pros</span>
+                    <div class="category-hover-content">
+                        <ul class="subcategories">
+                            <li><i class="fas fa-wrench"></i> Plumbing</li>
+                            <li><i class="fas fa-bolt"></i> Electrical</li>
+                            <li><i class="fas fa-hammer"></i> Carpentry</li>
+                            <li><i class="fas fa-paint-roller"></i> Painting</li>
+                        </ul>
+                        <button class="explore-btn">Explore <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Automotive -->
+                <div class="category-card" data-category="automotive">
+                    <div class="category-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="category-name">Automotive</h3>
+                    <p class="category-description">Mechanics, auto electricians & detailing</p>
+                    <span class="category-count">156 Pros</span>
+                </div>
+
+                <!-- Cleaning -->
+                <div class="category-card" data-category="cleaning">
+                    <div class="category-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="category-name">Cleaning Services</h3>
+                    <p class="category-description">Home, office & specialized cleaning</p>
+                    <span class="category-count">189 Pros</span>
+                </div>
+
+                <!-- Beauty & Wellness -->
+                <div class="category-card" data-category="beauty">
+                    <div class="category-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="category-name">Beauty & Wellness</h3>
+                    <p class="category-description">Hair, makeup, massage & spa services</p>
+                    <span class="category-count">267 Pros</span>
+                </div>
+
+                <!-- Tech & IT -->
+                <div class="category-card" data-category="tech">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="category-name">Tech & IT</h3>
+                    <p class="category-description">Computer repair, networking & support</p>
+                    <span class="category-count">143 Pros</span>
+                </div>
+
+                <!-- Events -->
+                <div class="category-card" data-category="events">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="category-name">Events & Entertainment</h3>
+                    <p class="category-description">DJs, photographers & event planning</p>
+                    <span class="category-count">198 Pros</span>
+                </div>
+
+                <!-- Education -->
+                <div class="category-card" data-category="education">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="category-name">Education & Training</h3>
+                    <p class="category-description">Tutors, trainers & skill development</p>
+                    <span class="category-count">176 Pros</span>
+                </div>
+
+                <!-- More Services -->
+                <div class="category-card more-services">
+                    <div class="category-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <h3 class="category-name">More Services</h3>
+                    <p class="category-description">Explore all categories</p>
+                    <span class="category-count">500+ Pros</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Professionals -->
+    <section class="featured-professionals">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Top-Rated Professionals</h2>
+                <div class="section-controls">
+                    <div class="filter-pills">
+                        <button class="filter-pill active" data-filter="all">All Services</button>
+                        <button class="filter-pill" data-filter="home">Home</button>
+                        <button class="filter-pill" data-filter="automotive">Automotive</button>
+                        <button class="filter-pill" data-filter="cleaning">Cleaning</button>
+                        <button class="filter-pill" data-filter="beauty">Beauty</button>
+                    </div>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="professionals-grid">
+                <!-- Professional Card 1 -->
+                <div class="professional-card" data-category="home">
+                    <div class="pro-badge">
+                        <i class="fas fa-shield-alt"></i> Verified Pro
+                    </div>
+                    <div class="pro-header">
+                        <div class="pro-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Kamga">
+                            <span class="availability-status online"></span>
+                        </div>
+                        <div class="pro-info">
+                            <h3 class="pro-name">Jean Kamga</h3>
+                            <p class="pro-title">Master Electrician</p>
+                            <div class="pro-location">
+                                <i class="fas fa-map-marker-alt"></i> Douala, Bonapriso
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pro-stats">
+                        <div class="stat">
+                            <span class="stat-value">4.9</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">127</span>
+                            <span class="stat-label">Jobs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">98%</span>
+                            <span class="stat-label">On-time</span>
+                        </div>
+                    </div>
+
+                    <div class="pro-skills">
+                        <span class="skill-tag">Wiring</span>
+                        <span class="skill-tag">Installation</span>
+                        <span class="skill-tag">Repairs</span>
+                    </div>
+
+                    <div class="pro-description">
+                        <p>15+ years experience. Specialized in residential and commercial electrical installations. Available for emergency calls.</p>
+                    </div>
+
+                    <div class="pro-pricing">
+                        <span class="price-label">Starting at</span>
+                        <span class="price-value">15,000 XAF</span>
+                    </div>
+
+                    <div class="pro-actions">
+                        <button class="btn-contact">
+                            <i class="fas fa-comment"></i> Contact
+                        </button>
+                        <button class="btn-book">
+                            <i class="fas fa-calendar-check"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Professional Card 2 -->
+                <div class="professional-card" data-category="cleaning">
+                    <div class="pro-badge">
+                        <i class="fas fa-star"></i> Top Rated
+                    </div>
+                    <div class="pro-header">
+                        <div class="pro-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Njoya">
+                            <span class="availability-status online"></span>
+                        </div>
+                        <div class="pro-info">
+                            <h3 class="pro-name">Marie Njoya</h3>
+                            <p class="pro-title">Professional Cleaner</p>
+                            <div class="pro-location">
+                                <i class="fas fa-map-marker-alt"></i> Yaoundé, Bastos
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pro-stats">
+                        <div class="stat">
+                            <span class="stat-value">4.8</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">234</span>
+                            <span class="stat-label">Jobs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Satisfied</span>
+                        </div>
+                    </div>
+
+                    <div class="pro-skills">
+                        <span class="skill-tag">Deep Cleaning</span>
+                        <span class="skill-tag">Office</span>
+                        <span class="skill-tag">Eco-friendly</span>
+                    </div>
+
+                    <div class="pro-description">
+                        <p>Professional cleaning services with eco-friendly products. Residential and office cleaning. Weekly/monthly packages available.</p>
+                    </div>
+
+                    <div class="pro-pricing">
+                        <span class="price-label">Starting at</span>
+                        <span class="price-value">20,000 XAF</span>
+                    </div>
+
+                    <div class="pro-actions">
+                        <button class="btn-contact">
+                            <i class="fas fa-comment"></i> Contact
+                        </button>
+                        <button class="btn-book">
+                            <i class="fas fa-calendar-check"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- More professional cards... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">How Veranda Services Works</h2>
+                <p class="section-subtitle">Get professional help in 4 simple steps</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="step-title">Search & Find</h3>
+                    <p class="step-description">Browse our verified professionals or search for specific services</p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="step-title">Compare & Choose</h3>
+                    <p class="step-description">Review profiles, ratings, and prices to find your perfect match</p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="step-title">Book & Schedule</h3>
+                    <p class="step-description">Book instantly or chat with pros to schedule at your convenience</p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="step-title">Rate & Review</h3>
+                    <p class="step-description">Share your experience to help others find quality services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="services-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2 class="cta-title">Are you a skilled professional?</h2>
+                    <p class="cta-subtitle">Join thousands of pros already growing their business on Veranda Market</p>
+                    <div class="cta-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free to join</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Set your own rates</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Work on your schedule</span>
+                        </div>
+                    </div>
+                    <button class="cta-btn">
+                        Become a Pro
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="cta-image">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop" alt="Professional at work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Modern Footer Section -->
+<footer class="modern-footer">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Connected
+                        </h3>
+                        <p class="newsletter-subtitle">Get exclusive deals, updates, and local market insights delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter-meta">
+                            <span class="subscriber-count">
+                                <i class="fas fa-users"></i>
+                                Join 50,000+ subscribers
+                            </span>
+                            <span class="newsletter-promise">
+                                <i class="fas fa-lock"></i>
+                                No spam, unsubscribe anytime
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+ 
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/icon.png" alt="Veranda Market">
+                        <div class="logo-text">
+                            <h4>Veranda Market</h4>
+                            <p>Your Local Online Marketplace</p>
+                        </div>
+                    </div>
+                    <p class="company-description">
+                        Connecting local businesses with customers across Cameroon. Shop from your veranda and support your community.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="app-badges">
+                        <h5>Download Our App</h5>
+                        <div class="badge-container">
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store">
+                            </a>
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h5 class="column-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Seller Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Career Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog & News</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h5 class="column-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Track Your Order</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div class="footer-column">
+                    <h5 class="column-title">For Business</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sell on Veranda</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Advertise With Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Affiliate Program</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Corporate Sales</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Partner Hub</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column contact-info">
+                    <h5 class="column-title">Get in Touch</h5>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong>
+                                <p>123 Commerce Street, Douala, Cameroon</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+237 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>support@verandamarket.cm</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Bar -->
+            <div class="features-bar">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="feature-text">
+                        <strong>Fast Delivery</strong>
+                        <span>Same day in major cities</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>Secure Payment</strong>
+                        <span>100% protected transactions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <div class="feature-text">
+                        <strong>Easy Returns</strong>
+                        <span>7-day return policy</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>24/7 Support</strong>
+                        <span>Dedicated customer service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <h5>Accepted Payment Methods</h5>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Money</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Veranda Market. All rights reserved. Made with <i class="fas fa-heart"></i> in Cameroon</p>
+                </div>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="language-currency">
+                    <button class="lang-select">
+                        <i class="fas fa-globe"></i>
+                        English
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="currency-select">
+                        <i class="fas fa-money-bill"></i>
+                        XAF
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-tools"></i>
+            <span>Services</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-clipboard-list"></i>
+            <span>Bookings</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Products & Shopping - Veranda Market">
+    <title>Products & Shopping - All Shops | Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Site CSS (for header) -->
+    <link rel="stylesheet" href="css/style.css">   
+    
+    <!-- Shops Listing CSS -->
+    <link rel="stylesheet" href="css/products-shopping-home.css">  
+</head>
+<body>
+    <!-- Top Navigation from Main Site -->
+    <header class="header" id="header">
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="products">Products</option>
+                                    <option value="shops">Shops</option>
+                                    <option value="locations">Locations</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Search for shops...">
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Deliver to</span>
+                                <span class="deliver-location" id="deliverLocation">Select Location</span>
+                            </div>
+                        </div>
+                        <div class="cart-container">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="shops-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Join Our Community</div>
+                <h1 class="hero-title">Discover Local Shops</h1>
+                <p class="hero-description">
+                    Connect with trusted local businesses and enjoy convenient shopping from your veranda. 
+                    Browse hundreds of verified shops in your area.
+                </p>
+                <a href="#shops" class="hero-cta">
+                    <span>Explore All Shops</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+            <!-- Hero pattern overlay -->
+            <div class="hero-pattern"></div>
+        </div>
+    </section>
+
+    <!-- Floating Create Shop Button -->
+    <button class="floating-create-shop-btn" id="floatingCreateShop">
+        <div class="floating-btn-content">
+            <i class="fas fa-store"></i>
+            <span class="floating-btn-text">Create Your Shop</span>
+        </div>
+        <div class="floating-btn-badge">FREE</div>
+    </button>
+
+    <!-- Shops Listing Section -->
+    <section class="shops-listing" id="shops">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title">All Shops in Products & Shopping</h2>
+                <div class="filter-controls">
+                    <div class="sort-dropdown">
+                        <select id="sortShops">
+                            <option value="relevance">Most Relevant</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="newest">Newest First</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <span class="results-count">256 shops found</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters Sidebar -->
+            <div class="shops-content">
+                <aside class="filters-sidebar">
+                    <h3 class="filter-title">Filters</h3>
+                    
+                    <!-- Customer Protection Filter -->
+                    <div class="filter-group">
+                        <div class="protection-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Customer Protection</span>
+                        </div>
+                        <p class="protection-text">
+                            Protect your purchases with Veranda Market guarantee
+                        </p>
+                    </div>
+                    
+                    <!-- Shop Features Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Shop Features</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="verifiedShops">
+                            <span class="checkbox-custom"></span>
+                            <span class="filter-label">
+                                <i class="fas fa-shield-alt"></i> Trusted Shops
+                            </span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="freeDelivery">
+                            <span class="checkbox-custom"></span>
+                            <span class="filter-label">
+                                <i class="fas fa-truck"></i> Free Delivery
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Shop Rating</h4>
+                        <div class="rating-filters">
+                            <label class="rating-filter">
+                                <input type="radio" name="rating" value="4">
+                                <span class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    & up
+                                </span>
+                            </label>
+                            <label class="rating-filter">
+                                <input type="radio" name="rating" value="4.5">
+                                <span class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    & up
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Location Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Location</h4>
+                        <select class="location-select">
+                            <option value="">All Locations</option>
+                            <option value="yaounde">Yaoundé</option>
+                            <option value="douala">Douala</option>
+                            <option value="buea">Buea</option>
+                            <option value="bafoussam">Bafoussam</option>
+                            <option value="bamenda">Bamenda</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <!-- Shops Grid -->
+                <div class="shops-grid">
+                    <!-- Shop Card 1 -->
+                    <div class="shop-card">
+                        <div class="shop-left">
+                            <div class="shop-logo">
+                                <img src="https://via.placeholder.com/60x60?text=Logo" alt="TechZone Electronics">
+                            </div>
+                        </div>
+                        
+                        <div class="shop-center">
+                            <div class="shop-title-row">
+                                <h3 class="shop-name">TechZone Electronics</h3>
+                            </div>
+                            
+                            <div class="shop-info-row">
+                                <span class="years-badge">5 yrs</span>
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    Verified Shop
+                                </span>
+                            </div>
+                            
+                            <div class="shop-rating-row">
+                                <span class="rating-value">4.8</span>
+                                <span class="rating-text">/5 (324 reviews)</span>
+                            </div>
+                            
+                            <div class="shop-response-row">
+                                <span class="response-label">Response time</span>
+                                <span class="response-value">≤2h</span>
+                            </div>
+                            
+                            <div class="shop-products-row">
+                                <span class="products-label">Main products</span>
+                                <p class="products-list">Laptops, Smartphones, Audio Equipment, Smart Home Devices, Gaming Accessories</p>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-right">
+                            <div class="shop-products-wrapper">
+                                <div class="shop-products-preview">
+                                    <div class="preview-small-container">
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=150&h=150&fit=crop" alt="Gaming Laptop">
+                                            <div class="product-info">
+                                                <span class="product-price">950,000 CFA</span>
+                                                <span class="product-moq">2 pieces</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=150&h=150&fit=crop" alt="Smartphone">
+                                            <div class="product-info">
+                                                <span class="product-price">180,000 CFA</span>
+                                                <span class="product-moq">1 piece</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-large-container">
+                                        <div class="product-preview large">
+                                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=250&h=250&fit=crop" alt="Headphones">
+                                        </div>
+                                        <div class="shop-actions">
+                                            <button class="chat-btn">Chat now</button>
+                                            <a href="shop-template.html" class="visit-shop-btn">Visit shop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shop Card 2 -->
+                    <div class="shop-card">
+                        <div class="shop-left">
+                            <div class="shop-logo">
+                                <img src="https://via.placeholder.com/60x60?text=Logo" alt="Fashion Hub">
+                            </div>
+                        </div>
+                        
+                        <div class="shop-center">
+                            <div class="shop-title-row">
+                                <h3 class="shop-name">Fashion Hub Cameroon</h3>
+                            </div>
+                            
+                            <div class="shop-info-row">
+                                <span class="years-badge">3 yrs</span>
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    Verified Shop
+                                </span>
+                            </div>
+                            
+                            <div class="shop-rating-row">
+                                <span class="rating-value">4.6</span>
+                                <span class="rating-text">/5 (189 reviews)</span>
+                            </div>
+                            
+                            <div class="shop-response-row">
+                                <span class="response-label">Response time</span>
+                                <span class="response-value">≤4h</span>
+                            </div>
+                            
+                            <div class="shop-products-row">
+                                <span class="products-label">Main products</span>
+                                <p class="products-list">Men's Clothing, Women's Fashion, Shoes, Accessories, Traditional Wear</p>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-right">
+                            <div class="shop-products-wrapper">
+                                <div class="shop-products-preview">
+                                    <div class="preview-small-container">
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=150&h=150&fit=crop" alt="Women's Dress">
+                                            <div class="product-info">
+                                                <span class="product-price">35,000 CFA</span>
+                                                <span class="product-moq">1 piece</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop" alt="Sneakers">
+                                            <div class="product-info">
+                                                <span class="product-price">45,000 CFA</span>
+                                                <span class="product-moq">1 piece</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-large-container">
+                                        <div class="product-preview large">
+                                            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=250&h=250&fit=crop" alt="T-Shirt">
+                                        </div>
+                                        <div class="shop-actions">
+                                            <button class="chat-btn">Chat now</button>
+                                            <a href="shop-template.html" class="visit-shop-btn">Visit shop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shop Card 3 -->
+                    <div class="shop-card">
+                        <div class="shop-left">
+                            <div class="shop-logo">
+                                <img src="https://via.placeholder.com/60x60?text=Logo" alt="Home Essentials">
+                            </div>
+                        </div>
+                        
+                        <div class="shop-center">
+                            <div class="shop-title-row">
+                                <h3 class="shop-name">Home Essentials Store</h3>
+                            </div>
+                            
+                            <div class="shop-info-row">
+                                <span class="years-badge">2 yrs</span>
+                            </div>
+                            
+                            <div class="shop-rating-row">
+                                <span class="rating-value">4.5</span>
+                                <span class="rating-text">/5 (98 reviews)</span>
+                            </div>
+                            
+                            <div class="shop-response-row">
+                                <span class="response-label">Response time</span>
+                                <span class="response-value">≤1h</span>
+                            </div>
+                            
+                            <div class="shop-products-row">
+                                <span class="products-label">Main products</span>
+                                <p class="products-list">Kitchen Appliances, Home Decor, Furniture, Bedding, Storage Solutions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-right">
+                            <div class="shop-products-wrapper">
+                                <div class="shop-products-preview">
+                                    <div class="preview-small-container">
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=150&h=150&fit=crop" alt="Blender">
+                                            <div class="product-info">
+                                                <span class="product-price">25,000 CFA</span>
+                                                <span class="product-moq">1 piece</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=150&h=150&fit=crop" alt="Sofa">
+                                            <div class="product-info">
+                                                <span class="product-price">185,000 CFA</span>
+                                                <span class="product-moq">1 piece</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-large-container">
+                                        <div class="product-preview large">
+                                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=250&h=250&fit=crop" alt="Living Room Set">
+                                        </div>
+                                        <div class="shop-actions">
+                                            <button class="chat-btn">Chat now</button>
+                                            <a href="shop-template.html" class="visit-shop-btn">Visit shop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shop Card 4 -->
+                    <div class="shop-card">
+                        <div class="shop-left">
+                            <div class="shop-logo">
+                                <img src="https://via.placeholder.com/60x60?text=Logo" alt="Beauty Palace">
+                            </div>
+                        </div>
+                        
+                        <div class="shop-center">
+                            <div class="shop-title-row">
+                                <h3 class="shop-name">Beauty Palace</h3>
+                            </div>
+                            
+                            <div class="shop-info-row">
+                                <span class="years-badge">4 yrs</span>
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    Verified Shop
+                                </span>
+                            </div>
+                            
+                            <div class="shop-rating-row">
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-text">/5 (412 reviews)</span>
+                            </div>
+                            
+                            <div class="shop-response-row">
+                                <span class="response-label">Response time</span>
+                                <span class="response-value">≤30min</span>
+                            </div>
+                            
+                            <div class="shop-products-row">
+                                <span class="products-label">Main products</span>
+                                <p class="products-list">Skincare, Makeup, Hair Care, Perfumes, Beauty Tools, Natural Products</p>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-right">
+                            <div class="shop-products-wrapper">
+                                <div class="shop-products-preview">
+                                    <div class="preview-small-container">
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=150&h=150&fit=crop" alt="Makeup Set">
+                                            <div class="product-info">
+                                                <span class="product-price">65,000 CFA</span>
+                                                <span class="product-moq">1 piece</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-preview small">
+                                            <img src="https://images.unsplash.com/photo-1571875257727-256c39da42af?w=150&h=150&fit=crop" alt="Skincare">
+                                            <div class="product-info">
+                                                <span class="product-price">28,000 CFA</span>
+                                                <span class="product-moq">2 pieces</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-large-container">
+                                        <div class="product-preview large">
+                                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=250&h=250&fit=crop" alt="Beauty Collection">
+                                        </div>
+                                        <div class="shop-actions">
+                                            <button class="chat-btn">Chat now</button>
+                                            <a href="shop-template.html" class="visit-shop-btn">Visit shop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More shop cards... -->
+                </div>
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    <span>Load More Shops</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (simplified) -->
+    <footer class="shops-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Veranda Market. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products-shopping-home.js"></script>
+</body>
+</html>

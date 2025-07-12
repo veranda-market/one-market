@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veranda Market Bus Tickets - Book affordable bus tickets across Cameroon">
+    <title>Bus Tickets - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bus-tickets.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p><i class="fas fa-bus"></i> Book bus tickets across Cameroon! <strong>Safe, Comfortable, Affordable</strong></p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="top-nav-wrapper">
+                    <!-- Logo and Brand -->
+                    <div class="brand">
+                        <a href="/" class="logo-container">
+                            <div class="logo">
+                                <img src="assets/images/icon.png" alt="Veranda Market Logo">
+                            </div>
+                            <div class="brand-text">
+                                <h1>
+                                    <span class="brand-v">Veranda</span>
+                                    <span class="brand-m">Market</span>
+                                </h1>
+                                <p class="slogan">Shop from your veranda</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-category-dropdown">
+                                <select id="searchCategory">
+                                    <option value="bus-routes">Bus Routes</option>
+                                    <option value="companies">Companies</option>
+                                    <option value="destinations">Destinations</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-indicator"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Search bus routes, companies, destinations...">
+                                <button class="image-search-btn" title="Search by image">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                                <button class="voice-search-btn" title="Voice search">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                <span class="search-btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <!-- Deliver To -->
+                        <div class="deliver-to">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="deliver-text">
+                                <span class="deliver-label">Travel from</span>
+                                <span class="deliver-location" id="deliverLocation">Select City</span>
+                            </div>
+                            <div class="location-dropdown">
+                                <ul>
+                                    <li data-city="all">All Cameroon</li>
+                                    <li data-city="yaounde">Yaoundé</li>
+                                    <li data-city="douala">Douala</li>
+                                    <li data-city="buea">Buea</li>
+                                    <li data-city="bafoussam">Bafoussam</li>
+                                    <li data-city="bamenda">Bamenda</li>
+                                    <li data-city="garoua">Garoua</li>
+                                    <li data-city="maroua">Maroua</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Shopping Cart -->
+                        <div class="cart-container">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <div class="account-dropdown">
+                                <div class="dropdown-header">
+                                    <h4>Welcome!</h4>
+                                    <p>Access account & manage bookings</p>
+                                </div>
+                                <button class="btn-signin">Sign In</button>
+                                <button class="btn-register">Register</button>
+                                <div class="dropdown-divider"></div>
+                                <ul class="account-menu">
+                                    <li><i class="fas fa-ticket-alt"></i> My Bookings</li>
+                                    <li><i class="fas fa-heart"></i> Saved Routes</li>
+                                    <li><i class="fas fa-envelope"></i> Messages</li>
+                                    <li><i class="fas fa-cog"></i> Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Bus Background -->
+    <section class="bus-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Affordable bus travel from <span class="price-highlight">₣CFA 2,500</span></h1>
+            
+            <!-- Search Form -->
+            <div class="bus-search-container">
+                <div class="trip-type-toggle">
+                    <label class="trip-option active">
+                        <input type="radio" name="tripType" value="oneway" checked>
+                        <span class="option-circle"></span>
+                        <span class="option-label">One way</span>
+                    </label>
+                    <label class="trip-option">
+                        <input type="radio" name="tripType" value="roundtrip">
+                        <span class="option-circle"></span>
+                        <span class="option-label">Round trip</span>
+                    </label>
+                </div>
+
+                <form class="bus-search-form">
+                    <div class="form-row">
+                        <div class="input-group from-field">
+                            <label>From</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" placeholder="Douala" id="fromCity" autocomplete="off">
+                                <button type="button" class="swap-btn" aria-label="Swap cities">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </button>
+                            </div>
+                            <div class="suggestions-dropdown" id="fromSuggestions"></div>
+                        </div>
+
+                        <div class="input-group to-field">
+                            <label>To</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" placeholder="Yaoundé" id="toCity" autocomplete="off">
+                            </div>
+                            <div class="suggestions-dropdown" id="toSuggestions"></div>
+                        </div>
+
+                        <div class="input-group date-field">
+                            <label>Departure</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar-alt"></i>
+                                <input type="date" id="departureDate">
+                            </div>
+                        </div>
+
+                        <div class="input-group return-date-field" style="display: none;">
+                            <label>Return</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar-alt"></i>
+                                <input type="date" id="returnDate">
+                            </div>
+                        </div>
+
+                        <div class="input-group passengers-field">
+                            <label>Passengers</label>
+                            <div class="input-wrapper">
+                                <select id="passengers">
+                                    <option value="1">1 adult</option>
+                                    <option value="2">2 adults</option>
+                                    <option value="3">3 adults</option>
+                                    <option value="4">4 adults</option>
+                                    <option value="5">5 adults</option>
+                                    <option value="6">6+ adults</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="search-btn">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Manage my reservation</span>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-route"></i>
+                    <span>Follow a route</span>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bus-features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>We connect you across Cameroon</h3>
+                    <p>The possibilities are endless. Discover over 20 destinations in all 10 regions of Cameroon.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>Your comfort on the go</h3>
+                    <p>Relax and enjoy comfortable seats, air conditioning, and generous legroom. Modern buses for your journey.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Choose, book, travel</h3>
+                    <p>From your screen to your seat in seconds. Book online, get your e-ticket, and enjoy the ride.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Travel with awareness</h3>
+                    <p>Choose the eco-friendly way. Reduce your carbon footprint and expand your travel experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes Section -->
+    <section class="popular-routes">
+        <div class="container">
+            <h2 class="section-title">Popular Bus Routes</h2>
+            <div class="routes-grid">
+                <div class="route-card">
+                    <div class="route-info">
+                        <div class="route-cities">
+                            <span class="city-from">Douala</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="city-to">Yaoundé</span>
+                        </div>
+                        <div class="route-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 3h 30min</span>
+                            <span class="frequency">15 buses daily</span>
+                        </div>
+                    </div>
+                    <div class="route-price">
+                        <span class="from-text">From</span>
+                        <span class="price">₣3,500</span>
+                    </div>
+                </div>
+
+                <div class="route-card">
+                    <div class="route-info">
+                        <div class="route-cities">
+                            <span class="city-from">Yaoundé</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="city-to">Bafoussam</span>
+                        </div>
+                        <div class="route-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 4h 15min</span>
+                            <span class="frequency">8 buses daily</span>
+                        </div>
+                    </div>
+                    <div class="route-price">
+                        <span class="from-text">From</span>
+                        <span class="price">₣4,000</span>
+                    </div>
+                </div>
+
+                <div class="route-card">
+                    <div class="route-info">
+                        <div class="route-cities">
+                            <span class="city-from">Douala</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="city-to">Buea</span>
+                        </div>
+                        <div class="route-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 30min</span>
+                            <span class="frequency">20 buses daily</span>
+                        </div>
+                    </div>
+                    <div class="route-price">
+                        <span class="from-text">From</span>
+                        <span class="price">₣2,500</span>
+                    </div>
+                </div>
+
+                <div class="route-card">
+                    <div class="route-info">
+                        <div class="route-cities">
+                            <span class="city-from">Bamenda</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="city-to">Yaoundé</span>
+                        </div>
+                        <div class="route-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 6h 00min</span>
+                            <span class="frequency">5 buses daily</span>
+                        </div>
+                    </div>
+                    <div class="route-price">
+                        <span class="from-text">From</span>
+                        <span class="price">₣5,500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bus Companies Section -->
+    <section class="bus-companies">
+        <div class="container">
+            <h2 class="section-title">Trusted Bus Companies</h2>
+            <div class="companies-grid">
+                <div class="company-card">
+                    <img src="https://via.placeholder.com/200x100?text=Garanti+Express" alt="Garanti Express">
+                    <h4>Garanti Express</h4>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">4.8</span>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <img src="https://via.placeholder.com/200x100?text=Vatican+Express" alt="Vatican Express">
+                    <h4>Vatican Express</h4>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">4.6</span>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <img src="https://via.placeholder.com/200x100?text=Musango+Bus" alt="Musango Bus">
+                    <h4>Musango Bus Service</h4>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score">4.5</span>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <img src="https://via.placeholder.com/200x100?text=Central+Voyage" alt="Central Voyage">
+                    <h4>Central Voyage</h4>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">4.7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Premium Bus Agencies Showcase -->
+<section class="agencies-showcase">
+    <div class="container">
+        <div class="showcase-header">
+            <span class="section-label">TRUSTED PARTNERS</span>
+            <h2 class="showcase-title">
+                Travel with Cameroon's
+                <span class="title-gradient">Premium Bus Agencies</span>
+            </h2>
+            <p class="showcase-subtitle">
+                Experience comfort, safety, and reliability with our verified transportation partners
+            </p>
+        </div>
+
+        <!-- Agencies Grid -->
+        <div class="agencies-container">
+            <!-- Agency Card 1 - Garanti Express -->
+            <div class="agency-card featured" data-agency="garanti">
+                <div class="agency-badge">MOST POPULAR</div>
+                <div class="agency-header">
+                    <div class="agency-logo">
+                        <img src="https://via.placeholder.com/120x120?text=GE" alt="Garanti Express">
+                    </div>
+                    <div class="agency-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-score">4.9</span>
+                        <span class="rating-count">(2,341 reviews)</span>
+                    </div>
+                </div>
+                
+                <h3 class="agency-name">Garanti Express</h3>
+                <p class="agency-tagline">The Leader in Intercity Travel</p>
+                
+                <div class="agency-stats">
+                    <div class="stat">
+                        <span class="stat-value">50+</span>
+                        <span class="stat-label">Buses</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">25</span>
+                        <span class="stat-label">Routes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">15Y</span>
+                        <span class="stat-label">Experience</span>
+                    </div>
+                </div>
+
+                <div class="agency-features">
+                    <div class="feature-item">
+                        <i class="fas fa-wifi"></i>
+                        <span>Free WiFi</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-snowflake"></i>
+                        <span>AC Buses</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-tv"></i>
+                        <span>Entertainment</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-plug"></i>
+                        <span>Charging Ports</span>
+                    </div>
+                </div>
+
+                <div class="agency-routes">
+                    <h4>Popular Routes</h4>
+                    <div class="route-tags">
+                        <span class="route-tag">Douala - Yaoundé</span>
+                        <span class="route-tag">Douala - Bafoussam</span>
+                        <span class="route-tag">Yaoundé - Bamenda</span>
+                        <span class="route-tag">+12 more</span>
+                    </div>
+                </div>
+
+                <button class="agency-cta">
+                    <span>Book with Garanti Express</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Agency Card 2 - Vatican Express -->
+            <div class="agency-card" data-agency="vatican">
+                <div class="agency-badge luxury">LUXURY</div>
+                <div class="agency-header">
+                    <div class="agency-logo">
+                        <img src="https://via.placeholder.com/120x120?text=VE" alt="Vatican Express">
+                    </div>
+                    <div class="agency-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-score">4.7</span>
+                        <span class="rating-count">(1,856 reviews)</span>
+                    </div>
+                </div>
+                
+                <h3 class="agency-name">Vatican Express</h3>
+                <p class="agency-tagline">Luxury Travel Redefined</p>
+                
+                <div class="agency-stats">
+                    <div class="stat">
+                        <span class="stat-value">35+</span>
+                        <span class="stat-label">Buses</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">20</span>
+                        <span class="stat-label">Routes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">10Y</span>
+                        <span class="stat-label">Experience</span>
+                    </div>
+                </div>
+
+                <div class="agency-features">
+                    <div class="feature-item">
+                        <i class="fas fa-couch"></i>
+                        <span>VIP Seats</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>Meals</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headphones"></i>
+                        <span>Personal Audio</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Insurance</span>
+                    </div>
+                </div>
+
+                <div class="agency-routes">
+                    <h4>Popular Routes</h4>
+                    <div class="route-tags">
+                        <span class="route-tag">Douala - Kribi</span>
+                        <span class="route-tag">Yaoundé - Garoua</span>
+                        <span class="route-tag">Buea - Bamenda</span>
+                        <span class="route-tag">+8 more</span>
+                    </div>
+                </div>
+
+                <button class="agency-cta">
+                    <span>Book with Vatican Express</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Agency Card 3 - Central Voyage -->
+            <div class="agency-card" data-agency="central">
+                <div class="agency-badge eco">ECO FRIENDLY</div>
+                <div class="agency-header">
+                    <div class="agency-logo">
+                        <img src="https://via.placeholder.com/120x120?text=CV" alt="Central Voyage">
+                    </div>
+                    <div class="agency-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-score">4.8</span>
+                        <span class="rating-count">(1,432 reviews)</span>
+                    </div>
+                </div>
+                
+                <h3 class="agency-name">Central Voyage</h3>
+                <p class="agency-tagline">Sustainable Travel Solutions</p>
+                
+                <div class="agency-stats">
+                    <div class="stat">
+                        <span class="stat-value">40+</span>
+                        <span class="stat-label">Buses</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">18</span>
+                        <span class="stat-label">Routes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12Y</span>
+                        <span class="stat-label">Experience</span>
+                    </div>
+                </div>
+
+                <div class="agency-features">
+                    <div class="feature-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Eco Buses</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-recycle"></i>
+                        <span>Green Travel</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-tree"></i>
+                        <span>Carbon Offset</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-solar-panel"></i>
+                        <span>Solar Powered</span>
+                    </div>
+                </div>
+
+                <div class="agency-routes">
+                    <h4>Popular Routes</h4>
+                    <div class="route-tags">
+                        <span class="route-tag">Yaoundé - Ebolowa</span>
+                        <span class="route-tag">Douala - Limbe</span>
+                        <span class="route-tag">Bafoussam - Foumban</span>
+                        <span class="route-tag">+15 more</span>
+                    </div>
+                </div>
+
+                <button class="agency-cta">
+                    <span>Book with Central Voyage</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Agency Card 4 - Musango Bus Service -->
+            <div class="agency-card" data-agency="musango">
+                <div class="agency-badge value">BEST VALUE</div>
+                <div class="agency-header">
+                    <div class="agency-logo">
+                        <img src="https://via.placeholder.com/120x120?text=MB" alt="Musango Bus">
+                    </div>
+                    <div class="agency-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="rating-score">4.5</span>
+                        <span class="rating-count">(987 reviews)</span>
+                    </div>
+                </div>
+                
+                <h3 class="agency-name">Musango Bus Service</h3>
+                <p class="agency-tagline">Affordable Comfort for Everyone</p>
+                
+                <div class="agency-stats">
+                    <div class="stat">
+                        <span class="stat-value">60+</span>
+                        <span class="stat-label">Buses</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">30</span>
+                        <span class="stat-label">Routes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">20Y</span>
+                        <span class="stat-label">Experience</span>
+                    </div>
+                </div>
+
+                <div class="agency-features">
+                    <div class="feature-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Best Prices</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <span>On Time</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Wide Coverage</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <span>Family Friendly</span>
+                    </div>
+                </div>
+
+                <div class="agency-routes">
+                    <h4>Popular Routes</h4>
+                    <div class="route-tags">
+                        <span class="route-tag">All Major Cities</span>
+                        <span class="route-tag">Rural Routes</span>
+                        <span class="route-tag">Express Services</span>
+                        <span class="route-tag">+25 more</span>
+                    </div>
+                </div>
+
+                <button class="agency-cta">
+                    <span>Book with Musango</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Comparison Tool -->
+        <div class="agencies-comparison">
+            <h3>Quick Comparison</h3>
+            <button class="compare-btn">
+                <i class="fas fa-balance-scale"></i>
+                Compare All Agencies
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Modern Footer Section -->
+<footer class="modern-footer">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Stay Connected
+                        </h3>
+                        <p class="newsletter-subtitle">Get exclusive deals, updates, and local market insights delivered to your inbox</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter-meta">
+                            <span class="subscriber-count">
+                                <i class="fas fa-users"></i>
+                                Join 50,000+ subscribers
+                            </span>
+                            <span class="newsletter-promise">
+                                <i class="fas fa-lock"></i>
+                                No spam, unsubscribe anytime
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+ 
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/icon.png" alt="Veranda Market">
+                        <div class="logo-text">
+                            <h4>Veranda Market</h4>
+                            <p>Your Local Online Marketplace</p>
+                        </div>
+                    </div>
+                    <p class="company-description">
+                        Connecting local businesses with customers across Cameroon. Shop from your veranda and support your community.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="app-badges">
+                        <h5>Download Our App</h5>
+                        <div class="badge-container">
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store">
+                            </a>
+                            <a href="#" class="app-badge">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h5 class="column-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Seller Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Career Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog & News</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h5 class="column-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Track Your Order</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div class="footer-column">
+                    <h5 class="column-title">For Business</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sell on Veranda</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Advertise With Us</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Affiliate Program</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Corporate Sales</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Partner Hub</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column contact-info">
+                    <h5 class="column-title">Get in Touch</h5>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong>
+                                <p>123 Commerce Street, Douala, Cameroon</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+237 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>support@verandamarket.cm</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Bar -->
+            <div class="features-bar">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="feature-text">
+                        <strong>Fast Delivery</strong>
+                        <span>Same day in major cities</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>Secure Payment</strong>
+                        <span>100% protected transactions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <div class="feature-text">
+                        <strong>Easy Returns</strong>
+                        <span>7-day return policy</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>24/7 Support</strong>
+                        <span>Dedicated customer service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <h5>Accepted Payment Methods</h5>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Money</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/640px-PayPal.svg.png" alt="PayPal">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png" alt="Mastercard">
+                    </div>
+                    <div class="payment-method">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/640px-Visa_Inc._logo.svg.png" alt="Visa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Veranda Market. All rights reserved. Made with <i class="fas fa-heart"></i> in Cameroon</p>
+                </div>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="language-currency">
+                    <button class="lang-select">
+                        <i class="fas fa-globe"></i>
+                        English
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="currency-select">
+                        <i class="fas fa-money-bill"></i>
+                        XAF
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-bus"></i>
+            <span>Bus</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/bus-tickets.js"></script>
+</body>
+</html>
