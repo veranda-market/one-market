@@ -2,6 +2,125 @@
 // SERVICES PAGE JAVASCRIPT
 // ===================================
 
+// API Configuration (align with jobs page)
+const API_BASE_URL = "http://127.0.0.1:8787/api/v1";
+const SERVICES_PER_PAGE = 12;
+
+// Global state for Services
+let svcCurrentPage = 0;
+let svcCurrentSearch = "";
+let svcCurrentCategoryId = "";
+let svcIsLoading = false;
+let svcAllCategories = [];
+
+// Services API
+class ServicesAPI {
+    static async fetchCategories() {
+        try {
+            const response = await fetch(`${API_BASE_URL}/categories`);
+            const data = await response.json();
+            if (!data.success) throw new Error("Failed to fetch categories");
+            return data.data || [];
+        } catch (err) {
+            console.error('Error fetching categories:', err);
+            return [];
+        }
+    }
+
+    static async fetchServices(page = 0, limit = SERVICES_PER_PAGE, search = "", categoryId = "") {
+        try {
+            const params = new URLSearchParams({ page, limit });
+            if (search) params.append('search', search);
+            if (categoryId) params.append('categoryId', categoryId);
+
+            const response = await fetch(`${API_BASE_URL}/services?${params}`);
+            const data = await response.json();
+            if (!response.ok || data.success === false) throw new Error(data.message || 'Failed to fetch services');
+            console.log(data)
+            return data.data || [];
+        } catch (err) {
+            console.error('Error fetching services:', err);
+            return [];
+        }
+    }
+
+    static async submitServiceBooking(booking) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/service-bookings`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(booking)
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message || 'Failed to create booking');
+            return data;
+        } catch (err) {
+            console.error('Error submitting booking:', err);
+            throw err;
+        }
+    }
+}
+
+// Render helpers
+function createCategoryCard(category) {
+    return `
+        <div class="category-card" data-category-id="${category.id}">
+            <div class="category-icon">
+                <i class="fas fa-th"></i>
+            </div>
+            <h3 class="category-name">${category.name}</h3>
+            <p class="category-description">Explore ${category.name} services</p>
+            <span class="category-count">&nbsp;</span>
+        </div>
+    `;
+}
+
+function createServiceCard(service) {
+    const name = service.fullName;
+    const city = service.location || service.city || 'Cameroon';
+    const desc = service.description || 'Professional service at your convenience.';
+    const price = service.minWage ? `${service.minWage + " XAF"}` : 'Discuss';
+    const rating = service.rating || 'New';
+    const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}`;
+    return `
+        <div class="professional-card" data-category="all" data-service-id="${service.id || ''}">
+            <div class="pro-badge">
+                <i class="fas fa-shield-alt"></i> ${typeof rating === 'number' ? rating.toFixed(1) : rating}
+            </div>
+            <div class="pro-header">
+                <div class="pro-avatar">
+                    <img src="${avatar}" alt="${name}">
+                    <span class="availability-status online"></span>
+                </div>
+                <div class="pro-info">
+                    <h3 class="pro-name">${name}</h3>
+                    <p class="pro-title">${service.category.name || 'Professional Service'}</p>
+                    <div class="pro-location">
+                        <i class="fas fa-map-marker-alt"></i> ${city}
+                    </div>
+                </div>
+            </div>
+            <div class="pro-description">
+                <p>${desc}</p>
+            </div>
+            <div class="pro-pricing">
+                <span class="price-label">Starting at</span>
+                <span class="price-value">${price}</span>
+            </div>
+            <div class="pro-skills">
+                ${(service.serviceSkill && service.serviceSkill.length > 0) 
+                    ? service.serviceSkill.slice(0, 5).map((skill) => `<span class="skill-bubble">${skill.skill.name}</span>`).join('')
+                    : ''
+                }
+            </div>
+            <div class="pro-actions">
+                <button class="btn-contact"><i class="fas fa-comment"></i> Contact</button>
+                <button class="btn-book"><i class="fas fa-calendar-check"></i> Book Now</button>
+            </div>
+        </div>
+    `;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===================================
@@ -25,46 +144,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSearchBtn = document.querySelector('.hero-search-btn');
     const serviceTags = document.querySelectorAll('.service-tag');
     
-    // Service data for search
-    const services = [
-        { name: 'Plumbing', category: 'home', keywords: ['plumber', 'pipe', 'leak', 'water'] },
-        { name: 'Electrical Work', category: 'home', keywords: ['electrician', 'wiring', 'electricity'] },
-        { name: 'House Cleaning', category: 'cleaning', keywords: ['clean', 'maid', 'housekeeping'] },
-        { name: 'Painting', category: 'home', keywords: ['painter', 'paint', 'wall'] },
-        { name: 'Carpentry', category: 'home', keywords: ['carpenter', 'wood', 'furniture'] },
-        { name: 'Auto Mechanic', category: 'automotive', keywords: ['mechanic', 'car', 'repair', 'vehicle'] },
-        { name: 'Hair Styling', category: 'beauty', keywords: ['hair', 'salon', 'barber', 'haircut'] },
-        { name: 'Computer Repair', category: 'tech', keywords: ['computer', 'laptop', 'IT', 'tech'] }
-    ];
-
     // Handle search
-    function handleSearch() {
-        const searchTerm = heroSearchInput.value.toLowerCase().trim();
-        if (searchTerm) {
-            console.log('Searching for:', searchTerm);
-            // Here you would implement actual search functionality
-            // For now, we'll just show an alert
-            showSearchResults(searchTerm);
-        }
-    }
-
-    // Show search results (mock implementation)
-    function showSearchResults(term) {
-        const results = services.filter(service => 
-            service.name.toLowerCase().includes(term) ||
-            service.keywords.some(keyword => keyword.includes(term))
-        );
-        
-        if (results.length > 0) {
-            console.log('Found services:', results);
-            // Scroll to categories section
-            document.querySelector('.service-categories').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        } else {
-            showNotification('No services found. Try different keywords.');
-        }
+    async function handleSearch() {
+        const searchTerm = heroSearchInput.value.trim();
+        svcCurrentSearch = searchTerm;
+        svcCurrentPage = 0;
+        await loadServices();
+        const section = document.querySelector('.featured-professionals');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Search event listeners
@@ -106,85 +193,115 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===================================
-    // CATEGORY CARDS INTERACTION
+    // CATEGORY CARDS (Dynamic load and click to filter)
     // ===================================
-    const categoryCards = document.querySelectorAll('.category-card');
-    
-    categoryCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            if (category) {
-                filterProfessionals(category);
+    async function loadCategories() {
+        const grid = document.querySelector('.service-categories .categories-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        try {
+            svcAllCategories = await ServicesAPI.fetchCategories();
+            if (!svcAllCategories.length) {
+                grid.innerHTML = '<div class="error-message">Failed to load categories</div>';
+                return;
             }
-        });
-    });
-
-    // ===================================
-    // PROFESSIONALS FILTERING
-    // ===================================
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const professionalCards = document.querySelectorAll('.professional-card');
-
-    function filterProfessionals(category) {
-        // Update active filter
-        filterPills.forEach(pill => {
-            pill.classList.remove('active');
-            if (pill.getAttribute('data-filter') === category) {
-                pill.classList.add('active');
-            }
-        });
-
-        // Filter cards
-        professionalCards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeInUp 0.5s ease';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        // Scroll to professionals section
-        document.querySelector('.featured-professionals').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-        });
+            svcAllCategories.slice(0, 8).forEach(cat => {
+                grid.insertAdjacentHTML('beforeend', createCategoryCard(cat));
+            });
+            grid.querySelectorAll('.category-card[data-category-id]').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = this.getAttribute('data-category-id');
+                    svcCurrentCategoryId = id;
+                    svcCurrentPage = 0;
+                    loadServices();
+                    const section = document.querySelector('.featured-professionals');
+                    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        } catch (e) {
+            grid.innerHTML = '<div class="error-message">Failed to load categories</div>';
+        }
     }
 
-    // Filter pill clicks
+    // ===================================
+    // PROFESSIONALS LOADING & FILTERING
+    // ===================================
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const professionalsGrid = document.querySelector('.professionals-grid');
+
+    async function loadServices(append = false) {
+        if (!professionalsGrid || svcIsLoading) return;
+        svcIsLoading = true;
+        if (!append) {
+            professionalsGrid.innerHTML = '<div class="loading-spinner">Loading services...</div>';
+        }
+        try {
+            const services = await ServicesAPI.fetchServices(svcCurrentPage, SERVICES_PER_PAGE, svcCurrentSearch, svcCurrentCategoryId);
+            if (!append) professionalsGrid.innerHTML = '';
+            if (!services.length && !append) {
+                professionalsGrid.innerHTML = `
+                    <div class="no-jobs-found">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>No services found</h3>
+                        <p>Try adjusting your search or filters.</p>
+                    </div>`;
+            } else {
+                services.forEach(svc => professionalsGrid.insertAdjacentHTML('beforeend', createServiceCard(svc)));
+                attachCardEventListeners();
+            }
+        } catch (e) {
+            professionalsGrid.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Failed to load services</h3>
+                    <p>Please try again later.</p>
+                </div>`;
+        } finally {
+            svcIsLoading = false;
+        }
+    }
+
+    // Filter pill clicks -> map to simple search presets
     filterPills.forEach(pill => {
         pill.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');
-            filterProfessionals(filter);
+            filterPills.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+            svcCurrentCategoryId = '';
+            svcCurrentPage = 0;
+            svcCurrentSearch = filter === 'all' ? '' : filter;
+            loadServices();
         });
     });
 
     // ===================================
     // PROFESSIONAL CARD INTERACTIONS
     // ===================================
-    const contactBtns = document.querySelectorAll('.btn-contact');
-    const bookBtns = document.querySelectorAll('.btn-book');
-
-    contactBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const card = this.closest('.professional-card');
-            const proName = card.querySelector('.pro-name').textContent;
-            showNotification(`Opening chat with ${proName}...`);
+    function wireInitialCards() {
+        const contactBtns = document.querySelectorAll('.btn-contact');
+        const bookBtns = document.querySelectorAll('.btn-book');
+        contactBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.professional-card');
+                const proName = card.querySelector('.pro-name').textContent;
+                showNotification(`Opening chat with ${proName}...`);
+            });
         });
-    });
-
-    bookBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const card = this.closest('.professional-card');
-            const proName = card.querySelector('.pro-name').textContent;
-            showBookingModal(proName);
+        bookBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.professional-card');
+                const proName = card.querySelector('.pro-name').textContent;
+                const serviceId = card.getAttribute('data-service-id') || '';
+                showBookingModal(proName, serviceId);
+            });
         });
-    });
+    }
+    wireInitialCards();
 
     // ===================================
     // BOOKING MODAL
     // ===================================
-    function showBookingModal(proName) {
+    function showBookingModal(proName, serviceId = '') {
         // Create modal HTML
         const modalHTML = `
             <div class="booking-modal" id="bookingModal">
@@ -213,11 +330,26 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                             <div class="form-group">
                                 <label>Describe your needs</label>
-                                <textarea rows="3" placeholder="Please describe the service you need..." required></textarea>
+                                <textarea name="description" rows="3" placeholder="Please describe the service you need..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Full Name (optional)</label>
+                                <input type="text" name="fullName" placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Email (optional)</label>
+                                <input type="email" name="email" placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone (optional)</label>
+                                <input type="tel" name="phone" placeholder="+237 6XX XXX XXX">
                             </div>
                             <div class="form-actions">
                                 <button type="button" class="btn-cancel">Cancel</button>
-                                <button type="submit" class="btn-confirm">Confirm Booking</button>
+                                <button type="submit" class="btn-confirm" id="bookingSubmitBtn">
+                                    <span class="btn-text">Confirm Booking</span>
+                                    <span class="btn-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Submitting...</span>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -249,11 +381,45 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === modal) closeModal();
         });
 
-        // Form submission
-        form.addEventListener('submit', function(e) {
+        // Form submission -> API
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            showNotification(`Booking request sent to ${proName}!`);
-            closeModal();
+            const submitBtn = modal.querySelector('#bookingSubmitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+
+            const formData = new FormData(form);
+            const description = formData.get('description');
+            const fullName = formData.get('fullName') || undefined;
+            const email = formData.get('email') || undefined;
+            const phone = formData.get('phone') || undefined;
+            const dateVal = form.querySelector('input[type="date"]').value;
+            const timeVal = form.querySelector('select').value || '09:00';
+            const preferredDate = new Date(`${dateVal}T${timeVal}:00`).toISOString();
+
+            const payload = {
+                serviceId: serviceId || undefined,
+                fullName,
+                email,
+                phone,
+                description,
+                status: 'pending',
+                preferredDate
+            };
+
+            try {
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline-flex';
+                await ServicesAPI.submitServiceBooking(payload);
+                showNotification(`Booking request sent to ${proName}!`, 'success');
+                closeModal();
+            } catch (err) {
+                showNotification(err.message || 'Failed to submit booking. Please try again.', 'error');
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            }
         });
     }
 
@@ -319,23 +485,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===================================
-    // DYNAMIC CONTENT LOADING (MOCK)
+    // LOAD MORE SERVICES
     // ===================================
     const viewAllBtn = document.querySelector('.view-all-btn');
-    
-    viewAllBtn.addEventListener('click', function() {
-        showNotification('Loading more professionals...');
-        
-        // Simulate loading more content
-        setTimeout(() => {
-            const grid = document.querySelector('.professionals-grid');
-            const newCards = generateProfessionalCards(3);
-            grid.insertAdjacentHTML('beforeend', newCards);
-            
-            // Re-attach event listeners to new cards
-            attachCardEventListeners();
-        }, 1000);
-    });
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', async function() {
+            if (svcIsLoading) return;
+            svcCurrentPage++;
+            await loadServices(true);
+        });
+    }
 
     function generateProfessionalCards(count) {
         const professionals = [
@@ -399,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function attachCardEventListeners() {
         // Re-attach event listeners to newly added cards
-        document.querySelectorAll('.btn-contact:not([data-initialized])').forEach(btn => {
+        document.querySelectorAll('.professional-card .btn-contact:not([data-initialized])').forEach(btn => {
             btn.setAttribute('data-initialized', 'true');
             btn.addEventListener('click', function() {
                 const card = this.closest('.professional-card');
@@ -408,15 +567,20 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        document.querySelectorAll('.btn-book:not([data-initialized])').forEach(btn => {
+        document.querySelectorAll('.professional-card .btn-book:not([data-initialized])').forEach(btn => {
             btn.setAttribute('data-initialized', 'true');
             btn.addEventListener('click', function() {
                 const card = this.closest('.professional-card');
                 const proName = card.querySelector('.pro-name').textContent;
-                showBookingModal(proName);
+                const serviceId = card.getAttribute('data-service-id') || '';
+                showBookingModal(proName, serviceId);
             });
         });
     }
+
+    // Initial dynamic load
+    loadCategories();
+    loadServices();
 
     // ===================================
     // MOBILE MENU TOGGLE
