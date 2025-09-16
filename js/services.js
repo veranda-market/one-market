@@ -3,67 +3,75 @@
 // ===================================
 
 // API Configuration (align with jobs page)
-const API_BASE_URL = "http://127.0.0.1:8787/api/v1";
+const API_BASE_URL =
+  'https://jobs-and-services.etahclinton506.workers.dev/api/v1';
 const SERVICES_PER_PAGE = 12;
 
 // Global state for Services
 let svcCurrentPage = 0;
-let svcCurrentSearch = "";
-let svcCurrentCategoryId = "";
+let svcCurrentSearch = '';
+let svcCurrentCategoryId = '';
 let svcIsLoading = false;
 let svcAllCategories = [];
 
 // Services API
 class ServicesAPI {
-    static async fetchCategories() {
-        try {
-            const response = await fetch(`${API_BASE_URL}/categories`);
-            const data = await response.json();
-            if (!data.success) throw new Error("Failed to fetch categories");
-            return data.data || [];
-        } catch (err) {
-            console.error('Error fetching categories:', err);
-            return [];
-        }
+  static async fetchCategories() {
+    try {
+      const response = await fetch(`${API_BASE_URL}/categories`);
+      const data = await response.json();
+      if (!data.success) throw new Error('Failed to fetch categories');
+      return data.data || [];
+    } catch (err) {
+      console.error('Error fetching categories:', err);
+      return [];
     }
+  }
 
-    static async fetchServices(page = 0, limit = SERVICES_PER_PAGE, search = "", categoryId = "") {
-        try {
-            const params = new URLSearchParams({ page, limit });
-            if (search) params.append('search', search);
-            if (categoryId) params.append('categoryId', categoryId);
+  static async fetchServices(
+    page = 0,
+    limit = SERVICES_PER_PAGE,
+    search = '',
+    categoryId = ''
+  ) {
+    try {
+      const params = new URLSearchParams({ page, limit });
+      if (search) params.append('search', search);
+      if (categoryId) params.append('categoryId', categoryId);
 
-            const response = await fetch(`${API_BASE_URL}/services?${params}`);
-            const data = await response.json();
-            if (!response.ok || data.success === false) throw new Error(data.message || 'Failed to fetch services');
-            console.log(data)
-            return data.data || [];
-        } catch (err) {
-            console.error('Error fetching services:', err);
-            return [];
-        }
+      const response = await fetch(`${API_BASE_URL}/services?${params}`);
+      const data = await response.json();
+      if (!response.ok || data.success === false)
+        throw new Error(data.message || 'Failed to fetch services');
+      console.log(data);
+      return data.data || [];
+    } catch (err) {
+      console.error('Error fetching services:', err);
+      return [];
     }
+  }
 
-    static async submitServiceBooking(booking) {
-        try {
-            const response = await fetch(`${API_BASE_URL}/service-bookings`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(booking)
-            });
-            const data = await response.json();
-            if (!response.ok) throw new Error(data.message || 'Failed to create booking');
-            return data;
-        } catch (err) {
-            console.error('Error submitting booking:', err);
-            throw err;
-        }
+  static async submitServiceBooking(booking) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/service-bookings`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(booking),
+      });
+      const data = await response.json();
+      if (!response.ok)
+        throw new Error(data.message || 'Failed to create booking');
+      return data;
+    } catch (err) {
+      console.error('Error submitting booking:', err);
+      throw err;
     }
+  }
 }
 
 // Render helpers
 function createCategoryCard(category) {
-    return `
+  return `
         <div class="category-card" data-category-id="${category.id}">
             <div class="category-icon">
                 <i class="fas fa-th"></i>
@@ -76,16 +84,23 @@ function createCategoryCard(category) {
 }
 
 function createServiceCard(service) {
-    const name = service.fullName;
-    const city = service.location || service.city || 'Cameroon';
-    const desc = service.description || 'Professional service at your convenience.';
-    const price = service.minWage ? `${service.minWage + " XAF"}` : 'Discuss';
-    const rating = service.rating || 'New';
-    const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}`;
-    return `
-        <div class="professional-card" data-category="all" data-service-id="${service.id || ''}">
+  const name = service.fullName;
+  const city = service.location || service.city || 'Cameroon';
+  const desc =
+    service.description || 'Professional service at your convenience.';
+  const price = service.minWage ? `${service.minWage + ' XAF'}` : 'Discuss';
+  const rating = service.rating || 'New';
+  const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(
+    name
+  )}`;
+  return `
+        <div class="professional-card" data-category="all" data-service-id="${
+          service.id || ''
+        }">
             <div class="pro-badge">
-                <i class="fas fa-shield-alt"></i> ${typeof rating === 'number' ? rating.toFixed(1) : rating}
+                <i class="fas fa-shield-alt"></i> ${
+                  typeof rating === 'number' ? rating.toFixed(1) : rating
+                }
             </div>
             <div class="pro-header">
                 <div class="pro-avatar">
@@ -94,7 +109,9 @@ function createServiceCard(service) {
                 </div>
                 <div class="pro-info">
                     <h3 class="pro-name">${name}</h3>
-                    <p class="pro-title">${service.category.name || 'Professional Service'}</p>
+                    <p class="pro-title">${
+                      service.category.name || 'Professional Service'
+                    }</p>
                     <div class="pro-location">
                         <i class="fas fa-map-marker-alt"></i> ${city}
                     </div>
@@ -108,8 +125,15 @@ function createServiceCard(service) {
                 <span class="price-value">${price}</span>
             </div>
             <div class="pro-skills">
-                ${(service.serviceSkill && service.serviceSkill.length > 0) 
-                    ? service.serviceSkill.slice(0, 5).map((skill) => `<span class="skill-bubble">${skill.skill.name}</span>`).join('')
+                ${
+                  service.serviceSkill && service.serviceSkill.length > 0
+                    ? service.serviceSkill
+                        .slice(0, 5)
+                        .map(
+                          (skill) =>
+                            `<span class="skill-bubble">${skill.skill.name}</span>`
+                        )
+                        .join('')
                     : ''
                 }
             </div>
@@ -121,189 +145,204 @@ function createServiceCard(service) {
     `;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ===================================
-    // PRELOADER
-    // ===================================
-    const preloader = document.getElementById('preloader');
-    
-    window.addEventListener('load', function() {
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 300);
-        }, 500);
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  // ===================================
+  // PRELOADER
+  // ===================================
+  const preloader = document.getElementById('preloader');
 
-    // ===================================
-    // HERO SEARCH FUNCTIONALITY
-    // ===================================
-    const heroSearchInput = document.getElementById('heroSearchInput');
-    const heroSearchBtn = document.querySelector('.hero-search-btn');
-    const serviceTags = document.querySelectorAll('.service-tag');
-    
-    // Handle search
-    async function handleSearch() {
-        const searchTerm = heroSearchInput.value.trim();
-        svcCurrentSearch = searchTerm;
-        svcCurrentPage = 0;
-        await loadServices();
-        const section = document.querySelector('.featured-professionals');
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.addEventListener('load', function () {
+    setTimeout(() => {
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 300);
+    }, 500);
+  });
+
+  // ===================================
+  // HERO SEARCH FUNCTIONALITY
+  // ===================================
+  const heroSearchInput = document.getElementById('heroSearchInput');
+  const heroSearchBtn = document.querySelector('.hero-search-btn');
+  const serviceTags = document.querySelectorAll('.service-tag');
+
+  // Handle search
+  async function handleSearch() {
+    const searchTerm = heroSearchInput.value.trim();
+    svcCurrentSearch = searchTerm;
+    svcCurrentPage = 0;
+    await loadServices();
+    const section = document.querySelector('.featured-professionals');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Search event listeners
+  heroSearchBtn.addEventListener('click', handleSearch);
+  heroSearchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      handleSearch();
     }
+  });
 
-    // Search event listeners
-    heroSearchBtn.addEventListener('click', handleSearch);
-    heroSearchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
+  // Service tag clicks
+  serviceTags.forEach((tag) => {
+    tag.addEventListener('click', function () {
+      const service = this.getAttribute('data-service');
+      heroSearchInput.value = service;
+      handleSearch();
     });
+  });
 
-    // Service tag clicks
-    serviceTags.forEach(tag => {
-        tag.addEventListener('click', function() {
-            const service = this.getAttribute('data-service');
-            heroSearchInput.value = service;
-            handleSearch();
+  // ===================================
+  // LOCATION DROPDOWN
+  // ===================================
+  const deliverLocation = document.getElementById('deliverLocation');
+  const locationDropdown = document.querySelector('.location-dropdown');
+  const locationItems = locationDropdown.querySelectorAll('li');
+
+  locationItems.forEach((item) => {
+    item.addEventListener('click', function () {
+      const city = this.textContent;
+      deliverLocation.textContent = city;
+      localStorage.setItem('selectedLocation', city);
+    });
+  });
+
+  // Load saved location
+  const savedLocation = localStorage.getItem('selectedLocation');
+  if (savedLocation) {
+    deliverLocation.textContent = savedLocation;
+  }
+
+  // ===================================
+  // CATEGORY CARDS (Dynamic load and click to filter)
+  // ===================================
+  async function loadCategories() {
+    const grid = document.querySelector('.service-categories .categories-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    try {
+      svcAllCategories = await ServicesAPI.fetchCategories();
+      if (!svcAllCategories.length) {
+        grid.innerHTML =
+          '<div class="error-message">Failed to load categories</div>';
+        return;
+      }
+      svcAllCategories.slice(0, 8).forEach((cat) => {
+        grid.insertAdjacentHTML('beforeend', createCategoryCard(cat));
+      });
+      grid
+        .querySelectorAll('.category-card[data-category-id]')
+        .forEach((card) => {
+          card.addEventListener('click', function () {
+            const id = this.getAttribute('data-category-id');
+            svcCurrentCategoryId = id;
+            svcCurrentPage = 0;
+            loadServices();
+            const section = document.querySelector('.featured-professionals');
+            if (section)
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
         });
-    });
-
-    // ===================================
-    // LOCATION DROPDOWN
-    // ===================================
-    const deliverLocation = document.getElementById('deliverLocation');
-    const locationDropdown = document.querySelector('.location-dropdown');
-    const locationItems = locationDropdown.querySelectorAll('li');
-
-    locationItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const city = this.textContent;
-            deliverLocation.textContent = city;
-            localStorage.setItem('selectedLocation', city);
-        });
-    });
-
-    // Load saved location
-    const savedLocation = localStorage.getItem('selectedLocation');
-    if (savedLocation) {
-        deliverLocation.textContent = savedLocation;
+    } catch (e) {
+      grid.innerHTML =
+        '<div class="error-message">Failed to load categories</div>';
     }
+  }
 
-    // ===================================
-    // CATEGORY CARDS (Dynamic load and click to filter)
-    // ===================================
-    async function loadCategories() {
-        const grid = document.querySelector('.service-categories .categories-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
-        try {
-            svcAllCategories = await ServicesAPI.fetchCategories();
-            if (!svcAllCategories.length) {
-                grid.innerHTML = '<div class="error-message">Failed to load categories</div>';
-                return;
-            }
-            svcAllCategories.slice(0, 8).forEach(cat => {
-                grid.insertAdjacentHTML('beforeend', createCategoryCard(cat));
-            });
-            grid.querySelectorAll('.category-card[data-category-id]').forEach(card => {
-                card.addEventListener('click', function() {
-                    const id = this.getAttribute('data-category-id');
-                    svcCurrentCategoryId = id;
-                    svcCurrentPage = 0;
-                    loadServices();
-                    const section = document.querySelector('.featured-professionals');
-                    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            });
-        } catch (e) {
-            grid.innerHTML = '<div class="error-message">Failed to load categories</div>';
-        }
+  // ===================================
+  // PROFESSIONALS LOADING & FILTERING
+  // ===================================
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const professionalsGrid = document.querySelector('.professionals-grid');
+
+  async function loadServices(append = false) {
+    if (!professionalsGrid || svcIsLoading) return;
+    svcIsLoading = true;
+    if (!append) {
+      professionalsGrid.innerHTML =
+        '<div class="loading-spinner">Loading services...</div>';
     }
-
-    // ===================================
-    // PROFESSIONALS LOADING & FILTERING
-    // ===================================
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const professionalsGrid = document.querySelector('.professionals-grid');
-
-    async function loadServices(append = false) {
-        if (!professionalsGrid || svcIsLoading) return;
-        svcIsLoading = true;
-        if (!append) {
-            professionalsGrid.innerHTML = '<div class="loading-spinner">Loading services...</div>';
-        }
-        try {
-            const services = await ServicesAPI.fetchServices(svcCurrentPage, SERVICES_PER_PAGE, svcCurrentSearch, svcCurrentCategoryId);
-            if (!append) professionalsGrid.innerHTML = '';
-            if (!services.length && !append) {
-                professionalsGrid.innerHTML = `
+    try {
+      const services = await ServicesAPI.fetchServices(
+        svcCurrentPage,
+        SERVICES_PER_PAGE,
+        svcCurrentSearch,
+        svcCurrentCategoryId
+      );
+      if (!append) professionalsGrid.innerHTML = '';
+      if (!services.length && !append) {
+        professionalsGrid.innerHTML = `
                     <div class="no-jobs-found">
                         <i class="fas fa-clipboard-list"></i>
                         <h3>No services found</h3>
                         <p>Try adjusting your search or filters.</p>
                     </div>`;
-            } else {
-                services.forEach(svc => professionalsGrid.insertAdjacentHTML('beforeend', createServiceCard(svc)));
-                attachCardEventListeners();
-            }
-        } catch (e) {
-            professionalsGrid.innerHTML = `
+      } else {
+        services.forEach((svc) =>
+          professionalsGrid.insertAdjacentHTML(
+            'beforeend',
+            createServiceCard(svc)
+          )
+        );
+        attachCardEventListeners();
+      }
+    } catch (e) {
+      professionalsGrid.innerHTML = `
                 <div class="error-message">
                     <i class="fas fa-exclamation-triangle"></i>
                     <h3>Failed to load services</h3>
                     <p>Please try again later.</p>
                 </div>`;
-        } finally {
-            svcIsLoading = false;
-        }
+    } finally {
+      svcIsLoading = false;
     }
+  }
 
-    // Filter pill clicks -> map to simple search presets
-    filterPills.forEach(pill => {
-        pill.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            filterPills.forEach(p => p.classList.remove('active'));
-            this.classList.add('active');
-            svcCurrentCategoryId = '';
-            svcCurrentPage = 0;
-            svcCurrentSearch = filter === 'all' ? '' : filter;
-            loadServices();
-        });
+  // Filter pill clicks -> map to simple search presets
+  filterPills.forEach((pill) => {
+    pill.addEventListener('click', function () {
+      const filter = this.getAttribute('data-filter');
+      filterPills.forEach((p) => p.classList.remove('active'));
+      this.classList.add('active');
+      svcCurrentCategoryId = '';
+      svcCurrentPage = 0;
+      svcCurrentSearch = filter === 'all' ? '' : filter;
+      loadServices();
     });
+  });
 
-    // ===================================
-    // PROFESSIONAL CARD INTERACTIONS
-    // ===================================
-    function wireInitialCards() {
-        const contactBtns = document.querySelectorAll('.btn-contact');
-        const bookBtns = document.querySelectorAll('.btn-book');
-        contactBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const card = this.closest('.professional-card');
-                const proName = card.querySelector('.pro-name').textContent;
-                showNotification(`Opening chat with ${proName}...`);
-            });
-        });
-        bookBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const card = this.closest('.professional-card');
-                const proName = card.querySelector('.pro-name').textContent;
-                const serviceId = card.getAttribute('data-service-id') || '';
-                showBookingModal(proName, serviceId);
-            });
-        });
-    }
-    wireInitialCards();
+  // ===================================
+  // PROFESSIONAL CARD INTERACTIONS
+  // ===================================
+  function wireInitialCards() {
+    const contactBtns = document.querySelectorAll('.btn-contact');
+    const bookBtns = document.querySelectorAll('.btn-book');
+    contactBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const card = this.closest('.professional-card');
+        const proName = card.querySelector('.pro-name').textContent;
+        showNotification(`Opening chat with ${proName}...`);
+      });
+    });
+    bookBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const card = this.closest('.professional-card');
+        const proName = card.querySelector('.pro-name').textContent;
+        const serviceId = card.getAttribute('data-service-id') || '';
+        showBookingModal(proName, serviceId);
+      });
+    });
+  }
+  wireInitialCards();
 
-    // ===================================
-    // BOOKING MODAL
-    // ===================================
-    function showBookingModal(proName, serviceId = '') {
-        // Create modal HTML
-        const modalHTML = `
+  // ===================================
+  // BOOKING MODAL
+  // ===================================
+  function showBookingModal(proName, serviceId = '') {
+    // Create modal HTML
+    const modalHTML = `
             <div class="booking-modal" id="bookingModal">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -314,7 +353,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <form id="bookingForm">
                             <div class="form-group">
                                 <label>Select Date</label>
-                                <input type="date" required min="${new Date().toISOString().split('T')[0]}">
+                                <input type="date" required min="${
+                                  new Date().toISOString().split('T')[0]
+                                }">
                             </div>
                             <div class="form-group">
                                 <label>Select Time</label>
@@ -357,170 +398,198 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
 
-        // Add modal to body
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
-        
-        const modal = document.getElementById('bookingModal');
-        const closeBtn = modal.querySelector('.modal-close');
-        const cancelBtn = modal.querySelector('.btn-cancel');
-        const form = modal.querySelector('#bookingForm');
+    // Add modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-        // Show modal
-        setTimeout(() => modal.classList.add('show'), 10);
+    const modal = document.getElementById('bookingModal');
+    const closeBtn = modal.querySelector('.modal-close');
+    const cancelBtn = modal.querySelector('.btn-cancel');
+    const form = modal.querySelector('#bookingForm');
 
-        // Close modal function
-        function closeModal() {
-            modal.classList.remove('show');
-            setTimeout(() => modal.remove(), 300);
-        }
+    // Show modal
+    setTimeout(() => modal.classList.add('show'), 10);
 
-        // Event listeners
-        closeBtn.addEventListener('click', closeModal);
-        cancelBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) closeModal();
-        });
-
-        // Form submission -> API
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const submitBtn = modal.querySelector('#bookingSubmitBtn');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
-
-            const formData = new FormData(form);
-            const description = formData.get('description');
-            const fullName = formData.get('fullName') || undefined;
-            const email = formData.get('email') || undefined;
-            const phone = formData.get('phone') || undefined;
-            const dateVal = form.querySelector('input[type="date"]').value;
-            const timeVal = form.querySelector('select').value || '09:00';
-            const preferredDate = new Date(`${dateVal}T${timeVal}:00`).toISOString();
-
-            const payload = {
-                serviceId: serviceId || undefined,
-                fullName,
-                email,
-                phone,
-                description,
-                status: 'pending',
-                preferredDate
-            };
-
-            try {
-                submitBtn.disabled = true;
-                btnText.style.display = 'none';
-                btnLoading.style.display = 'inline-flex';
-                await ServicesAPI.submitServiceBooking(payload);
-                showNotification(`Booking request sent to ${proName}!`, 'success');
-                closeModal();
-            } catch (err) {
-                showNotification(err.message || 'Failed to submit booking. Please try again.', 'error');
-                submitBtn.disabled = false;
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
-            }
-        });
+    // Close modal function
+    function closeModal() {
+      modal.classList.remove('show');
+      setTimeout(() => modal.remove(), 300);
     }
 
-    // ===================================
-    // NOTIFICATION SYSTEM
-    // ===================================
-    function showNotification(message, type = 'success') {
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+    // Event listeners
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+
+    // Form submission -> API
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = modal.querySelector('#bookingSubmitBtn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
+
+      const formData = new FormData(form);
+      const description = formData.get('description');
+      const fullName = formData.get('fullName') || undefined;
+      const email = formData.get('email') || undefined;
+      const phone = formData.get('phone') || undefined;
+      const dateVal = form.querySelector('input[type="date"]').value;
+      const timeVal = form.querySelector('select').value || '09:00';
+      const preferredDate = new Date(`${dateVal}T${timeVal}:00`).toISOString();
+
+      const payload = {
+        serviceId: serviceId || undefined,
+        fullName,
+        email,
+        phone,
+        description,
+        status: 'pending',
+        preferredDate,
+      };
+
+      try {
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline-flex';
+        await ServicesAPI.submitServiceBooking(payload);
+        showNotification(`Booking request sent to ${proName}!`, 'success');
+        closeModal();
+      } catch (err) {
+        showNotification(
+          err.message || 'Failed to submit booking. Please try again.',
+          'error'
+        );
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+      }
+    });
+  }
+
+  // ===================================
+  // NOTIFICATION SYSTEM
+  // ===================================
+  function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+            <i class="fas fa-${
+              type === 'success' ? 'check-circle' : 'info-circle'
+            }"></i>
             <span>${message}</span>
         `;
 
-        document.body.appendChild(notification);
+    document.body.appendChild(notification);
 
-        // Animate in
-        setTimeout(() => notification.classList.add('show'), 10);
+    // Animate in
+    setTimeout(() => notification.classList.add('show'), 10);
 
-        // Remove after 3 seconds
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
-    }
+    // Remove after 3 seconds
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
+  }
 
-    // ===================================
-    // SMOOTH SCROLL FOR ANCHORS
-    // ===================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+  // ===================================
+  // SMOOTH SCROLL FOR ANCHORS
+  // ===================================
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
         });
+      }
+    });
+  });
+
+  // ===================================
+  // INTERSECTION OBSERVER FOR ANIMATIONS
+  // ===================================
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px',
+  };
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements
+  document
+    .querySelectorAll('.category-card, .professional-card, .step')
+    .forEach((el) => {
+      observer.observe(el);
     });
 
-    // ===================================
-    // INTERSECTION OBSERVER FOR ANIMATIONS
-    // ===================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements
-    document.querySelectorAll('.category-card, .professional-card, .step').forEach(el => {
-        observer.observe(el);
+  // ===================================
+  // LOAD MORE SERVICES
+  // ===================================
+  const viewAllBtn = document.querySelector('.view-all-btn');
+  if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', async function () {
+      if (svcIsLoading) return;
+      svcCurrentPage++;
+      await loadServices(true);
     });
+  }
 
-    // ===================================
-    // LOAD MORE SERVICES
-    // ===================================
-    const viewAllBtn = document.querySelector('.view-all-btn');
-    if (viewAllBtn) {
-        viewAllBtn.addEventListener('click', async function() {
-            if (svcIsLoading) return;
-            svcCurrentPage++;
-            await loadServices(true);
-        });
-    }
+  function generateProfessionalCards(count) {
+    const professionals = [
+      {
+        name: 'Paul Mbarga',
+        title: 'Professional Plumber',
+        location: 'Douala, Akwa',
+        rating: '4.7',
+      },
+      {
+        name: 'Fatima Aisha',
+        title: 'House Cleaner',
+        location: 'Yaoundé, Mfandena',
+        rating: '4.9',
+      },
+      {
+        name: 'Michel Tagne',
+        title: 'Auto Mechanic',
+        location: 'Bafoussam, Centre',
+        rating: '4.8',
+      },
+    ];
 
-    function generateProfessionalCards(count) {
-        const professionals = [
-            { name: 'Paul Mbarga', title: 'Professional Plumber', location: 'Douala, Akwa', rating: '4.7' },
-            { name: 'Fatima Aisha', title: 'House Cleaner', location: 'Yaoundé, Mfandena', rating: '4.9' },
-            { name: 'Michel Tagne', title: 'Auto Mechanic', location: 'Bafoussam, Centre', rating: '4.8' }
-        ];
-
-        let html = '';
-        for (let i = 0; i < count; i++) {
-            const pro = professionals[i % professionals.length];
-            html += `
+    let html = '';
+    for (let i = 0; i < count; i++) {
+      const pro = professionals[i % professionals.length];
+      html += `
                 <div class="professional-card" data-category="all">
                     <div class="pro-badge">
                         <i class="fas fa-shield-alt"></i> New Pro
                     </div>
                     <div class="pro-header">
                         <div class="pro-avatar">
-                            <img src="https://randomuser.me/api/portraits/${Math.random() > 0.5 ? 'men' : 'women'}/${Math.floor(Math.random() * 90)}.jpg" alt="${pro.name}">
+                            <img src="https://randomuser.me/api/portraits/${
+                              Math.random() > 0.5 ? 'men' : 'women'
+                            }/${Math.floor(Math.random() * 90)}.jpg" alt="${
+        pro.name
+      }">
                             <span class="availability-status online"></span>
                         </div>
                         <div class="pro-info">
                             <h3 class="pro-name">${pro.name}</h3>
                             <p class="pro-title">${pro.title}</p>
                             <div class="pro-location">
-                                <i class="fas fa-map-marker-alt"></i> ${pro.location}
+                                <i class="fas fa-map-marker-alt"></i> ${
+                                  pro.location
+                                }
                             </div>
                         </div>
                     </div>
@@ -552,61 +621,66 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             `;
-        }
-        return html;
     }
+    return html;
+  }
 
-    function attachCardEventListeners() {
-        // Re-attach event listeners to newly added cards
-        document.querySelectorAll('.professional-card .btn-contact:not([data-initialized])').forEach(btn => {
-            btn.setAttribute('data-initialized', 'true');
-            btn.addEventListener('click', function() {
-                const card = this.closest('.professional-card');
-                const proName = card.querySelector('.pro-name').textContent;
-                showNotification(`Opening chat with ${proName}...`);
-            });
+  function attachCardEventListeners() {
+    // Re-attach event listeners to newly added cards
+    document
+      .querySelectorAll(
+        '.professional-card .btn-contact:not([data-initialized])'
+      )
+      .forEach((btn) => {
+        btn.setAttribute('data-initialized', 'true');
+        btn.addEventListener('click', function () {
+          const card = this.closest('.professional-card');
+          const proName = card.querySelector('.pro-name').textContent;
+          showNotification(`Opening chat with ${proName}...`);
         });
+      });
 
-        document.querySelectorAll('.professional-card .btn-book:not([data-initialized])').forEach(btn => {
-            btn.setAttribute('data-initialized', 'true');
-            btn.addEventListener('click', function() {
-                const card = this.closest('.professional-card');
-                const proName = card.querySelector('.pro-name').textContent;
-                const serviceId = card.getAttribute('data-service-id') || '';
-                showBookingModal(proName, serviceId);
-            });
+    document
+      .querySelectorAll('.professional-card .btn-book:not([data-initialized])')
+      .forEach((btn) => {
+        btn.setAttribute('data-initialized', 'true');
+        btn.addEventListener('click', function () {
+          const card = this.closest('.professional-card');
+          const proName = card.querySelector('.pro-name').textContent;
+          const serviceId = card.getAttribute('data-service-id') || '';
+          showBookingModal(proName, serviceId);
         });
-    }
+      });
+  }
 
-    // Initial dynamic load
-    loadCategories();
-    loadServices();
+  // Initial dynamic load
+  loadCategories();
+  loadServices();
 
-    // ===================================
-    // MOBILE MENU TOGGLE
-    // ===================================
-    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-    
-    mobileNavItems.forEach(item => {
-        item.addEventListener('click', function() {
-            mobileNavItems.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
+  // ===================================
+  // MOBILE MENU TOGGLE
+  // ===================================
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+  mobileNavItems.forEach((item) => {
+    item.addEventListener('click', function () {
+      mobileNavItems.forEach((nav) => nav.classList.remove('active'));
+      this.classList.add('active');
     });
+  });
 
-    // ===================================
-    // CTA BUTTON
-    // ===================================
-    const ctaBtn = document.querySelector('.cta-btn');
-    
-    ctaBtn.addEventListener('click', function() {
-        showNotification('Redirecting to Pro registration...');
-        // Here you would redirect to the registration page
-        setTimeout(() => {
-            console.log('Redirect to pro registration');
-        }, 1500);
-    });
+  // ===================================
+  // CTA BUTTON
+  // ===================================
+  const ctaBtn = document.querySelector('.cta-btn');
 
+  ctaBtn.addEventListener('click', function () {
+    showNotification('Redirecting to Pro registration...');
+    // Here you would redirect to the registration page
+    setTimeout(() => {
+      console.log('Redirect to pro registration');
+    }, 1500);
+  });
 });
 
 // ===================================
