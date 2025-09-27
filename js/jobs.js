@@ -3,7 +3,8 @@
 // ===================================
 
 // API Configuration
-const API_BASE_URL = "http://127.0.0.1:8787/api/v1";
+const API_BASE_URL =
+  "https://jobs-and-services.etahclinton506.workers.dev/api/v1";
 const JOBS_PER_PAGE = 10;
 
 // Supabase Configuration
@@ -1624,19 +1625,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Company Dashboard Button (in user account dropdown)
-  const companyDashboardBtn = document.querySelector('[data-action="company-dashboard"]');
+  const companyDashboardBtn = document.querySelector(
+    '[data-action="company-dashboard"]'
+  );
   if (companyDashboardBtn) {
-    companyDashboardBtn.addEventListener("click", function() {
+    companyDashboardBtn.addEventListener("click", function () {
       // Check if user has a company
-      const userId = localStorage.getItem('userId');
+      const userId = localStorage.getItem("userId");
       if (!userId) {
-        showNotification('Please log in first', 'error');
+        showNotification("Please log in first", "error");
         return;
       }
-      
+
       // For now, redirect to dashboard
       // In a real app, you'd check if company exists first
-      window.location.href = 'company-dashboard.html';
+      window.location.href = "company-dashboard.html";
     });
   }
 
@@ -1819,7 +1822,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Company Creation Modal (make it global)
-  window.showCompanyCreationModal = function() {
+  window.showCompanyCreationModal = function () {
     const modalHTML = `
             <div class="profile-modal" id="companyModal">
                 <div class="modal-content large">
@@ -1939,17 +1942,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Form submission
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      
+
       const formData = new FormData(form);
       const companyData = {
-        name: formData.get('name'),
-        industry: formData.get('industry'),
-        website: formData.get('website'),
-        location: formData.get('location'),
-        size: formData.get('size'),
-        foundedYear: formData.get('foundedYear') ? parseInt(formData.get('foundedYear')) : null,
-        description: formData.get('description'),
-        userId: localStorage.getItem('userId') // Associate with current user
+        name: formData.get("name"),
+        industry: formData.get("industry"),
+        website: formData.get("website"),
+        location: formData.get("location"),
+        size: formData.get("size"),
+        foundedYear: formData.get("foundedYear")
+          ? parseInt(formData.get("foundedYear"))
+          : null,
+        description: formData.get("description"),
+        userId: localStorage.getItem("userId"), // Associate with current user
       };
 
       // Show loading state
@@ -1959,24 +1964,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
         const result = await JobsAPI.createCompany(companyData);
-        showNotification("Company created successfully! Redirecting to dashboard...", "success");
+        showNotification(
+          "Company created successfully! Redirecting to dashboard...",
+          "success"
+        );
         closeModal();
-        
+
         // Redirect to company dashboard
         setTimeout(() => {
-          window.location.href = 'company-dashboard.html';
+          window.location.href = "company-dashboard.html";
         }, 2000);
       } catch (error) {
         console.error("Error creating company:", error);
-        showNotification(error.message || "Failed to create company. Please try again.", "error");
-        
+        showNotification(
+          error.message || "Failed to create company. Please try again.",
+          "error"
+        );
+
         // Reset button state
         submitBtn.disabled = false;
         btnText.style.display = "inline";
         btnLoading.style.display = "none";
       }
     });
-  }
+  };
 
   // Load More Profiles
   const loadMoreBtn = document.querySelector(
