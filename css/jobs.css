@@ -1846,7 +1846,8 @@
   margin-top: 3rem;
 }
 
-.load-more-btn {
+.load-more-btn,
+.load-more-jobs-btn {
   background: var(--white);
   border: 2px solid var(--gray-300);
   color: var(--gray-700);
@@ -1860,10 +1861,71 @@
   gap: 0.5rem;
 }
 
-.load-more-btn:hover {
+.load-more-btn:hover,
+.load-more-jobs-btn:hover {
   border-color: var(--primary-color);
   color: var(--primary-color);
   transform: translateY(-2px);
+}
+
+.load-more-jobs-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading and Error States */
+.loading-spinner {
+  text-align: center;
+  padding: 3rem;
+  color: var(--gray-500);
+  font-size: 1.125rem;
+}
+
+.no-jobs-found,
+.error-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gray-600);
+}
+
+.no-jobs-found i,
+.error-message i {
+  font-size: 3rem;
+  color: var(--gray-400);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.no-jobs-found h3,
+.error-message h3 {
+  font-size: 1.5rem;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.no-jobs-found p,
+.error-message p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+}
+
+.retry-btn {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
 /* ===================================

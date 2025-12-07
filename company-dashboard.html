@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Company Dashboard - Manage your company profile and job postings">
+    <title>Company Dashboard - Veranda Market</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jobs.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <style>
+        /* Company Dashboard Specific Styles */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+            background: #f8fafc;
+        }
+        
+        /* Sidebar */
+        .dashboard-sidebar {
+            width: 280px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, #1a8917, #22c55e);
+            color: white;
+        }
+        
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .sidebar-header p {
+            margin: 0.5rem 0 0;
+            opacity: 0.9;
+            font-size: 0.875rem;
+        }
+        
+        .sidebar-nav {
+            padding: 1rem 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            color: #6b7280;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: #f8fafc;
+            color: #1a8917;
+            border-left-color: #1a8917;
+        }
+        
+        .nav-item.active {
+            background: #f0fdf4;
+            color: #1a8917;
+            border-left-color: #1a8917;
+            font-weight: 600;
+        }
+        
+        .nav-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .dashboard-main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 0;
+        }
+        
+        .dashboard-header {
+            background: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .dashboard-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+        
+        .dashboard-content {
+            padding: 2rem;
+        }
+        
+        /* Company Info Card */
+        .company-info-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .company-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .company-logo-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 1rem;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .company-logo-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .company-details h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 0.5rem;
+        }
+        
+        .company-details p {
+            color: #6b7280;
+            margin: 0 0 0.5rem;
+        }
+        
+        .company-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a8917;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        /* Job Management */
+        .jobs-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+        
+        .btn-primary {
+            background: #1a8917;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            background: #146812;
+            transform: translateY(-1px);
+        }
+        
+        /* Job Cards */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .job-card-dashboard {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card-dashboard:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .job-card-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 0.5rem;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .job-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+        
+        /* Applications Section */
+        .applications-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .application-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .application-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .application-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .applicant-info h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 0.25rem;
+        }
+        
+        .applicant-info p {
+            color: #6b7280;
+            margin: 0;
+        }
+        
+        .application-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-reviewed {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status-interviewed {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+        
+        .status-hired {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .dashboard-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .dashboard-main {
+                margin-left: 0;
+            }
+            
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-header {
+                padding: 1rem;
+            }
+            
+            .dashboard-content {
+                padding: 1rem;
+            }
+            
+            .company-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .company-logo-large {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .company-stats {
+                justify-content: center;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+            
+            .job-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .job-actions {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Loading and Empty States */
+        .loading-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Company Dashboard</h2>
+                <p>Manage your company and job postings</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active" data-section="overview">
+                    <i class="fas fa-chart-line"></i>
+                    Overview
+                </a>
+                <a href="#company-profile" class="nav-item" data-section="company-profile">
+                    <i class="fas fa-building"></i>
+                    Company Profile
+                </a>
+                <a href="#jobs" class="nav-item" data-section="jobs">
+                    <i class="fas fa-briefcase"></i>
+                    Job Postings
+                </a>
+                <a href="#applications" class="nav-item" data-section="applications">
+                    <i class="fas fa-file-alt"></i>
+                    Applications
+                </a>
+                <a href="#analytics" class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    Analytics
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="dashboard-title" id="pageTitle">Overview</h1>
+                </div>
+                <div>
+                    <button class="btn-primary" id="createJobBtn">
+                        <i class="fas fa-plus"></i>
+                        Post New Job
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <section id="overview-section" class="content-section active">
+                    <!-- Company Info Card -->
+                    <div class="company-info-card" id="companyInfoCard">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading company information...</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="jobs-section">
+                        <h2 class="section-title">Quick Stats</h2>
+                        <div class="company-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="totalJobs">0</span>
+                                <span class="stat-label">Active Jobs</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="totalApplications">0</span>
+                                <span class="stat-label">Total Applications</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="pendingApplications">0</span>
+                                <span class="stat-label">Pending Review</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="hiredCount">0</span>
+                                <span class="stat-label">Hired Candidates</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Applications -->
+                    <div class="applications-section">
+                        <h2 class="section-title">Recent Applications</h2>
+                        <div id="recentApplications">
+                            <div class="loading-state">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading applications...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Company Profile Section -->
+                <section id="company-profile-section" class="content-section">
+                    <div class="company-info-card">
+                        <h2 class="section-title">Company Profile</h2>
+                        <form id="companyProfileForm">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                                <div class="form-group">
+                                    <label>Company Name *</label>
+                                    <input type="text" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Industry *</label>
+                                    <input type="text" name="industry" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Website</label>
+                                    <input type="url" name="website">
+                                </div>
+                                <div class="form-group">
+                                    <label>Location *</label>
+                                    <select name="location" required>
+                                        <option value="">Select location</option>
+                                        <option>Yaoundé</option>
+                                        <option>Douala</option>
+                                        <option>Buea</option>
+                                        <option>Bafoussam</option>
+                                        <option>Bamenda</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Company Size *</label>
+                                    <select name="size" required>
+                                        <option value="">Select size</option>
+                                        <option>1-10 employees</option>
+                                        <option>11-50 employees</option>
+                                        <option>51-200 employees</option>
+                                        <option>201-500 employees</option>
+                                        <option>500+ employees</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Founded Year</label>
+                                    <input type="number" name="foundedYear" min="1800" max="2024">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Company Description *</label>
+                                <textarea name="description" rows="4" required placeholder="Tell us about your company..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Company Logo</label>
+                                <input type="file" name="logo" accept="image/*">
+                            </div>
+                            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                                <button type="button" class="btn-secondary" id="cancelCompanyProfile">Cancel</button>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Jobs Section -->
+                <section id="jobs-section" class="content-section">
+                    <div class="jobs-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Job Postings</h2>
+                            <button class="btn-primary" id="createJobBtn2">
+                                <i class="fas fa-plus"></i>
+                                Post New Job
+                            </button>
+                        </div>
+                        <div id="jobsContainer">
+                            <div class="loading-state">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading jobs...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Applications Section -->
+                <section id="applications-section" class="content-section">
+                    <div class="applications-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Job Applications</h2>
+                            <div style="display: flex; gap: 1rem;">
+                                <select id="jobFilter" class="form-control">
+                                    <option value="">All Jobs</option>
+                                </select>
+                                <select id="statusFilter" class="form-control">
+                                    <option value="">All Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="reviewed">Reviewed</option>
+                                    <option value="interviewed">Interviewed</option>
+                                    <option value="hired">Hired</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="applicationsContainer">
+                            <div class="loading-state">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading applications...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics-section" class="content-section">
+                    <div class="company-info-card">
+                        <h2 class="section-title">Analytics</h2>
+                        <div class="empty-state">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Analytics Coming Soon</h3>
+                            <p>Detailed analytics and insights will be available soon.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="content-section">
+                    <div class="company-info-card">
+                        <h2 class="section-title">Settings</h2>
+                        <div class="empty-state">
+                            <i class="fas fa-cog"></i>
+                            <h3>Settings Coming Soon</h3>
+                            <p>Account settings and preferences will be available soon.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Job Creation/Edit Modal -->
+    <div class="modal" id="jobModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="jobModalTitle">Create New Job</h3>
+                <button class="modal-close" id="closeJobModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="jobForm">
+                    <input type="hidden" id="jobId" name="id">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <div class="form-group">
+                            <label>Job Title *</label>
+                            <input type="text" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Job Type *</label>
+                            <select name="type" required>
+                                <option value="">Select type</option>
+                                <option>Full-time</option>
+                                <option>Part-time</option>
+                                <option>Contract</option>
+                                <option>Freelance</option>
+                                <option>Internship</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location *</label>
+                            <input type="text" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Salary Range</label>
+                            <input type="text" name="salary" placeholder="e.g., $50,000 - $70,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Experience Required *</label>
+                            <select name="experience" required>
+                                <option value="">Select experience</option>
+                                <option value="0">Entry Level (0-1 years)</option>
+                                <option value="2">Junior (2-3 years)</option>
+                                <option value="4">Mid-level (4-6 years)</option>
+                                <option value="7">Senior (7+ years)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select name="categoryId" required>
+                                <option value="">Select category</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Job Description *</label>
+                        <textarea name="description" rows="6" required placeholder="Describe the role, responsibilities, and requirements..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Required Skills</label>
+                        <input type="text" name="skills" placeholder="e.g., JavaScript, React, Node.js (separate with commas)">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelJobForm">Cancel</button>
+                        <button type="submit" class="btn-primary" id="submitJobBtn">
+                            <span class="btn-text">Create Job</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Saving...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Detail Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Application Details</h3>
+                <button class="modal-close" id="closeApplicationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="applicationDetails">
+                    <!-- Application details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/company-dashboard.js"></script>
+</body>
+</html>

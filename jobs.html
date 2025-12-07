@@ -122,7 +122,8 @@
                                     <li><i class="fas fa-file-alt"></i> My Resume</li>
                                     <li><i class="fas fa-briefcase"></i> Applied Jobs</li>
                                     <li><i class="fas fa-bell"></i> Job Alerts</li>
-                                    <li><i class="fas fa-building"></i> Company Dashboard</li>
+                                    <li data-action="company-dashboard"><i class="fas fa-building"></i> Company Dashboard</li>
+                                    <li onclick="showCompanyCreationModal()"><i class="fas fa-plus"></i> Create Company</li>
                                 </ul>
                             </div>
                         </div>
@@ -338,139 +339,15 @@
             </div>
 
             <div class="jobs-list">
-                <!-- Job Card 1 -->
-                <div class="job-card" data-type="new,fulltime,urgent">
-                    <div class="job-header">
-                        <div class="company-logo">
-                            <img src="https://via.placeholder.com/60x60?text=MTN" alt="MTN Cameroon">
-                        </div>
-                        <div class="job-meta">
-                            <span class="new-badge">New</span>
-                            <span class="urgent-badge">Urgent</span>
-                            <button class="save-job-btn">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="job-body">
-                        <h3 class="job-title">Senior Software Engineer - Mobile Apps</h3>
-                        <div class="company-info">
-                            <span class="company-name">MTN Cameroon</span>
-                            <span class="verified-badge">
-                                <i class="fas fa-check-circle"></i> Verified
-                            </span>
-                        </div>
-
-                        <div class="job-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Douala, Cameroon</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span>5+ years experience</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>2,000,000 - 3,500,000 XAF</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Full Time</span>
-                            </div>
-                        </div>
-
-                        <div class="job-description">
-                            <p>We are looking for a talented Senior Software Engineer to join our mobile development team. You will be responsible for developing and maintaining our mobile applications...</p>
-                        </div>
-
-                        <div class="job-skills">
-                            <span class="skill-tag">React Native</span>
-                            <span class="skill-tag">iOS</span>
-                            <span class="skill-tag">Android</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">API Integration</span>
-                        </div>
-
-                        <div class="job-footer">
-                            <span class="posted-time">
-                                <i class="fas fa-calendar-alt"></i> Posted 2 hours ago
-                            </span>
-                            <div class="job-actions">
-                                <button class="quick-apply-btn">Quick Apply</button>
-                                <button class="view-job-btn">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Job Card 2 -->
-                <div class="job-card" data-type="remote,fulltime">
-                    <div class="job-header">
-                        <div class="company-logo">
-                            <img src="https://via.placeholder.com/60x60?text=BANK" alt="Afriland First Bank">
-                        </div>
-                        <div class="job-meta">
-                            <span class="remote-badge">Remote</span>
-                            <button class="save-job-btn">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="job-body">
-                        <h3 class="job-title">Digital Marketing Manager</h3>
-                        <div class="company-info">
-                            <span class="company-name">Afriland First Bank</span>
-                            <span class="verified-badge">
-                                <i class="fas fa-check-circle"></i> Verified
-                            </span>
-                        </div>
-
-                        <div class="job-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Remote (Based in Cameroon)</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span>3-5 years experience</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>1,500,000 - 2,500,000 XAF</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Full Time</span>
-                            </div>
-                        </div>
-
-                        <div class="job-description">
-                            <p>Lead our digital marketing initiatives and drive online growth. Manage social media campaigns, SEO/SEM strategies, and content marketing efforts...</p>
-                        </div>
-
-                        <div class="job-skills">
-                            <span class="skill-tag">Digital Marketing</span>
-                            <span class="skill-tag">SEO/SEM</span>
-                            <span class="skill-tag">Social Media</span>
-                            <span class="skill-tag">Analytics</span>
-                        </div>
-
-                        <div class="job-footer">
-                            <span class="posted-time">
-                                <i class="fas fa-calendar-alt"></i> Posted yesterday
-                            </span>
-                            <div class="job-actions">
-                                <button class="quick-apply-btn">Quick Apply</button>
-                                <button class="view-job-btn">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- More job cards... -->
+                <!-- Dynamic jobs will be loaded here -->
+            </div>
+            
+            <!-- Load More Jobs Button -->
+            <div class="load-more-container">
+                <button class="load-more-jobs-btn" onclick="loadMoreJobs()">
+                    <span>Load More Jobs</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -596,7 +473,7 @@
                         </div>
                     </div>
 
-                    <button class="cta-button">
+                    <button class="cta-button" onclick="showCompanyCreationModal()">
                         Start Hiring Today
                         <i class="fas fa-arrow-right"></i>
                     </button>
@@ -706,193 +583,7 @@
                 </div>
 
                 <div class="talent-grid">
-                    <!-- Talent Card 1 -->
-                    <div class="talent-card" data-category="tech,available">
-                        <div class="talent-header">
-                            <div class="talent-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Amina Bello">
-                                <span class="availability-dot available" title="Available for hire"></span>
-                            </div>
-                            <div class="talent-info">
-                                <h3 class="talent-name">Amina Bello</h3>
-                                <p class="talent-headline">Senior Full-Stack Developer</p>
-                                <div class="talent-meta">
-                                    <span><i class="fas fa-map-marker-alt"></i> Yaoundé</span>
-                                    <span><i class="fas fa-briefcase"></i> 8+ Years</span>
-                                </div>
-                            </div>
-                            <button class="talent-action-btn">
-                                <i class="fas fa-envelope"></i>
-                            </button>
-                        </div>
-                        <div class="talent-body">
-                            <p class="talent-summary">Expert in building scalable web applications with a focus on clean code and user experience. Proficient in MERN stack, cloud deployment, and agile methodologies.</p>
-                            <div class="talent-skills">
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">React</span>
-                                <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">AWS</span>
-                            </div>
-                            <div class="talent-achievements">
-                                <div class="achievement">
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Led 15+ successful projects</span>
-                                </div>
-                                <div class="achievement">
-                                    <i class="fas fa-certificate"></i>
-                                    <span>AWS Certified Developer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="talent-footer">
-                            <button class="view-profile-btn">View Full Profile</button>
-                            <button class="save-talent-btn">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Talent Card 2 -->
-                    <div class="talent-card" data-category="finance">
-                        <div class="talent-header">
-                            <div class="talent-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Charles Eko">
-                                <span class="availability-dot" title="Currently employed"></span>
-                            </div>
-                            <div class="talent-info">
-                                <h3 class="talent-name">Charles Eko</h3>
-                                <p class="talent-headline">Certified Financial Analyst (CFA)</p>
-                                <div class="talent-meta">
-                                    <span><i class="fas fa-map-marker-alt"></i> Douala</span>
-                                    <span><i class="fas fa-briefcase"></i> 5 Years</span>
-                                </div>
-                            </div>
-                            <button class="talent-action-btn">
-                                <i class="fas fa-envelope"></i>
-                            </button>
-                        </div>
-                        <div class="talent-body">
-                            <p class="talent-summary">Data-driven financial analyst with expertise in financial modeling, valuation, and strategic planning. Track record of improving financial performance.</p>
-                            <div class="talent-skills">
-                                <span class="skill-tag">Financial Modeling</span>
-                                <span class="skill-tag">Excel</span>
-                                <span class="skill-tag">Valuation</span>
-                                <span class="skill-tag">Budgeting</span>
-                                <span class="skill-tag">Risk Analysis</span>
-                            </div>
-                            <div class="talent-achievements">
-                                <div class="achievement">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>20% cost reduction achieved</span>
-                                </div>
-                                <div class="achievement">
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <span>CFA Level III Certified</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="talent-footer">
-                            <button class="view-profile-btn">View Full Profile</button>
-                            <button class="save-talent-btn">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Talent Card 3 -->
-                    <div class="talent-card" data-category="marketing,available">
-                        <div class="talent-header">
-                            <div class="talent-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Mbarga">
-                                <span class="availability-dot available" title="Available for hire"></span>
-                            </div>
-                            <div class="talent-info">
-                                <h3 class="talent-name">Sarah Mbarga</h3>
-                                <p class="talent-headline">Digital Marketing Strategist</p>
-                                <div class="talent-meta">
-                                    <span><i class="fas fa-map-marker-alt"></i> Buea</span>
-                                    <span><i class="fas fa-briefcase"></i> 6 Years</span>
-                                </div>
-                            </div>
-                            <button class="talent-action-btn">
-                                <i class="fas fa-envelope"></i>
-                            </button>
-                        </div>
-                        <div class="talent-body">
-                            <p class="talent-summary">Creative digital marketer specializing in social media strategy, content marketing, and SEO. Proven results in brand growth and engagement.</p>
-                            <div class="talent-skills">
-                                <span class="skill-tag">Social Media</span>
-                                <span class="skill-tag">SEO/SEM</span>
-                                <span class="skill-tag">Content Strategy</span>
-                                <span class="skill-tag">Analytics</span>
-                                <span class="skill-tag">Email Marketing</span>
-                            </div>
-                            <div class="talent-achievements">
-                                <div class="achievement">
-                                    <i class="fas fa-rocket"></i>
-                                    <span>300% social growth achieved</span>
-                                </div>
-                                <div class="achievement">
-                                    <i class="fas fa-award"></i>
-                                    <span>Google Ads Certified</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="talent-footer">
-                            <button class="view-profile-btn">View Full Profile</button>
-                            <button class="save-talent-btn">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Talent Card 4 -->
-                    <div class="talent-card" data-category="engineering">
-                        <div class="talent-header">
-                            <div class="talent-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Pierre Fotso">
-                                <span class="availability-dot" title="Currently employed"></span>
-                            </div>
-                            <div class="talent-info">
-                                <h3 class="talent-name">Pierre Fotso</h3>
-                                <p class="talent-headline">Civil Engineer</p>
-                                <div class="talent-meta">
-                                    <span><i class="fas fa-map-marker-alt"></i> Bafoussam</span>
-                                    <span><i class="fas fa-briefcase"></i> 10 Years</span>
-                                </div>
-                            </div>
-                            <button class="talent-action-btn">
-                                <i class="fas fa-envelope"></i>
-                            </button>
-                        </div>
-                        <div class="talent-body">
-                            <p class="talent-summary">Experienced civil engineer with expertise in infrastructure projects, project management, and sustainable construction practices.</p>
-                            <div class="talent-skills">
-                                <span class="skill-tag">AutoCAD</span>
-                                <span class="skill-tag">Project Management</span>
-                                <span class="skill-tag">Structural Design</span>
-                                <span class="skill-tag">BIM</span>
-                                <span class="skill-tag">Site Supervision</span>
-                            </div>
-                            <div class="talent-achievements">
-                                <div class="achievement">
-                                    <i class="fas fa-building"></i>
-                                    <span>20+ projects completed</span>
-                                </div>
-                                <div class="achievement">
-                                    <i class="fas fa-hard-hat"></i>
-                                    <span>PMP Certified</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="talent-footer">
-                            <button class="view-profile-btn">View Full Profile</button>
-                            <button class="save-talent-btn">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <!-- Dynamic employee profiles will be loaded here -->
                 </div>
 
                 <!-- Load More -->
@@ -1256,10 +947,10 @@
         </a>
     </nav>
 
-    <!-- Floating Post Job Button -->
-    <button class="floating-post-job-btn">
+    <!-- Floating Action Button -->
+    <button class="floating-post-job-btn" id="floatingActionBtn">
         <i class="fas fa-plus"></i>
-        <span class="btn-text">Post a Job</span>
+        <span class="btn-text">Create Profile</span>
     </button>
 
     <!-- Scripts -->
